@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :rates do
+    resources :lessons
+    resources :courses
+  end
   devise_for :users
   root 'welcome#index'
   resources :users do

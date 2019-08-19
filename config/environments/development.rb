@@ -64,10 +64,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       enable_starttls_auto: :true,
-      address: ENV['EMAIL'],
+      user_name: ENV['EMAIL'],
       port: 587,
       domain: 'localhost:3000',
-      authentication: :login,
+      authentication: :plain,
       password: ENV['PASSWORD']
   }
 end
