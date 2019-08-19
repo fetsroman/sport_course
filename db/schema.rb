@@ -10,34 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_150120) do
+ActiveRecord::Schema.define(version: 2019_08_19_090338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "courses", force: :cascade do |t|
+  create_table "bought_lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bought_lists_on_user_id"
+  end
+
+  create_table "course_translations", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.text "description"
+    t.index ["course_id"], name: "index_course_translations_on_course_id"
+    t.index ["locale"], name: "index_course_translations_on_locale"
+  end
+
+  create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "document"
     t.string "trailer"
   end
 
-  create_table "lessons", force: :cascade do |t|
+  create_table "lesson_translations", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.text "description"
+    t.index ["lesson_id"], name: "index_lesson_translations_on_lesson_id"
+    t.index ["locale"], name: "index_lesson_translations_on_locale"
+  end
+
+  create_table "lessons", force: :cascade do |t|
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_lessons_on_course_id"
   end
 
-  create_table "rates", force: :cascade do |t|
+  create_table "rate_translations", force: :cascade do |t|
+    t.bigint "rate_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.text "description"
     t.integer "tariff"
     t.integer "price"
+    t.index ["locale"], name: "index_rate_translations_on_locale"
+    t.index ["rate_id"], name: "index_rate_translations_on_rate_id"
+  end
+
+  create_table "rates", force: :cascade do |t|
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_150120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

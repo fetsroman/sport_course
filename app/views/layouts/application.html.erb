@@ -13,6 +13,10 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <nav>
+      <ul>
+        <li><%= link_to_unless_current 'Ukraine', url_for(locale: :uk) %></li>
+        <li><%= link_to_unless_current 'Русский', url_for(locale: :ru) %></li>
+      </ul>
       <% if user_signed_in? %>
         <%= current_user.email %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
