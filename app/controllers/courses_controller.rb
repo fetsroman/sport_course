@@ -1,11 +1,11 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
   before_action :authenticate_user!
   load_and_authorize_resource
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.published
   end
 
   # GET /courses/1
@@ -52,6 +52,16 @@ class CoursesController < ApplicationController
     end
   end
 
+  def publish
+    @course.update(published: true)
+    redirect_to @course
+  end
+
+  def unpublish
+    @course.update(published: false)
+    redirect_to @course
+  end
+
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
@@ -70,6 +80,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:title, :description, :document, :trailer, :image)
+      params.require(:course).permit(:title, :description, :document, :trailer, :image, :published)
     end
 end

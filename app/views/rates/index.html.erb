@@ -18,7 +18,7 @@
       <tr>
         <td><%= rate.title %></td>
         <td><%= rate.description %></td>
-        <td><%= human_attribute_name(rate.tariff) %></td>
+        <td><%= Rate.tariffs.key(rate.tariff) %></td>
         <td><%= rate.price %></td>
 <!--        <td><%#= link_to 'Show', rate %></td>-->
 <!--        <td><%#= link_to 'Edit', edit_rate_path(rate) %></td>-->

@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% if can? :manage, @course %>
+  <% if @course.published? %>
+    <%= link_to "Курс опубліковано Unpublish", unpublish_course_path(@course), method: :put %>
+  <% else %>
+    <%= link_to "Publish", publish_course_path(@course), method: :put %>
+  <%  end %>
+  <%= link_to 'Edit', edit_course_path(@course) %>
+<% end %>
+<%= link_to 'Back', courses_path %>
 
 <p>
   <strong>Title:</strong>
@@ -22,6 +30,3 @@
   </video>
   <%= @course.trailer.url %>
 </p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>

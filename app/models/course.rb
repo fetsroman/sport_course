@@ -9,4 +9,6 @@ class Course < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   validates_presence_of :title, :description, :image, :trailer, :document
+
+  scope :published, -> { where(published: true) }
 end

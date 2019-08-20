@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :bought_lists
+
+  def bought_courses
+     self.bought_lists.map { |item| item.course_id }
+  end
 end
