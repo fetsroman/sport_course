@@ -70,13 +70,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_112435) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "description"
-    t.integer "tariff"
     t.integer "price"
     t.index ["locale"], name: "index_rate_translations_on_locale"
     t.index ["rate_id"], name: "index_rate_translations_on_rate_id"
   end
 
   create_table "rates", force: :cascade do |t|
+    t.integer "tariff"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

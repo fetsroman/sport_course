@@ -1,6 +1,6 @@
 class RatesController < ApplicationController
+  before_action :set_course#, only: [:new, :create]
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
-  before_action :set_course, only: [:new, :create]
 
   # GET /rates
   # GET /rates.json
@@ -29,7 +29,7 @@ class RatesController < ApplicationController
 
     respond_to do |format|
       if @rate.save
-        format.html { redirect_to course_rates_url, notice: 'Rate was successfully created.' }
+        format.html { redirect_to @course, notice: 'Rate was successfully created.' }
         format.json { render :show, status: :created, location: @rate }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RatesController < ApplicationController
   def update
     respond_to do |format|
       if @rate.update(rate_params)
-        format.html { redirect_to @rate, notice: 'Rate was successfully updated.' }
+        format.html { redirect_to @course, notice: 'Rate was successfully updated.' }
         format.json { render :show, status: :ok, location: @rate }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class RatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rate
-      @rate = Rate.find(params[:id])
+      @rate = @course.rates.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

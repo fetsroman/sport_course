@@ -1,4 +1,4 @@
-<%= simple_form_for([@course, @course.rates.build], html: { class: 'form-inline' }) do |form| %>
+<%= simple_form_for([@course, @rate], html: { class: 'form-inline' }) do |form| %>
   <%= form.error_notification %>
   <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
@@ -14,8 +14,7 @@
 
   <div class="field">
     <%= form.label :tariff %>
-    <%= form.select :tariff, Rate.tariffs.keys, {} %>
-    <%#= form.collection_select :tariff, Rate.tariffs, :id, :enum, {prompt: "Select a tariff"} %>
+    <%= form.select :tariff, options_for_select(Rate.tariffs.keys.to_a, @rate.tariff),{},{ class:"form-control m-b" } %>
   </div>
 
   <div class="field">

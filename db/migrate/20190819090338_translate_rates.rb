@@ -5,7 +5,6 @@ class TranslateRates < ActiveRecord::Migration[5.2]
         Rate.create_translation_table!({
                                              title: :string,
                                              description: :text,
-                                             tariff: :integer,
                                              price: :integer
                                          }, {
                                              migrate_data: true

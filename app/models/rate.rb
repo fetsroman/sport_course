@@ -3,8 +3,7 @@ class Rate < ApplicationRecord
 
   enum tariff: [:standart, :advanced, :vip]
 
-  translates :title, :description, :tariff, :price
-
+  translates :title, :description, :price
 
   validates_presence_of :title, :description, :tariff, :price
 end

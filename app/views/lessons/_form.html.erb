@@ -1,7 +1,6 @@
-<%= simple_form_for([@course, @course.lessons.build]) do |form| %>
+<%= simple_form_for([@course, @lesson]) do |form| %>
   <%= form.error_notification %>
   <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
-
 
   <div class="field">
     <%= form.label :title %>

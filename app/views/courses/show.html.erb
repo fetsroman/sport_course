@@ -5,28 +5,71 @@
     <%= link_to "Publish", publish_course_path(@course), method: :put %>
   <%  end %>
   <%= link_to 'Edit', edit_course_path(@course) %>
+  <%= link_to 'Add Lesson', new_course_lesson_path(@course) %>
+  <%= link_to 'Add Rate', new_course_rate_path(@course) %>
 <% end %>
 <%= link_to 'Back', courses_path %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <p>
+      <strong>Title:</strong>
+      <%= @course.title %>
+    </p>
 
-<p>
-  <strong>Document:</strong>
-  <%= link_to @course.document.url, @course.document.url %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @course.description %>
+    </p>
 
-<p>
-  <strong>Video:</strong>
-  <video controls autoplay>
-    <source src="<%= @course.trailer.url %>">
-  </video>
-  <%= @course.trailer.url %>
-</p>
+    <p>
+      <strong>Document:</strong>
+      <%= link_to "Download ", @course.document.url %>
+    </p>
+
+    <p>
+      <strong>Video:</strong>
+      <video controls autoplay>
+        <source src="<%= @course.trailer.url %>">
+      </video>
+    </p>
+  </div>
+
+  <div class="col-lg-6">
+    <% @course.rates.each do |rate| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= rate.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= rate.tariff %></h6>
+          <p class="card-text"><%= rate.price %></p>
+          <p class="card-text"><%= rate.description %></p>
+
+          <% if can? :manage, @course %>
+            <%= link_to "Edit Rate", edit_course_rate_path(@course, rate) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <% @course.lessons.each do |lesson| %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="<%= lesson.image.url %>" alt="Card image cap">
+      <video controls autoplay style="max-width: 100%">
+        <source src="<%= @course.trailer.url %>">
+      </video>
+
+      <div class="card-body">
+        <h5 class="card-title"><%= lesson.title %></h5>
+        <p class="card-text"><%= lesson.description %></p>
+
+        <% if can? :manage, @course %>
+          <%= link_to "Edit Lesson", edit_course_lesson_path(@course, lesson) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
