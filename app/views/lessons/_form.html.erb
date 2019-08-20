@@ -1,15 +1,7 @@
-<%= form_with(model: lesson, local: true) do |form| %>
-  <% if lesson.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+<%= simple_form_for([@course, @course.lessons.build]) do |form| %>
+  <%= form.error_notification %>
+  <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
-      <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :title %>
@@ -22,8 +14,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :course_id %>
-    <%= form.text_field :course_id %>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.file_field :video %>
   </div>
 
   <div class="actions">

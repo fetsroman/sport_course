@@ -9,22 +9,20 @@
       <th>Text</th>
       <th>Tariff</th>
       <th>Price</th>
-      <th>Course</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @rates.each do |rate| %>
+    <% @rates.each do |rate| %>bu
       <tr>
         <td><%= rate.title %></td>
-        <td><%= rate.text %></td>
-        <td><%= rate.tariff %></td>
+        <td><%= rate.description %></td>
+        <td><%= human_attribute_name(rate.tariff) %></td>
         <td><%= rate.price %></td>
-        <td><%= rate.course %></td>
-        <td><%= link_to 'Show', rate %></td>
-        <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
-        <td><%= link_to 'Destroy', rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!--        <td><%#= link_to 'Show', rate %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_rate_path(rate) %></td>-->
+<!--        <td><%#= link_to 'Destroy', rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Rate', new_rate_path %>
+<%= link_to 'New Rate', new_course_rate_path %>

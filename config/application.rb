@@ -31,6 +31,6 @@ module RailsApp
     config.generators.system_tests = nil
 
     config.i18n.available_locales = [:uk, :ru]
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :'ru'
   end
 end

@@ -12,6 +12,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: [:get, :post]
-  match '/', to: redirect("/#{I18n.default_locale}"), via: [:get, :post]
+  match '*', to: redirect("/#{I18n.default_locale}/%{path}/"), via: :all
+  match '/', to: redirect("/#{I18n.default_locale}"), via: :all
 end

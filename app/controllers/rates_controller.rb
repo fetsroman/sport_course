@@ -1,6 +1,6 @@
 class RatesController < ApplicationController
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
-  before_action :set_course, only: [:create]
+  before_action :set_course, only: [:new, :create]
 
   # GET /rates
   # GET /rates.json
@@ -25,11 +25,11 @@ class RatesController < ApplicationController
   # POST /rates
   # POST /rates.json
   def create
-    @rate = Course.rates.new(rate_params)
+    @rate = @course.rates.build(rate_params)
 
     respond_to do |format|
       if @rate.save
-        format.html { redirect_to @rate, notice: 'Rate was successfully created.' }
+        format.html { redirect_to course_rates_url, notice: 'Rate was successfully created.' }
         format.json { render :show, status: :created, location: @rate }
       else
         format.html { render :new }
@@ -70,10 +70,10 @@ class RatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rate_params
-      params.require(:rate).permit(:title, :text, :tariff, :price, :course_id)
+      params.require(:rate).permit(:title, :description, :tariff, :price)
     end
 
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.find(params[:course_id])
     end
 end

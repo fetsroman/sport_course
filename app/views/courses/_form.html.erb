@@ -1,4 +1,4 @@
-<%= form_with(model: course, local: true) do |form| %>
+<%= simple_form_for(@course, html: { class: 'form-inline' }) do |form| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -19,6 +19,21 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document %>
+    <%= form.file_field :document %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trailer %>
+    <%= form.file_field :trailer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">
