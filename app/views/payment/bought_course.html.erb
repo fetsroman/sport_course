@@ -1,0 +1,26 @@
+<%= simple_form_for :card_params, url: 'bought_course', method: "POST" do |form| %>
+
+  <div class="field">
+    <%= form.label :card %>
+    <%= form.text_field :card %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_month %>
+    <%= form.text_field :card_month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_year %>
+    <%= form.text_field :card_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_cvv %>
+    <%= form.text_field :card_cvv %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

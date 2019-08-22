@@ -7,6 +7,12 @@ GIT
       activerecord (>= 4.2, < 6.1)
       request_store (~> 1.0)
 
+GIT
+  remote: https://github.com/liqpay/sdk-ruby.git
+  revision: a7a990f1410bdfc281fcfc66828555b4bc1e6260
+  specs:
+    liqpay (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -278,6 +284,7 @@ DEPENDENCIES
   globalize!
   jbuilder (~> 2.5)
   jquery-rails
+  liqpay!
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)

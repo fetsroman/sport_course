@@ -1,4 +1,7 @@
 class RatesController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
   before_action :set_course#, only: [:new, :create]
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
 

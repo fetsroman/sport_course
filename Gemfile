@@ -45,6 +45,7 @@ gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'carrierwave-video'
 gem 'rails-i18n', '~> 5.1'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
+gem 'liqpay', github: 'liqpay/sdk-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -48,6 +48,7 @@
           <% if can? :manage, @course %>
             <%= link_to "Edit Rate", edit_course_rate_path(@course, rate) %>
           <% end %>
+          <%= link_to "Buy", course_rate_bought_course_path(@course, rate) %>
         </div>
       </div>
     <% end %>

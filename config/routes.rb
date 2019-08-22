@@ -4,7 +4,11 @@ Rails.application.routes.draw do
       put 'publish', to: 'courses#publish', on: :member, as: :publish
       put 'unpublish', to: 'courses#unpublish', on: :member, as: :unpublish
       resources :lessons
-      resources :rates
+      resources :rates do
+        get '/new', to: 'payment#new'
+        post '/create', to: 'payment#create'
+        match '/bought_course', to: 'payment#bought_course', via: [:get, :post]
+      end
     end
     devise_for :users
     root "welcome#index"
