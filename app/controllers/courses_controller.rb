@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    redirect_to course_lessons_path(@course)
   end
 
   # GET /courses/new

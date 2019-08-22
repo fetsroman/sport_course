@@ -3,9 +3,7 @@ class PaymentController < ApplicationController
   before_action :authenticate_user!
   before_action :set_rate
   before_action :set_course
-
-  def new
-  end
+  before_action :can_buy?
 
   def bought_course
     if request.post?
@@ -39,8 +37,15 @@ class PaymentController < ApplicationController
       })
 
       if @liqpay_request['result'] == 'ok'  && @liqpay_request['currency'] == currency && @liqpay_request['order_id'] == token
-        current_user.bought_lists.create!(user_id: current_user.id, course_id: @course.id)
+        current_user.bought_lists.create!(user_id: current_user.id, course_id: @course.id, tariff: @rate.tariff)
         @rate.increment_bought_count
+        @course.lessons.each do |lesson|
+          current_user.watched_lists.create!(user_id: current_user.id, course_id: @course.id, lesson_id: lesson.id)
+        end
+        first_lesson = WatchedList.find_by(user_id: current_user.id, course_id: @course.id).first
+        first_lesson.watch = true
+        first_lesson.save!
+
         redirect_to @course, notice: "Thanks for buy"
       else
         flash[:alert] = @liqpay_request['err_description']
@@ -58,5 +63,12 @@ class PaymentController < ApplicationController
 
   def set_course
     @course = Course.find(params[:course_id])
+  end
+
+  def can_buy?
+    tmp = BoughtList.find_by(course_id: @course.id, user_id: current_user.id)
+    if tmp.present?
+      redirect_to root_path
+    end
   end
 end

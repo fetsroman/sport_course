@@ -1,19 +1,31 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-
   before_action :set_course#, only: [:new, :create, :edit, :update]
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  # before_action :can_watch?, only: [:show]
 
   # GET /lessons
   # GET /lessons.json
   def index
-    @lessons = Lesson.all
+    @watched_list = WatchedList.find_by(course_id: @course.id, watched: false, watch: true, user_id: current_user.id)
+
+    if @watched_list.present?
+      @lesson = Lesson.find_by(id: @watched_list.lesson_id)
+    else
+      @watched_list = WatchedList.where(course_id: @course.id, watched: true, watch: true, user_id: current_user.id).last
+      @lesson = Lesson.find_by(id: @watched_list.lesson_id)
+    end
+
   end
 
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    respond_to do |format|
+      format.html { render @lesson }
+      format.js
+    end
   end
 
   # GET /lessons/new
@@ -78,5 +90,12 @@ class LessonsController < ApplicationController
 
     def set_course
       @course = Course.find(params[:course_id])
+    end
+
+    def can_watch?
+      tmp = WatchedList.find_by(course_id: @course.id, user_id: current_user.id, lesson_id: @lesson.id)
+      unless tmp.present? and tmp.watch == true
+        redirect_to root_path
+      end
     end
 end

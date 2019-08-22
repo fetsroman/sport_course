@@ -3,10 +3,10 @@ Rails.application.routes.draw do
     resources :courses do
       put 'publish', to: 'courses#publish', on: :member, as: :publish
       put 'unpublish', to: 'courses#unpublish', on: :member, as: :unpublish
-      resources :lessons
+      resources :lessons do
+        put '/watched', to: 'watched_lists#watched'
+      end
       resources :rates do
-        get '/new', to: 'payment#new'
-        post '/create', to: 'payment#create'
         match '/bought_course', to: 'payment#bought_course', via: [:get, :post]
       end
     end

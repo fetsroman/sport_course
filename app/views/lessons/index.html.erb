@@ -1,31 +1,51 @@
-<p id="notice"><%= notice %></p>
+<% if can_download? %>
+  <p>
+    <strong>Document:</strong>
+    <%= link_to "Download", @course.document.url %>
+  </p>
+<% end %>
 
-<h1>Lessons</h1>
+<% if can_contact? %>
+  <p>
+    <strong>Contact trainer</strong>
+  </p>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= lesson.title %></td>
-        <td><%= lesson.description %></td>
-        <td><%= lesson.course %></td>
-        <td><%= link_to 'Show', course_lessons_url(lesson) %></td>
-        <td><%= link_to 'Edit', edit_course_lesson_path(@course, lesson) %></td>
-        <td><%= link_to 'Destroy', course_lessons_url(lesson), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="container">
+    <div class="col-lg-5">
+      <% @course.lessons.each do |lesson| %>
+        <div class="card" style="width: 18rem">
+          <img class="card-img-top" src="<%= lesson.image.url %>" alt="Card image cap">
 
-<br>
+          <div class="card-body">
+            <h5 class="card-title"><%= lesson.title %> </h5>
+            <p class="card-text"><%= lesson.description %></p>
 
-<%= link_to 'New Lesson', new_course_lesson_path %>
+            <% if can? :manage, @course %>
+              <%= link_to "Edit Lesson", edit_course_lesson_path(@course, lesson) %>
+            <% end %>
+          </div>
+          <% tmp = WatchedList.find_by(course_id: @course.id, lesson_id: lesson.id) %>
+          <% if tmp.present? %>
+            <% if tmp.watched == true %>
+              suck
+            <% end %>
+          <% end %>
+          <%= link_to 'watched', course_lesson_watched_path(@course, lesson), method: :put %>
+
+          <% if can_watch?(lesson) %>
+            <%= link_to 'Watch', course_lesson_path(@course, lesson), remote: true %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-lg-5">
+      <div id="lesson">
+        <%= render @lesson %>
+      </div>
+    </div>
+  </div>
+</div>
