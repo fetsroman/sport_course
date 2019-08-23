@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   load_and_authorize_resource
   before_action :set_course#, only: [:new, :create, :edit, :update]
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
-  # before_action :can_watch?, only: [:show]
+  before_action :can_watch?, only: [:show]
 
   # GET /lessons
   # GET /lessons.json
@@ -16,7 +16,6 @@ class LessonsController < ApplicationController
       @watched_list = WatchedList.where(course_id: @course.id, watched: true, watch: true, user_id: current_user.id).last
       @lesson = Lesson.find_by(id: @watched_list.lesson_id)
     end
-
   end
 
   # GET /lessons/1
