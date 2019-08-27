@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_122654) do
+ActiveRecord::Schema.define(version: 2019_08_27_211615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bought_lists", force: :cascade do |t|
     t.bigint "user_id"
@@ -86,7 +93,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_122654) do
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "bought_count"
+    t.integer "bought_count", default: 0
     t.index ["course_id"], name: "index_rates_on_course_id"
   end
 
@@ -117,6 +124,33 @@ ActiveRecord::Schema.define(version: 2019_08_22_122654) do
     t.datetime "updated_at", null: false
     t.boolean "watched", default: false
     t.index ["user_id"], name: "index_watched_lists_on_user_id"
+  end
+
+  create_table "welcomes", force: :cascade do |t|
+    t.string "header1"
+    t.string "content1"
+    t.string "header2"
+    t.string "content2"
+    t.string "header3"
+    t.string "for_you1"
+    t.string "for_you2"
+    t.string "for_you3"
+    t.string "for_you4"
+    t.string "for_you5"
+    t.string "for_you6"
+    t.string "content3"
+    t.string "header4"
+    t.string "content4"
+    t.string "header5"
+    t.string "content5"
+    t.string "header6"
+    t.string "header7"
+    t.string "content6"
+    t.string "price"
+    t.string "time"
+    t.string "client_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "lessons", "courses"

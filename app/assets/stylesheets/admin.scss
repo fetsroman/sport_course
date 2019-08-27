@@ -1,0 +1,82 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+.wrapper {
+    display: grid;
+    height: 100vh;
+}
+
+.wrapper-btn {
+    align-self: center;
+    justify-self: center;
+    width: 454px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 24px 24px 20px 24px;
+}
+
+.wrapper-buttons {
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 16px;
+}
+
+.roboto-font{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+.wrapper-buttons .btn-submit {
+    font-size: 16px;
+    line-height: 19px;
+    color: #000;
+    height: 44px;
+    background: #F2C94C;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+.wrapper-buttons .go-out-btn{
+    border: 1px solid #FF3C3C;
+    color: #FF3C3C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #fff;
+    margin-top: 16px;
+}
+
+.wrapper-btn .under-form-section {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.wrapper-btn .under-form-section span {
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.16);
+}
+
+@media screen and (max-width: 550px) {
+    body {
+        background: #fff;
+    }
+    .wrapper-btn{
+        width: 100vw;
+        border: none;
+        box-shadow: none;
+    }
+}

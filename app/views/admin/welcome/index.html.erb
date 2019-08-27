@@ -1,0 +1,526 @@
+<div class="wrapper-all-content">
+  <div id="scroll">
+    <img src="image/scroll.svg" alt="scroll">
+  </div>
+  <header class="header container-fluid" id="header">
+    <div class="container header-content-wrapper">
+      <div class="justify-self-start align-self-center logo-container">
+        <img src="image/logo.svg" alt="logo">
+      </div>
+      <div class="justify-self-end align-self-center button-wrapper">
+        <a href="#trailer" class="scroll-nav">
+          <button class="first-button-header all-button openSans-sans-serif600">
+            Подивитись трейлер
+          </button>
+        </a>
+        <button class="all-button sign-in-button openSans-sans-serif600" id="myModalBtn">Ввійти</button>
+      </div>
+    </div>
+  </header>
+  <section class="container-fluid align-self-center header-content-on-image" id="wrapper">
+    <div class="container content-wrapper">
+      <span class="header-title oswald-sans-serif600"><%= @welcome.header1 %></span>
+      <span class="header-under-title oswald-sans-serif500">
+                <%= @welcome.content1 %>
+        </span>
+      <a href="#trailer" class="scroll-nav">
+        <button class="all-button watch-trailer openSans-sans-serif600">
+          <img src="image/play-icon.svg" alt="play">
+          Дивитись трейлер
+        </button>
+      </a>
+    </div>
+  </section>
+  <div class="wrapper2 container-fluid">
+    <section class="under-header-section-wrapper container-fluid">
+      <div class="under-header-section container">
+        <div class="buy-ticket">
+          <div class="content-wrapper">
+            <s class="crossed-out oswald-sans-serif500">6000</s>
+            <span class="price oswald-sans-serif500">від<strong
+              class="oswald-sans-serif600"><%= @welcome.price %></strong>гривень</span>
+          </div>
+          <div class="buy-button-wrapper container">
+            <a href="#price" class="scroll-nav">
+              <button class="all-button openSans-sans-serif600">Придбати</button>
+            </a>
+            <span class="oswald-sans-serif500">* Тільки до 31.08.2019</span>
+          </div>
+        </div>
+        <div class="our-lesson">
+          <div class="wrapper-content">
+            <div class="image-container">
+              <img src="image/oclock.svg" alt="img">
+            </div>
+            <div class="our-lesson-content-container">
+              <span class="title oswald-sans-serif600"><%= @welcome.time %></span>
+              <span class="sub-title oswald-sans-serif500">ДЛЯ ДОСЯГНЕННЯ РЕЗУЛЬТАТУ</span>
+            </div>
+          </div>
+        </div>
+        <div class="our-lesson">
+          <div class="wrapper-content">
+            <div class="image-container">
+              <img src="image/like.svg" alt="img">
+            </div>
+            <div class="our-lesson-content-container">
+              <span class="title oswald-sans-serif600"><%= @welcome.client_number %> КЛІЄНТІВ</span>
+              <span class="sub-title oswald-sans-serif500">ВЖЕ ОЦІНИЛИ НАШУ ПРОГРАМУ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="wait-on-course">
+      <div class="left-side-text container">
+        <span class="oswald-sans-serif500"><%= @welcome.header2 %></span>
+      </div>
+      <div class="right-side-text container">
+        <p class="montserrat-sans-serif600">
+          <%= @welcome.content2 %>
+        </p>
+      </div>
+    </section>
+    <section class="course-for-you container">
+      <span class="title oswald-sans-serif500"><%= @welcome.header3 %></span>
+      <div class="wrapper-content">
+        <div class="wrapper-every-blocks">
+          <div>
+            <img src="image/oclock.svg" alt="icons">
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600"><%= @welcome.for_you1 %></span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <img src="image/oclock.svg" alt="icons">
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600"><%= @welcome.for_you2 %></span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <img src="image/oclock.svg" alt="icons">
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600"><%= @welcome.for_you3 %></span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <img src="image/oclock.svg" alt="icons">
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600"><%= @welcome.for_you4 %></span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <img src="image/oclock.svg" alt="icons">
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600"><%= @welcome.for_you5 %></span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <img src="image/oclock.svg" alt="icons">
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600"><%= @welcome.for_you6 %></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="we-are-coach-with-experience wait-on-course">
+      <div class="coach-left-side container right-side-text">
+        <p>
+          <%= @welcome.content3 %>
+        </p>
+      </div>
+      <div class="coach-right-side left-side-text container">
+        <span class="oswald-sans-serif500"><%= @welcome.header4 %></span>
+      </div>
+    </section>
+    <section class="episode">
+      <span class="title oswald-sans-serif500">Епізоди</span>
+      <div class="slider container">
+        <div class="slide-wrapper">
+          <div class="slide sl-slide1">
+            <div class="top-number-container">
+              <span class="oswald-sans-serif500">1</span>
+            </div>
+            <div class="episode-content-wrapper">
+              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
+              <span class="description-of-episode montserrat-sans-serif600">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    minus quo sequi suscipit tempora ut vero.
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-wrapper">
+          <div class="slide sl-slide2">
+            <div class="top-number-container">
+              <span class="oswald-sans-serif500">2</span>
+            </div>
+            <div class="episode-content-wrapper">
+              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
+              <span class="description-of-episode montserrat-sans-serif600">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    minus quo sequi suscipit tempora ut vero.
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-wrapper">
+          <div class="slide sl-slide3">
+            <div class="top-number-container">
+              <span class="oswald-sans-serif500">3</span>
+            </div>
+            <div class="episode-content-wrapper">
+              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
+              <span class="description-of-episode montserrat-sans-serif600">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    minus quo sequi suscipit tempora ut vero.
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-wrapper">
+          <div class="slide sl-slide4">
+            <div class="top-number-container">
+              <span class="oswald-sans-serif500">4</span>
+            </div>
+            <div class="episode-content-wrapper">
+              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
+              <span class="description-of-episode montserrat-sans-serif600">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    minus quo sequi suscipit tempora ut vero.
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="we-are-coach-with-experience name-of-course wait-on-course">
+      <div class="coach-left-side container right-side-text">
+        <p>
+          І ми навчимо вас тому, чого не зможуть інші навіть офлайн
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Amet varius ultricies quam neque consectetur. Ultricies
+          justo amet, id tortor eget neque feugiat eu duis. Vitae
+          mi neque, lacus, mus in mauris mauris, massa nunc. Adipiscing
+          eget vitae phasellus turpis accumsan sapien aliquet adipiscing
+          risus.
+        </p>
+        <p>
+          Adipiscing eget vitae phasellus turpis accumsan sapien
+          aliquet adipiscing risus.
+        </p>
+      </div>
+      <div class="coach-right-side left-side-text container">
+        <span class="oswald-sans-serif500">назва першого курсу</span>
+      </div>
+    </section>
+    <section class="price-section container">
+      <div class="title-container">
+        <span class="oswald-sans-serif600" id="price">Три пакети</span>
+        <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
+      </div>
+      <div class="price-wrapper container">
+        <div class="price-card">
+          <div class="slide">
+            <div class="title-of-card">
+              <span class="card-title oswald-sans-serif500">Базовий</span>
+              <span class="card-description oswald-sans-serif500">
+                    Більше десяти годин відео від досвічених тренерів
+                </span>
+            </div>
+            <div class="price-of-every-card">
+              <div class="content-wrapper">
+                <s class="crossed-out col oswald-sans-serif500">6000</s>
+                <span class="price oswald-sans-serif500">3000 гривень</span>
+              </div>
+              <div class="button-wrapper">
+                <button class="all-button openSans-sans-serif600">Придбати</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="slide">
+            <div class="title-of-card">
+              <span class="card-title oswald-sans-serif500 upgrade">Просунутий</span>
+              <span class="card-description oswald-sans-serif500">
+                    Більше десяти годин відео від досвічених тренерів
+                </span>
+              <span class="card-description oswald-sans-serif500">
+                    + Персональна програма від тренера
+                </span>
+            </div>
+            <div class="price-of-every-card">
+              <div class="content-wrapper">
+                <s class="crossed-out col oswald-sans-serif500">6000</s>
+                <span class="price oswald-sans-serif500">3000 гривень</span>
+              </div>
+              <div class="button-wrapper">
+                <button class="all-button openSans-sans-serif600">Придбати</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="price-card last-card">
+          <div class="slide">
+            <div class="title-of-card">
+              <span class="card-title oswald-sans-serif500 vip">VIP+</span>
+              <span class="card-description oswald-sans-serif500">
+                    Більше десяти годин відео від досвічених тренерів
+                </span>
+              <span class="card-description oswald-sans-serif500">
+                        + Персональна програма від тренера
+                    </span>
+              <span class="card-description oswald-sans-serif500">
+                        + Постійна підтримка та особисті зустрічі з тренером
+                    </span>
+            </div>
+            <div class="price-of-every-card">
+              <div class="content-wrapper">
+                <s class="crossed-out col oswald-sans-serif500">6000</s>
+                <span class="price oswald-sans-serif500">3000 гривень</span>
+              </div>
+              <div class="button-wrapper">
+                <button class="all-button openSans-sans-serif600">Придбати</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
+      </div>
+    </section>
+    <section class="wait-on-course arnold">
+      <div class="right-side-text container">
+        <p class="montserrat-sans-serif600 first">
+          <img src="image/quotes.svg" alt="quotes" class="quotes1">
+          <%= @welcome.content4 %>
+          <img src="image/quotes.svg" alt="quotes" class="quotes2">
+        </p>
+      </div>
+      <div class="left-side-text container">
+        <span class="oswald-sans-serif500">
+            <%= @welcome.header5 %>
+        </span>
+      </div>
+    </section>
+    <section class="under-header-section under-quotes-section sale container">
+      <div class="buy-ticket">
+        <div class="content-wrapper">
+          <s class="crossed-out col oswald-sans-serif500">6000</s>
+          <span class="price oswald-sans-serif500">від<strong
+            class="oswald-sans-serif600">4000</strong>гривень</span>
+        </div>
+        <div class="buy-button-wrapper container">
+          <a href="#price">
+            <button class="all-button openSans-sans-serif600">Придбати</button>
+          </a>
+          <span class="oswald-sans-serif500">* Тільки до 31.08.2019</span>
+        </div>
+      </div>
+      <div class="our-lesson">
+        <div class="wrapper-content">
+          <div class="image-container">
+            <img src="image/oclock.svg" alt="img">
+          </div>
+          <div class="our-lesson-content-container">
+            <span class="title oswald-sans-serif600">13 ГОДИН УРОКІВ</span>
+            <span class="sub-title oswald-sans-serif500">ДЛЯ ДОСЯГНЕННЯ РЕЗУЛЬТАТУ</span>
+          </div>
+        </div>
+      </div>
+      <div class="our-lesson dwaldlwa">
+        <div class="wrapper-content">
+          <div class="image-container">
+            <img src="image/like.svg" alt="img">
+          </div>
+          <div class="our-lesson-content-container">
+            <span class="title oswald-sans-serif600">500 КЛІЄНТІВ</span>
+            <span class="sub-title oswald-sans-serif500">ВЖЕ ОЦІНИЛИ НАШУ ПРОГРАМУ</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="wait-on-course bottom-card">
+      <div class="left-side-text container">
+        <span class="oswald-sans-serif500">
+            <%= @welcome.header6 %>
+        </span>
+      </div>
+      <div class="right-side-text container">
+        <p class="openSans-sans-serif600">
+          <%= @welcome.content6 %>
+        </p>
+      </div>
+    </section>
+  </div>
+  <section class="container-fluid trailer-section">
+    <div class="container wrapper-section-content">
+      <span class="oswald-sans-serif500" id="trailer">Трейлер</span>
+      <div class="video-container">
+        <video controls="controls" src='video/Beautiful%20Nature%20Around%20The%20World.mp4'>
+          <source src="video/Beautiful%20Nature%20Around%20The%20World.mp4"
+                  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        </video>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-wrapper">
+      <div class="container top-container">
+        <div class="language-wrapper">
+          <span class="oswald-sans-serif500"><button class="active">UK</button></span>
+          <span class="oswald-sans-serif500"><button>RU</button></span>
+        </div>
+        <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
+        <div class="icons-container">
+          <a href="#"><img src="image/facebook.svg" alt="facebook"></a>
+          <a href="#"><img src="image/instagram.svg" alt="instagram"></a>
+          <a href="#"><img src="image/vk.svg" alt="vkontakte"></a>
+        </div>
+      </div>
+      <div class="container bottom-container">
+        <span class="openSans-sans-serif600">Sports Courses 2019</span>
+        <span class="openSans-sans-serif600">Усі права захищено</span>
+        <span class="movadex openSans-sans-serif600">Зроблено в
+                    <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
+                </span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+<script>
+    $(document).on('click', '.scroll-nav', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top - 120
+        }, 900);
+    });
+    window.onload = function () {
+        var scrolled,
+            timer,
+            scroll = document.getElementById('scroll'),
+            setBool = false,
+            header = document.querySelector('.header');
+
+        window.onscroll = function () {
+            headerBG()
+        };
+
+        function headerBG() {
+            if (window.pageYOffset >= 515) {
+                if (!setBool) {
+                    header.classList.toggle('toggleHeader');
+                    scroll.classList.toggle('toggleScroll');
+                    setBool = true;
+                }
+            } else {
+                if (setBool) {
+                    header.classList.toggle('toggleHeader');
+                    scroll.classList.toggle('toggleScroll');
+                    setBool = false;
+                }
+            }
+        }
+        headerBG();
+
+        scroll.onclick = function() {
+            scrolled = window.pageYOffset;
+            scrollToTop();
+        };
+
+        function scrollToTop() {
+
+            if (scrolled >= 0) {
+                window.scrollTo(0,scrolled);
+                scrolled = scrolled - 50 ;// -50 length scroll
+                timer = setTimeout(scrollToTop,10) // 20 scroll speed
+            }else{
+                clearTimeout(timer);
+                window.scrollTo(0,0)
+            }
+        }
+    };
+    $('.slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    variableWidth: true,
+                }
+            },
+            {
+                breakpoint: 469,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+    $('.price-wrapper').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 470,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+</script>

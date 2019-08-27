@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="wrapper-form">
+    <form>
+      <div class="wrapper-image">
+        <img src="image/Group%204.5.svg" alt="logo">
+      </div>
+      <div class="wrapper-inputs">
+        <%= form_for(:session, url: admin_login_path, method: "POST") do |f| %>
+          <%= f.email_field :email, placeholder: "Email", class: "email input roboto-font" %>
+          <%= f.password_field :password, placeholder: "Password", class: "password input roboto-font" %>
+          <%= f.submit "Увійти", class: "btn-submit roboto-font" %>
+        <% end %>
+      </div>
+      <div class="under-form-section">
+        <span class="roboto-font">Made by Movadex</span>
+      </div>
+    </form>
+  </div>
+</div>

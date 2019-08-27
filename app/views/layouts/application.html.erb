@@ -7,28 +7,33 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Oswald&display=swap" rel="stylesheet">
+    <script>window.replainSettings = {id: 'bb49806e-cae9-4f51-9b8d-d1adff2d9a31'};(function (u) {var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = u;var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);})('https://widget.replain.cc/dist/client.js');</script>
   </head>
 
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-    <nav>
-      <ul>
-        <li><%= link_to_unless_current 'Ukraine', url_for(locale: :uk) %></li>
-        <li><%= link_to_unless_current 'Русский', url_for(locale: :ru) %></li>
-      </ul>
-      <% if user_signed_in? %>
-        <%= current_user.email %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
-      <% end %>
+<!--    <nav>-->
+      <%#= link_to "Root", root_path %>
+<!--      <ul>-->
+<!--        <li><%#= link_to_unless_current 'Ukraine', url_for(locale: :uk) %></li>-->
+<!--        <li><%#= link_to_unless_current 'Русский', url_for(locale: :ru) %></li>-->
+<!--      </ul>-->
+      <%# if user_signed_in? %>
+        <%#= current_user.email %>
+        <%#= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
+      <%# else %>
+        <%#= link_to "Login", new_user_session_path %>
+        <%#= link_to "Sign Up", new_user_registration_path %>
+      <%# end %>
 
-      <% if can? :manage, :all %>
-        <%= link_to "Create Course", new_course_path, class: "btn btn-primary" %>
-      <% end %>
-    </nav>
+      <%# if can? :manage, :all %>
+        <%#= link_to "Create Course", new_course_path, class: "btn btn-primary" %>
+      <%# end %>
+<!--    </nav>-->
     <%= yield %>
   </body>
 </html>

@@ -18,6 +18,19 @@ Rails.application.routes.draw do
       end
     end
     get '/my_courses', to: 'bought_list#index'
+
+    get '/admin', to: "admin#index"
+    namespace :admin do
+      resources :courses do
+        put 'publish', to: 'courses#publish', on: :member, as: :publish
+        put 'unpublish', to: 'courses#unpublish', on: :member, as: :unpublish
+        resources :lessons
+        resources :rates
+      end
+      resources :welcome, only: [:index, :edit, :update]
+      get '/login', to: "admin_sessions#new"
+      post '/login', to: "admin_sessions#create"
+    end
   end
   match '*', to: redirect("/#{I18n.default_locale}/%{path}/"), via: :all
   match '/', to: redirect("/#{I18n.default_locale}"), via: :all
