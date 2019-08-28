@@ -1,8 +1,14 @@
+@import 'admin_sessions';
+@import 'welcome';
+@import 'bootstrap';
+@import 'slick';
+@import 'slick-theme';
+
 body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: #E5E5E5;
 }
 
 .wrapper {

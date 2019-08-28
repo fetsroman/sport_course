@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/my_courses', to: 'bought_list#index'
 
     get '/admin', to: "admin#index"
+    devise_for :admins, path: "admin", only: [:sessions], controllers: { sessions: "admin/sessions"}
     namespace :admin do
       resources :courses do
         put 'publish', to: 'courses#publish', on: :member, as: :publish
@@ -28,8 +29,6 @@ Rails.application.routes.draw do
         resources :rates
       end
       resources :welcome, only: [:index, :edit, :update]
-      get '/login', to: "admin_sessions#new"
-      post '/login', to: "admin_sessions#create"
     end
   end
   match '*', to: redirect("/#{I18n.default_locale}/%{path}/"), via: :all

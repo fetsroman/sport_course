@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="wrapper-form">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="wrapper-image">
+        <img src="image/Group%204.5.svg" alt="logo">
+      </div>
+      <div class="wrapper-inputs">
+        <%= f.text_field :email, required: false, autofocus: true, class: "email input roboto-font" %>
+        <%= f.password_field :password, required: false, class: "password input roboto-font"%>
+        <%= f.button :submit, "Log in", class:"btn-submit roboto-font" %>
+      </div>
+      <div class="under-form-section">
+        <span class="roboto-font">Made by Movadex</span>
+      </div>
+    <% end %>
+  </div>
+</div>
