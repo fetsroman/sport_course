@@ -1,5 +1,5 @@
-module Admin
-  class LessonsController < ApplicationController
+
+  class Admin::LessonsController < ApplicationController
     before_action :authenticate_user!
     load_and_authorize_resource
     before_action :set_course#, only: [:new, :create, :edit, :update]
@@ -99,4 +99,3 @@ module Admin
         end
       end
   end
-end

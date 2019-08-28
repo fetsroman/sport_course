@@ -1,5 +1,4 @@
-module Admin
-  class CoursesController < ApplicationController
+  class Admin::CoursesController < ApplicationController
     before_action :set_course, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
     before_action :authenticate_user!
     load_and_authorize_resource
@@ -85,4 +84,3 @@ module Admin
         params.require(:course).permit(:title, :description, :document, :trailer, :image, :published)
       end
   end
-end

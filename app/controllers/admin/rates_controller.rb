@@ -1,5 +1,4 @@
-module Admin
-  class RatesController < ApplicationController
+  class Admin::RatesController < ApplicationController
     before_action :authenticate_user!
     load_and_authorize_resource
 
@@ -81,4 +80,3 @@ module Admin
         @course = Course.find(params[:course_id])
       end
   end
-end
