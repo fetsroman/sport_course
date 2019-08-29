@@ -1,29 +1,57 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="wrapper-form wrapper-form-registration">
+    <div class="child-wrapper-container">
+      <div class="title-wrapper">
+        <%= alert %>
+        <span class="title registration-title">Реєстрація <br class="title-br">акаунта</span>
+        <span class="description registration-description">
+          Для отримання доступу до кабінету та покупки курсів
+          потрібно пройти коротку реєстрацію
+        </span>
+      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="wrapper-input" id="wrapper-input-email">
+          <div class="icons-wrapper">
+            <%= image_tag 'auth/mail.svg' %>
+          </div>
+          <%= f.email_field :email, id: "email", validate: true %>
+          <br>
+          <span id="email-hint" class="hint"></span>
+        </div>
+        <div class="wrapper-input" id="wrapper-input-password">
+          <div class="icons-wrapper">
+            <%= image_tag 'auth/key-25.svg' %>
+          </div>
+          <%= f.password_field :password, placeholder: "Password", id: "password" %>
+          <br>
+          <span id="password-hint" class="hint"></span>
+        </div>
+        <div class="radio-toolbar">
+          <input type="radio" id="russia" name="language" value="russia" checked>
+          <label for="russia">Русский</label>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <input type="radio" id="ukraine" name="language" value="ukraine">
+          <label for="ukraine">Українська</label>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%#= f.check_box :terms_and_conditions %>
+        <div class="checkbox-container">
+          <label class="checkbox-label">
+            <%= f.check_box :terms_and_conditions, id: 'check', class:"checkbox-custom rectangular" %>
+<!--            <input type="checkbox" id="check">-->
+            <span class="checkbox-custom rectangular"></span>
+          </label>
+
+          <div class="input-title" id="check-valid">
+            <label for="check">Я згоден з <span id="span1">умовами сервісу</span> та <span id="span2">правилами надання послуг</span></label>
+          </div>
+        </div>
+        <%= f.submit "Зареєструватись", class: "button", id: "submit" %>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<% if resource.errors.any? %>
+  <%= content_tag "div", '', id: "foobar", data: {foobar: resource.errors.keys} %>
 <% end %>
-
-<%= render "devise/shared/links" %>

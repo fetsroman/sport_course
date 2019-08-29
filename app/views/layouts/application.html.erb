@@ -5,7 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# unless current_page?('/ru|uk/users/sign_in') or current_page?(new_user_registration_url) or current_page?(course_rate_bought_course_path(0...99999999, 0...99999999)) %>
+      <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# end %>
+    <%= stylesheet_link_tag  params[:controller], 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald&display=swap" rel="stylesheet">
@@ -14,8 +18,8 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<!--  <p class="notice"><%#= notice %></p>-->
+<!--  <p class="alert"><%#= alert %></p>-->
 <!--    <nav>-->
       <%#= link_to "Root", root_path %>
 <!--      <ul>-->

@@ -1,26 +1,37 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container">
+  <div class="wrapper-form">
+    <div class="child-wrapper-container">
+      <div class="title-wrapper">
+        <span class="title">УВІйти <br class="title-br">в&nbsp;акаунт</span>
+        <span class="description">Введіть логін та пароль, щоб отримати доступ до придбаних курсів.</span>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: "form" }) do |f| %>
+        <div class="wrapper-input" id="wrapper-input-email">
+          <div class="icons-wrapper">
+            <%= image_tag 'auth/mail.svg' %>
+          </div>
+          <%= f.email_field :email, autofocus: true, autocomplete: "Email", id: "email" %>
+          <br>
+          <span id="email-hint" class="hint"><%= alert %></span>
+        </div>
+        <div class="wrapper-input" id="wrapper-input-password">
+          <div class="icons-wrapper">
+            <%= image_tag 'auth/key-25.svg' %>
+          </div>
+          <%= f.password_field :password, placeholder: "Password", id: "password" %>
+          <br>
+          <span id="password-hint" class="hint"></span>
+          <%# if devise_mapping.rememberable? %>
+<!--            <div class="field">-->
+              <%#= f.check_box :remember_me %>
+              <%#= f.label :remember_me %>
+<!--            </div>-->
+          <%# end %>
+        </div>
+        <%= f.submit "Увійти", id: "submit", class: "button" %>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>

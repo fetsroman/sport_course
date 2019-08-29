@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  scope "/:locale", locale: /#{I18n.available_locales.join("|")}/ do
     resources :courses do
       put 'publish', to: 'courses#publish', on: :member, as: :publish
       put 'unpublish', to: 'courses#unpublish', on: :member, as: :unpublish
@@ -32,6 +32,6 @@ Rails.application.routes.draw do
       get 'statistics', to: 'statistics#index'
     end
   end
-  match '*', to: redirect("/#{I18n.default_locale}/%{path}/"), via: :all
-  match '/', to: redirect("/#{I18n.default_locale}"), via: :all
+  get '/', to: redirect("/#{I18n.default_locale}")
+  get "/*path", to: redirect("/#{I18n.default_locale}/%{path}")
 end

@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_112056) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.string "video"
+    t.string "videos"
     t.index ["course_id"], name: "index_lessons_on_course_id"
   end
 
