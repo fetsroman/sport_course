@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         resources :rates
       end
       resources :welcome, only: [:index, :edit, :update]
+      get 'statistics', to: 'statistics#index'
     end
   end
   match '*', to: redirect("/#{I18n.default_locale}/%{path}/"), via: :all

@@ -1,17 +1,17 @@
   class Admin::CoursesController < ApplicationController
     before_action :set_course, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-    before_action :authenticate_user!
-    load_and_authorize_resource
+    before_action :authenticate_admin!
+    layout 'admin'
+
     # GET /courses
     # GET /courses.json
     def index
-      @courses = Course.published
+      @courses = Course.all
     end
 
     # GET /courses/1
     # GET /courses/1.json
     def show
-      redirect_to admin_course_lessons_path(@course)
     end
 
     # GET /courses/new
@@ -30,7 +30,7 @@
 
       respond_to do |format|
         if @course.save
-          format.html { redirect_to @course, notice: 'Course was successfully created.' }
+          format.html { redirect_to admin_course_path(@course), notice: 'Course was successfully created.' }
           format.json { render :show, status: :created, location: @course }
         else
           format.html { render :new }

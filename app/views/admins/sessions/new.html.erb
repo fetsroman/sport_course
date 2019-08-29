@@ -5,8 +5,9 @@
         <img src="image/Group%204.5.svg" alt="logo">
       </div>
       <div class="wrapper-inputs">
-        <%= f.text_field :email, required: false, autofocus: true, class: "email input roboto-font" %>
-        <%= f.password_field :password, required: false, class: "password input roboto-font"%>
+        <%= f.text_field :email, required: false, autofocus: true, class: "email input roboto-font", placeholder: "Email" %>
+        <span id="email-hint" class="hint"><%= alert %></span>
+        <%= f.password_field :password, required: false, class: "password input roboto-font", placeholder: "Password"%>
         <%= f.button :submit, "Log in", class:"btn-submit roboto-font" %>
       </div>
       <div class="under-form-section">

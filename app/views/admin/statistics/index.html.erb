@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="container-statistics">
+    <div class="wrapper-statistics">
+      <div class="main-title">
+        <span class="title roboto-font">Статистика</span>
+      </div>
+      <% @courses.each do |course| %>
+        <div class="course">
+          <div class="wrapper-content">
+            <span class="title roboto-font"><%= course.title %></span>
+            <div class="titles">
+              <span class="roboto-font">Пакет</span>
+              <span class="roboto-font">Куплено</span>
+              <span class="roboto-font">Ціна</span>
+            </div>
+            <% course.rates.each do |rate| %>
+              <div class="line">
+                <span class="roboto-font"><%= rate.title %></span>
+                <span class="roboto-font"><%= rate.bought_count %></span>
+                <span class="roboto-font"><%= rate.price %></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="wrapper-shopping">
+    <div class="main-title">
+      <span class="title roboto-font">Покупки</span>
+    </div>
+    <div class="wrapper-content">
+      <span class="title roboto-font">Пакет</span>
+      <div class="titles">
+        <span class="roboto-font">Ім'я</span>
+        <span class="roboto-font">Email</span>
+        <span class="roboto-font">Курс</span>
+        <span class="roboto-font">Пакет</span>
+        <span class="roboto-font">Дата</span>
+        <span class="roboto-font">Ціна</span>
+      </div>
+      <div class="line">
+        <span class="roboto-font">Ім’я Прізвище</span>
+        <span class="roboto-font">stochkomira@gmail.com</span>
+        <span class="roboto-font">Курс 1</span>
+        <span class="roboto-font">Пакет 1</span>
+        <span class="roboto-font">Пакет 1</span>
+        <span class="roboto-font">4000 грн</span>
+      </div>
+      <div class="line">
+        <span class="roboto-font">Ім’я Прізвище</span>
+        <span class="roboto-font">stochkomira@gmail.com</span>
+        <span class="roboto-font">Курс 1</span>
+        <span class="roboto-font">Пакет 1</span>
+        <span class="roboto-font">Пакет 1</span>
+        <span class="roboto-font">4000 грн</span>
+      </div>
+      <div class="line">
+        <span class="roboto-font">Ім’я Прізвище</span>
+        <span class="roboto-font">stochkomira@gmail.com</span>
+        <span class="roboto-font">Курс 1</span>
+        <span class="roboto-font">Пакет 1</span>
+        <span class="roboto-font">Пакет 1</span>
+        <span class="roboto-font">4000 грн</span>
+      </div>
+    </div>
+  </div>
+</div>

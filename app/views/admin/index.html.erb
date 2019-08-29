@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="wrapper-btn">
     <div class="wrapper-buttons">
-<!--      <button class="btn-submit roboto-font">Статистика</button>-->
+      <button class="btn-submit roboto-font"><%= link_to "Статистика", admin_statistics_path %></button>
       <button class="btn-submit roboto-font"><%= link_to "Редагування лендінгу", edit_admin_welcome_path(1) %></button>
-<!--      <button class="btn-submit roboto-font">Курси</button>-->
+      <button class="btn-submit roboto-font"><%= link_to "Курси", admin_courses_path %></button>
       <button class="go-out-btn btn-submit roboto-font"><%= link_to "Вийти", destroy_admin_session_path, method: :delete %></button>
     </div>
     <div class="under-form-section">

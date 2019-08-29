@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #E5E5E5;
+}
+
+.wrapper {
+  display: grid;
+  height: 100vh;
+}
+
+.container-statistics , .wrapper-shopping{
+  align-self: start;
+  justify-self: center;
+  width: 856px;
+  margin-top: 136px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.wrapper-shopping{
+  align-self: end;
+  background: #fff;
+  margin-bottom: 220px;
+}
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.wrapper-statistics {
+  display: grid;
+  grid-row-gap: 24px;
+  padding-bottom: 23px;
+}
+
+.main-title {
+  padding: 15px 0 12px 27px;
+}
+
+.main-title span {
+  font-size: 24px;
+  line-height: 28px;
+  color: #000
+}
+
+.course {
+  background: #FAFAFA;
+}
+
+.wrapper-statistics .first-course .title,
+.wrapper-statistics .second-course .title,
+.wrapper-shopping .wrapper-content .title{
+  padding: 16px 0 0 26px;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.container-statistics .wrapper-content {
+  padding-top: 16px;
+}
+.container-statistics .wrapper-content .titles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 0 0 26px;
+}
+
+.container-statistics .wrapper-content .titles span {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+.container-statistics .wrapper-content .line {
+  padding: 9px 0 12px 26px;
+  border-bottom: 1px solid #E8E8E8;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.wrapper-shopping .wrapper-content .titles{
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr repeat(3, 1fr);
+  padding: 20px 0 0 26px;
+}
+.wrapper-shopping .wrapper-content .titles span{
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.76);
+}
+.wrapper-shopping .wrapper-content .line{
+  padding: 9px 0 12px 26px;
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr repeat(3, 1fr);
+  border-bottom: 1px solid #E8E8E8;
+}
+.wrapper-shopping .wrapper-content .line span{
+  font-size: 14px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.6);
+}
