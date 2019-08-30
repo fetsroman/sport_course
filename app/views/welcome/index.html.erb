@@ -1,11 +1,14 @@
 <div class="wrapper-all-content">
   <div id="scroll">
-    <img src="image/scroll.svg" alt="scroll">
+    <%= image_tag 'welcome/scroll.svg', alt: "scroll" %>
   </div>
   <header class="header container-fluid" id="header">
     <div class="container header-content-wrapper">
       <div class="justify-self-start align-self-center logo-container">
-        <img src="image/logo.svg" alt="logo">
+        <%= image_tag 'welcome/logo.svg', alt: "logo" %>
+        <%#= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first.to_s != params[:locale] %>
+        <%#= params[:locale] %>
+        <%#= current_user.locale %>
       </div>
       <div class="justify-self-end align-self-center button-wrapper">
         <a href="#trailer" class="scroll-nav">
@@ -13,10 +16,9 @@
             Подивитись трейлер
           </button>
         </a>
-        <%= link_to button_tag("Ввійти", class: "all-button sign-in-button openSans-sans-serif600"), new_user_session_path %>
-<!--        <a href="/sportcources-web/forms/login.html">-->
-<!--          <button class="all-button sign-in-button openSans-sans-serif600" id="myModalBtn">Ввійти</button>-->
-<!--        </a>-->
+        <% unless user_signed_in? %>
+          <%= link_to button_tag("Ввійти", class: "all-button sign-in-button openSans-sans-serif600"), new_user_session_path %>
+        <% end %>
       </div>
     </div>
   </header>
@@ -29,7 +31,7 @@
         </span>
       <a href="#trailer" class="scroll-nav">
         <button class="all-button watch-trailer openSans-sans-serif600">
-          <img src="image/play-icon.svg" alt="play">
+          <%= image_tag 'welcome/play-icon.svg', alt: "play" %>
           Дивитись трейлер
         </button>
       </a>
@@ -54,7 +56,7 @@
         <div class="our-lesson">
           <div class="wrapper-content">
             <div class="image-container">
-              <img src="image/oclock.svg" alt="img">
+              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
             </div>
             <div class="our-lesson-content-container">
               <span class="title oswald-sans-serif600">13 ГОДИН УРОКІВ</span>
@@ -65,7 +67,7 @@
         <div class="our-lesson">
           <div class="wrapper-content">
             <div class="image-container">
-              <img src="image/like.svg" alt="img">
+              <%= image_tag 'welcome/like.svg', alt: "like-image" %>
             </div>
             <div class="our-lesson-content-container">
               <span class="title oswald-sans-serif600">500 КЛІЄНТІВ</span>
@@ -96,7 +98,7 @@
       <div class="wrapper-content">
         <div class="wrapper-every-blocks">
           <div>
-            <img src="image/oclock.svg" alt="icons">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div>
             <span class="montserrat-sans-serif600">Любиш спорт і спортивний спосіб життя.</span>
@@ -104,7 +106,7 @@
         </div>
         <div class="wrapper-every-blocks">
           <div>
-            <img src="image/oclock.svg" alt="icons">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div>
             <span class="montserrat-sans-serif600">Тобі набридли неефективні тренери.</span>
@@ -112,7 +114,7 @@
         </div>
         <div class="wrapper-every-blocks">
           <div>
-            <img src="image/oclock.svg" alt="icons">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div>
             <span class="montserrat-sans-serif600">Ти надаєш перевагу домашнім завданням замість спортзалу.</span>
@@ -120,7 +122,7 @@
         </div>
         <div class="wrapper-every-blocks">
           <div>
-            <img src="image/oclock.svg" alt="icons">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div>
             <span class="montserrat-sans-serif600">Любиш спорт і спортивний спосіб життя.</span>
@@ -128,7 +130,7 @@
         </div>
         <div class="wrapper-every-blocks">
           <div>
-            <img src="image/oclock.svg" alt="icons">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div>
             <span class="montserrat-sans-serif600">Тобі набридли неефективні тренери.</span>
@@ -136,7 +138,7 @@
         </div>
         <div class="wrapper-every-blocks">
           <div>
-            <img src="image/oclock.svg" alt="icons">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div>
             <span class="montserrat-sans-serif600">Ти надаєш перевагу домашнім завданням замість спортзалу.</span>
@@ -339,7 +341,7 @@
       <div class="our-lesson">
         <div class="wrapper-content">
           <div class="image-container">
-            <img src="image/oclock.svg" alt="img">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
           </div>
           <div class="our-lesson-content-container">
             <span class="title oswald-sans-serif600">13 ГОДИН УРОКІВ</span>
@@ -350,7 +352,7 @@
       <div class="our-lesson dwaldlwa">
         <div class="wrapper-content">
           <div class="image-container">
-            <img src="image/like.svg" alt="img">
+            <%= image_tag 'welcome/like.svg', alt: "like-image" %>
           </div>
           <div class="our-lesson-content-container">
             <span class="title oswald-sans-serif600">500 КЛІЄНТІВ</span>
@@ -362,7 +364,7 @@
     <section class="wait-on-course arnold">
       <div class="right-side-text container">
         <p class="montserrat-sans-serif600 first">
-          <img src="image/quotes.svg" alt="quotes" class="quotes1">
+          <%= image_tag 'welcome/quotes.svg', alt: "quotes-image", class: "quotes1" %>
           Я відкрив для себе секрет успіху в формулюванні з трьох частин:
         </p>
         <ul>
@@ -372,7 +374,7 @@
         </ul>
         <p class="montserrat-sans-serif600 last">
           Багато людей знають ці три принципи, але деякі з них можуть застосувати їх на практиці
-          <img src="image/quotes.svg" alt="quotes" class="quotes2">
+          <%= image_tag 'welcome/quotes.svg', alt: "quotes-image", class: "quotes2" %>
         </p>
       </div>
       <div class="left-side-text container">
