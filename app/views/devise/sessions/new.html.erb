@@ -20,6 +20,8 @@
           </div>
           <%= f.password_field :password, placeholder: "Password", id: "password" %>
           <br>
+          <%= render "devise/shared/links" %>
+
           <span id="password-hint" class="hint"></span>
           <%# if devise_mapping.rememberable? %>
 <!--            <div class="field">-->
@@ -33,5 +35,3 @@
     </div>
   </div>
 </div>
-
-<%#= render "devise/shared/links" %>

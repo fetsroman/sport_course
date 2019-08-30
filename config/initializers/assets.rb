@@ -13,7 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.scss auth.scss)
 
-%w( welcome courses lessons rates devise/sessions devise/registrations).each do |controller|
+%w( welcome courses lessons rates devise/sessions devise/registrations devise/confirmations).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.scss", "devise/#{controller}.scss"]
 end
 

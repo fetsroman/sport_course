@@ -5,11 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# unless current_page?('/ru|uk/users/sign_in') or current_page?(new_user_registration_url) or current_page?(course_rate_bought_course_path(0...99999999, 0...99999999)) %>
-      <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%# end %>
     <%= stylesheet_link_tag  params[:controller], 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald&display=swap" rel="stylesheet">
@@ -18,26 +14,127 @@
   </head>
 
   <body>
-<!--  <p class="notice"><%#= notice %></p>-->
-<!--  <p class="alert"><%#= alert %></p>-->
-<!--    <nav>-->
-      <%#= link_to "Root", root_path %>
-<!--      <ul>-->
-<!--        <li><%#= link_to_unless_current 'Ukraine', url_for(locale: :uk) %></li>-->
-<!--        <li><%#= link_to_unless_current 'Русский', url_for(locale: :ru) %></li>-->
-<!--      </ul>-->
-      <%# if user_signed_in? %>
-        <%#= current_user.email %>
-        <%#= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
-      <%# else %>
-        <%#= link_to "Login", new_user_session_path %>
-        <%#= link_to "Sign Up", new_user_registration_path %>
-      <%# end %>
-
-      <%# if can? :manage, :all %>
-        <%#= link_to "Create Course", new_course_path, class: "btn btn-primary" %>
-      <%# end %>
-<!--    </nav>-->
     <%= yield %>
   </body>
+
+  <script>
+      $(document).on('click', '.scroll-nav', function (event) {
+          event.preventDefault();
+
+          $('html, body').animate({
+              scrollTop: $($.attr(this, 'href')).offset().top - 120
+          }, 900);
+      });
+      window.onload = function () {
+          var scrolled,
+              timer,
+              scroll = document.getElementById('scroll'),
+              setBool = false,
+              header = document.querySelector('.header');
+
+          window.onscroll = function () {
+              headerBG()
+          };
+
+          function headerBG() {
+              if (window.pageYOffset >= 515) {
+                  if (!setBool) {
+                      header.classList.toggle('toggleHeader');
+                      scroll.classList.toggle('toggleScroll');
+                      setBool = true;
+                  }
+              } else {
+                  if (setBool) {
+                      header.classList.toggle('toggleHeader');
+                      scroll.classList.toggle('toggleScroll');
+                      setBool = false;
+                  }
+              }
+          }
+          headerBG();
+
+          scroll.onclick = function() {
+              scrolled = window.pageYOffset;
+              scrollToTop();
+          };
+
+          function scrollToTop() {
+
+              if (scrolled >= 0) {
+                  window.scrollTo(0,scrolled);
+                  scrolled = scrolled - 50 ;// -50 length scroll
+                  timer = setTimeout(scrollToTop,10) // 20 scroll speed
+              }else{
+                  clearTimeout(timer);
+                  window.scrollTo(0,0)
+              }
+          }
+      };
+      $('.slider').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          responsive: [
+              {
+                  breakpoint: 1200,
+                  settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
+                  }
+              },
+              {
+                  breakpoint: 992,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                  }
+              },
+              {
+                  breakpoint: 767,
+                  settings: {
+                      slidesToScroll: 1,
+                      centerMode: true,
+                      variableWidth: true,
+                  }
+              },
+              {
+                  breakpoint: 469,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                  }
+              }
+          ]
+      });
+      $('.price-wrapper').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          autoplay: true,
+          autoplaySpeed: 5000,
+          responsive: [
+              {
+                  breakpoint: 1200,
+                  settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
+                  }
+              },
+              {
+                  breakpoint: 992,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                  }
+              },
+              {
+                  breakpoint: 470,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                  }
+              }
+          ]
+      });
+  </script>
 </html>

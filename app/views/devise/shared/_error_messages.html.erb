@@ -1,5 +1,6 @@
 <% if resource.errors.any? %>
-  <% resource.errors.full_messages.each do |message| %>
-<!--    <span id="password-hint" class="hint"><%#= message %></span>-->
+  <% resource.errors.each do |key, message| %>
+    <span id="password-hint" class="hint"><%= key %></span>
+    <span id="password-hint" class="hint"><%= message %></span>
   <% end %>
 <% end %>

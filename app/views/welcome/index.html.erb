@@ -13,8 +13,10 @@
             Подивитись трейлер
           </button>
         </a>
-        <a href="/sportcources-web/forms/login.html">
-          <button class="all-button sign-in-button openSans-sans-serif600" id="myModalBtn">Ввійти</button></a>
+        <%= link_to button_tag("Ввійти", class: "all-button sign-in-button openSans-sans-serif600"), new_user_session_path %>
+<!--        <a href="/sportcources-web/forms/login.html">-->
+<!--          <button class="all-button sign-in-button openSans-sans-serif600" id="myModalBtn">Ввійти</button>-->
+<!--        </a>-->
       </div>
     </div>
   </header>
@@ -236,8 +238,8 @@
             <div class="title-of-card">
               <span class="card-title oswald-sans-serif500">Базовий</span>
               <span class="card-description oswald-sans-serif500">
-                    Більше десяти годин відео від досвічених тренерів
-                </span>
+                        Більше десяти годин відео від досвічених тренерів
+                    </span>
             </div>
             <div class="price-of-every-card">
               <div class="content-wrapper">
@@ -255,11 +257,11 @@
             <div class="title-of-card">
               <span class="card-title oswald-sans-serif500 upgrade">Просунутий</span>
               <span class="card-description oswald-sans-serif500">
-                    Більше десяти годин відео від досвічених тренерів
-                </span>
+                        Більше десяти годин відео від досвічених тренерів
+                    </span>
               <span class="card-description oswald-sans-serif500">
-                    + Персональна програма від тренера
-                </span>
+                        + Персональна програма від тренера
+                    </span>
             </div>
             <div class="price-of-every-card">
               <div class="content-wrapper">
@@ -277,14 +279,14 @@
             <div class="title-of-card">
               <span class="card-title oswald-sans-serif500 vip">VIP+</span>
               <span class="card-description oswald-sans-serif500">
-                    Більше десяти годин відео від досвічених тренерів
-                </span>
-              <span class="card-description oswald-sans-serif500">
-                        + Персональна програма від тренера
+                        Більше десяти годин відео від досвічених тренерів
                     </span>
               <span class="card-description oswald-sans-serif500">
-                        + Постійна підтримка та особисті зустрічі з тренером
-                    </span>
+                            + Персональна програма від тренера
+                        </span>
+              <span class="card-description oswald-sans-serif500">
+                            + Постійна підтримка та особисті зустрічі з тренером
+                        </span>
             </div>
             <div class="price-of-every-card">
               <div class="content-wrapper">
@@ -392,8 +394,8 @@
     <div class="footer-wrapper">
       <div class="container top-container">
         <div class="language-wrapper">
-          <span class="oswald-sans-serif500"><button class="active">UK</button></span>
-          <span class="oswald-sans-serif500"><button>RU</button></span>
+          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'UK', url_for(locale: :uk) %></button></span>
+          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'RU', url_for(locale: :ru) %></button></span>
         </div>
         <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
         <div class="icons-container">
@@ -412,124 +414,3 @@
     </div>
   </footer>
 </div>
-
-<script>
-    $(document).on('click', '.scroll-nav', function (event) {
-        event.preventDefault();
-
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top - 120
-        }, 900);
-    });
-    window.onload = function () {
-        var scrolled,
-            timer,
-            scroll = document.getElementById('scroll'),
-            setBool = false,
-            header = document.querySelector('.header');
-
-        window.onscroll = function () {
-            headerBG()
-        };
-
-        function headerBG() {
-            if (window.pageYOffset >= 515) {
-                if (!setBool) {
-                    header.classList.toggle('toggleHeader');
-                    scroll.classList.toggle('toggleScroll');
-                    setBool = true;
-                }
-            } else {
-                if (setBool) {
-                    header.classList.toggle('toggleHeader');
-                    scroll.classList.toggle('toggleScroll');
-                    setBool = false;
-                }
-            }
-        }
-        headerBG();
-
-        scroll.onclick = function() {
-            scrolled = window.pageYOffset;
-            scrollToTop();
-        };
-
-        function scrollToTop() {
-
-            if (scrolled >= 0) {
-                window.scrollTo(0,scrolled);
-                scrolled = scrolled - 50 ;// -50 length scroll
-                timer = setTimeout(scrollToTop,10) // 20 scroll speed
-            }else{
-                clearTimeout(timer);
-                window.scrollTo(0,0)
-            }
-        }
-    };
-    $('.slider').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToScroll: 1,
-                    centerMode: true,
-                    variableWidth: true,
-                }
-            },
-            {
-                breakpoint: 469,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-        ]
-    });
-    $('.price-wrapper').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 470,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-        ]
-    });
-</script>
