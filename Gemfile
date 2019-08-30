@@ -39,7 +39,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'simple_form'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
-gem "jquery-slick-rails"
 gem 'devise'
 gem 'cancancan'
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
