@@ -13,7 +13,8 @@
             Подивитись трейлер
           </button>
         </a>
-        <button class="all-button sign-in-button openSans-sans-serif600" id="myModalBtn">Ввійти</button>
+        <a href="/sportcources-web/forms/login.html">
+          <button class="all-button sign-in-button openSans-sans-serif600" id="myModalBtn">Ввійти</button></a>
       </div>
     </div>
   </header>
@@ -160,7 +161,7 @@
         </p>
       </div>
       <div class="coach-right-side left-side-text container">
-        <span class="oswald-sans-serif500">МИ - ТРЕНЕРИ З ДОСВІДОМ</span>
+        <span class="oswald-sans-serif500">Результат курсу</span>
       </div>
     </section>
     <section class="episode">
@@ -222,28 +223,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="we-are-coach-with-experience name-of-course wait-on-course">
-      <div class="coach-left-side container right-side-text">
-        <p>
-          І ми навчимо вас тому, чого не зможуть інші навіть офлайн
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Amet varius ultricies quam neque consectetur. Ultricies
-          justo amet, id tortor eget neque feugiat eu duis. Vitae
-          mi neque, lacus, mus in mauris mauris, massa nunc. Adipiscing
-          eget vitae phasellus turpis accumsan sapien aliquet adipiscing
-          risus.
-        </p>
-        <p>
-          Adipiscing eget vitae phasellus turpis accumsan sapien
-          aliquet adipiscing risus.
-        </p>
-      </div>
-      <div class="coach-right-side left-side-text container">
-        <span class="oswald-sans-serif500">назва першого курсу</span>
       </div>
     </section>
     <section class="price-section container">
@@ -323,26 +302,22 @@
         <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
       </div>
     </section>
-    <section class="wait-on-course arnold">
-      <div class="right-side-text container">
-        <p class="montserrat-sans-serif600 first">
-          <img src="image/quotes.svg" alt="quotes" class="quotes1">
-          Я відкрив для себе секрет успіху в формулюванні з трьох частин:
-        </p>
-        <ul>
-          <li class="montserrat-sans-serif600">- Впевненість у собі.</li>
-          <li class="montserrat-sans-serif600">- Позитивний настрій.</li>
-          <li class="montserrat-sans-serif600">- Чесна інтенсивна праця.</li>
-        </ul>
-        <p class="montserrat-sans-serif600 last">
-          Багато людей знають ці три принципи, але деякі з них можуть застосувати їх на практиці
-          <img src="image/quotes.svg" alt="quotes" class="quotes2">
-        </p>
-      </div>
+    <section class="wait-on-course bottom-card">
       <div class="left-side-text container">
         <span class="oswald-sans-serif500">
-            Арнольд Шварцнеггер
+            НЕ ВАГАЙСЯ, ПРИЄДНУЙСЯ
         </span>
+      </div>
+      <div class="right-side-text container">
+        <p class="openSans-sans-serif600">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur.
+        </p>
       </div>
     </section>
     <section class="under-header-section under-quotes-section sale container">
@@ -382,22 +357,26 @@
         </div>
       </div>
     </section>
-    <section class="wait-on-course bottom-card">
+    <section class="wait-on-course arnold">
+      <div class="right-side-text container">
+        <p class="montserrat-sans-serif600 first">
+          <img src="image/quotes.svg" alt="quotes" class="quotes1">
+          Я відкрив для себе секрет успіху в формулюванні з трьох частин:
+        </p>
+        <ul>
+          <li class="montserrat-sans-serif600">- Впевненість у собі.</li>
+          <li class="montserrat-sans-serif600">- Позитивний настрій.</li>
+          <li class="montserrat-sans-serif600">- Чесна інтенсивна праця.</li>
+        </ul>
+        <p class="montserrat-sans-serif600 last">
+          Багато людей знають ці три принципи, але деякі з них можуть застосувати їх на практиці
+          <img src="image/quotes.svg" alt="quotes" class="quotes2">
+        </p>
+      </div>
       <div class="left-side-text container">
         <span class="oswald-sans-serif500">
-            НЕ ВАГАЙСЯ, ПРИЄДНУЙСЯ
+            Арнольд Шварцнеггер
         </span>
-      </div>
-      <div class="right-side-text container">
-        <p class="openSans-sans-serif600">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur.
-        </p>
       </div>
     </section>
   </div>
@@ -405,7 +384,7 @@
     <div class="container wrapper-section-content">
       <span class="oswald-sans-serif500" id="trailer">Трейлер</span>
       <div class="video-container">
-        <%= video_tag 'trailer.mp4', controls: 'controls'%>
+        <%= video_tag 'trailer.mp4', controls: 'controls' %>
       </div>
     </div>
   </section>
@@ -418,13 +397,13 @@
         </div>
         <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
         <div class="icons-container">
-          <a href="#"><img src="image/facebook.svg" alt="facebook"></a>
-          <a href="#"><img src="image/instagram.svg" alt="instagram"></a>
-          <a href="#"><img src="image/vk.svg" alt="vkontakte"></a>
+          <a href="#"><%= image_tag 'welcome/facebook.svg', alt: "facebook" %></a>
+          <a href="#"><%= image_tag 'welcome/instagram.svg', alt: "instagram" %></a>
+          <a href="#"><%= image_tag 'welcome/vk.svg', alt: "vkontakte" %></a>
         </div>
       </div>
       <div class="container bottom-container">
-        <span class="openSans-sans-serif600">Sports Courses 2019</span>
+        <span class="openSans-sans-serif600">Your Sport Courses 2019</span>
         <span class="openSans-sans-serif600">Усі права захищено</span>
         <span class="movadex openSans-sans-serif600">Зроблено в
                     <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
@@ -433,7 +412,7 @@
     </div>
   </footer>
 </div>
-</body>
+
 <script>
     $(document).on('click', '.scroll-nav', function (event) {
         event.preventDefault();

@@ -124,11 +124,14 @@
     display: none;
 }
 
+@media only screen and (max-width: 992px) {
+    .episode .slick-slide{
+        display: grid;
+    }
+}
 @media only screen and (max-width: 470px) {
     .episode .slick-slide {
-        display: grid;
-        justify-content: center;
-        transform: scale(.8);
+        transform: scale(.9);
     }
 
     .episode .slick-center {
@@ -137,12 +140,16 @@
     }
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 360px) {
     .episode .slick-slide {
-        transform: scale(.8);
+        display: grid;
+        justify-content: center;
+        transform: scale(.95);
     }
 
     .episode .slick-center {
-        transform: scale(.8);
+        transform: scale(.99);
+        transition: .6s ease-in-out;
     }
 }
+

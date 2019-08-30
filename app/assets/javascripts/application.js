@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery3
-//= require jquery.slick
 //= require bootstrap
+//= require jquery.slick
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
