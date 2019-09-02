@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2019_08_30_085415) do
   create_table "bought_lists", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "course_id"
+    t.integer "rate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tariff"
     t.index ["user_id"], name: "index_bought_lists_on_user_id"
   end
 

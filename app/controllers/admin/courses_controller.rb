@@ -44,7 +44,7 @@
     def update
       respond_to do |format|
         if @course.update(course_params)
-          format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+          format.html { redirect_to admin_course_path(@course), notice: 'Course was successfully updated.' }
           format.json { render :show, status: :ok, location: @course }
         else
           format.html { render :edit }
@@ -55,12 +55,12 @@
 
     def publish
       @course.update(published: true)
-      redirect_to @course
+      redirect_to admin_course_path(@course)
     end
 
     def unpublish
       @course.update(published: false)
-      redirect_to @course
+      redirect_to admin_course_path(@course)
     end
 
     # DELETE /courses/1
@@ -68,7 +68,7 @@
     def destroy
       @course.destroy
       respond_to do |format|
-        format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+        format.html { redirect_to admin_courses_path, notice: 'Course was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

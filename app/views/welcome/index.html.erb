@@ -2,6 +2,7 @@
   <div id="scroll">
     <%= image_tag 'welcome/scroll.svg', alt: "scroll" %>
   </div>
+
   <header class="header container-fluid" id="header">
     <div class="container header-content-wrapper">
       <div class="justify-self-start align-self-center logo-container">
@@ -9,6 +10,7 @@
         <%#= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first.to_s != params[:locale] %>
         <%#= params[:locale] %>
         <%#= current_user.locale %>
+        <%#= current_user.id %>
       </div>
       <div class="justify-self-end align-self-center button-wrapper">
         <a href="#trailer" class="scroll-nav">
@@ -16,12 +18,15 @@
             Подивитись трейлер
           </button>
         </a>
-        <% unless user_signed_in? %>
+        <% if user_signed_in? %>
+          <%= link_to button_tag("Мої курси", class: "all-button sign-in-button openSans-sans-serif600"), my_courses_path %>
+        <% else %>
           <%= link_to button_tag("Ввійти", class: "all-button sign-in-button openSans-sans-serif600"), new_user_session_path %>
         <% end %>
       </div>
     </div>
   </header>
+
   <section class="container-fluid align-self-center header-content-on-image" id="wrapper">
     <div class="container content-wrapper">
       <span class="header-title oswald-sans-serif600">Розпочни нове спортивне життя разом з нами!</span>
@@ -37,6 +42,7 @@
       </a>
     </div>
   </section>
+
   <div class="wrapper2 container-fluid">
     <section class="under-header-section-wrapper container-fluid">
       <div class="under-header-section container">
@@ -77,22 +83,19 @@
         </div>
       </div>
     </section>
-    <section class="wait-on-course">
+
+<!--    Інфа про перший курс-->
+    <section class="wait-on-course" style='background-image: url(<%=  @courses.first.image.url %>);'>
       <div class="left-side-text container">
-        <span class="oswald-sans-serif500">Що вас очікує протягом курсу.</span>
+        <span class="oswald-sans-serif500"><%= @courses.first.title %></span>
       </div>
       <div class="right-side-text container">
-        <p class="montserrat-sans-serif600">
-          “Опис” Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur. “Опис”
+        <p class="montserrat-sans-serif600"><%= @courses.first.description %>
         </p>
       </div>
     </section>
+<!------->
+
     <section class="course-for-you container">
       <span class="title oswald-sans-serif500">Цей курс для тебе, якщо...</span>
       <div class="wrapper-content">
@@ -146,6 +149,7 @@
         </div>
       </div>
     </section>
+
     <section class="we-are-coach-with-experience wait-on-course">
       <div class="coach-left-side container right-side-text">
         <p>
@@ -168,65 +172,24 @@
         <span class="oswald-sans-serif500">Результат курсу</span>
       </div>
     </section>
+
+<!--    Епізоди та пакети першого урока-->
     <section class="episode">
       <span class="title oswald-sans-serif500">Епізоди</span>
       <div class="slider container">
-        <div class="slide-wrapper">
-          <div class="slide sl-slide1">
-            <div class="top-number-container">
-              <span class="oswald-sans-serif500">1</span>
-            </div>
-            <div class="episode-content-wrapper">
-              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
-              <span class="description-of-episode montserrat-sans-serif600">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    minus quo sequi suscipit tempora ut vero.
-                </span>
-            </div>
-          </div>
-        </div>
-        <div class="slide-wrapper">
-          <div class="slide sl-slide2">
-            <div class="top-number-container">
-              <span class="oswald-sans-serif500">2</span>
-            </div>
-            <div class="episode-content-wrapper">
-              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
-              <span class="description-of-episode montserrat-sans-serif600">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    minus quo sequi suscipit tempora ut vero.
-                </span>
+        <% @courses.first.lessons.each.with_index(1) do |lesson, index| %>
+          <div class="slide-wrapper">
+            <div class="slide" style='background-image: url(<%= @courses.first.image.url %>);'>
+              <div class="top-number-container">
+                <span class="oswald-sans-serif500"><%= index %></span>
+              </div>
+              <div class="episode-content-wrapper">
+                <span class="name-of-episode oswald-sans-serif500"><%= lesson.title %></span>
+                <span class="description-of-episode montserrat-sans-serif600"><%= lesson.description %></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="slide-wrapper">
-          <div class="slide sl-slide3">
-            <div class="top-number-container">
-              <span class="oswald-sans-serif500">3</span>
-            </div>
-            <div class="episode-content-wrapper">
-              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
-              <span class="description-of-episode montserrat-sans-serif600">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    minus quo sequi suscipit tempora ut vero.
-                </span>
-            </div>
-          </div>
-        </div>
-        <div class="slide-wrapper">
-          <div class="slide sl-slide4">
-            <div class="top-number-container">
-              <span class="oswald-sans-serif500">4</span>
-            </div>
-            <div class="episode-content-wrapper">
-              <span class="name-of-episode oswald-sans-serif500">Назва 2 Епізоду</span>
-              <span class="description-of-episode montserrat-sans-serif600">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    minus quo sequi suscipit tempora ut vero.
-                </span>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </section>
     <section class="price-section container">
@@ -235,77 +198,106 @@
         <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
       </div>
       <div class="price-wrapper container">
-        <div class="price-card">
-          <div class="slide">
-            <div class="title-of-card">
-              <span class="card-title oswald-sans-serif500">Базовий</span>
-              <span class="card-description oswald-sans-serif500">
-                        Більше десяти годин відео від досвічених тренерів
-                    </span>
-            </div>
-            <div class="price-of-every-card">
-              <div class="content-wrapper">
-                <s class="crossed-out col oswald-sans-serif500">6000</s>
-                <span class="price oswald-sans-serif500">3000 гривень</span>
+        <% @courses.first.rates.each do |rate| %>
+          <div class="price-card">
+            <div class="slide">
+              <div class="title-of-card">
+                <span class="card-title oswald-sans-serif500"><%= rate.title %></span>
+                <span class="card-description oswald-sans-serif500"><%= rate.description %></span>
               </div>
-              <div class="button-wrapper">
-                <button class="all-button openSans-sans-serif600">Придбати</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="price-card">
-          <div class="slide">
-            <div class="title-of-card">
-              <span class="card-title oswald-sans-serif500 upgrade">Просунутий</span>
-              <span class="card-description oswald-sans-serif500">
-                        Більше десяти годин відео від досвічених тренерів
-                    </span>
-              <span class="card-description oswald-sans-serif500">
-                        + Персональна програма від тренера
-                    </span>
-            </div>
-            <div class="price-of-every-card">
-              <div class="content-wrapper">
-                <s class="crossed-out col oswald-sans-serif500">6000</s>
-                <span class="price oswald-sans-serif500">3000 гривень</span>
-              </div>
-              <div class="button-wrapper">
-                <button class="all-button openSans-sans-serif600">Придбати</button>
+              <div class="price-of-every-card">
+                <div class="content-wrapper">
+                  <s class="crossed-out col oswald-sans-serif500">6000</s>
+                  <span class="price oswald-sans-serif500"><%= rate.price %> гривень</span>
+                </div>
+                <div class="button-wrapper">
+                  <% if user_signed_in? && !@courses.first.bought?(current_user.id) %>
+                    <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), course_rate_bought_course_path(@courses.first, rate), method: :get %>
+                  <% elsif user_signed_in? && @courses.first.bought?(current_user.id) %>
+                    <%= link_to button_tag("Переглянути", class: "all-button openSans-sans-serif600"), course_lessons_path(@courses.first) %>
+                  <% else %>
+                    <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), new_user_registration_path %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="price-card last-card">
-          <div class="slide">
-            <div class="title-of-card">
-              <span class="card-title oswald-sans-serif500 vip">VIP+</span>
-              <span class="card-description oswald-sans-serif500">
-                        Більше десяти годин відео від досвічених тренерів
-                    </span>
-              <span class="card-description oswald-sans-serif500">
-                            + Персональна програма від тренера
-                        </span>
-              <span class="card-description oswald-sans-serif500">
-                            + Постійна підтримка та особисті зустрічі з тренером
-                        </span>
-            </div>
-            <div class="price-of-every-card">
-              <div class="content-wrapper">
-                <s class="crossed-out col oswald-sans-serif500">6000</s>
-                <span class="price oswald-sans-serif500">3000 гривень</span>
-              </div>
-              <div class="button-wrapper">
-                <button class="all-button openSans-sans-serif600">Придбати</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
       <div class="footer">
         <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
       </div>
     </section>
+<!------->
+
+<!--    Решта курсів-->
+    <% @courses.drop(1).each do |course| %>
+      <section class="wait-on-course" style='background-image: url(<%= course.image.url %>);'>
+        <div class="left-side-text container">
+          <span class="oswald-sans-serif500"><%= course.title %></span>
+        </div>
+        <div class="right-side-text container">
+          <p class="montserrat-sans-serif600"><%= course.description %>
+          </p>
+        </div>
+      </section>
+      <section class="episode">
+        <span class="title oswald-sans-serif500">Епізоди</span>
+        <div class="slider container">
+          <% course.lessons.each.with_index(1) do |lesson, index| %>
+            <div class="slide-wrapper">
+              <div class="slide" style='background-image: url(<%= course.image.url %>);'>
+                <div class="top-number-container">
+                  <span class="oswald-sans-serif500"><%= index %></span>
+                </div>
+                <div class="episode-content-wrapper">
+                  <span class="name-of-episode oswald-sans-serif500"><%= lesson.title %></span>
+                  <span class="description-of-episode montserrat-sans-serif600"><%= lesson.description %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </section>
+      <section class="price-section container">
+        <div class="title-container">
+          <span class="oswald-sans-serif600" id="price">Три пакети</span>
+          <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
+        </div>
+        <div class="price-wrapper container">
+          <% course.rates.each do |rate| %>
+            <div class="price-card">
+              <div class="slide">
+                <div class="title-of-card">
+                  <span class="card-title oswald-sans-serif500"><%= rate.title %></span>
+                  <span class="card-description oswald-sans-serif500"><%= rate.description %></span>
+                </div>
+                <div class="price-of-every-card">
+                  <div class="content-wrapper">
+                    <s class="crossed-out col oswald-sans-serif500">6000</s>
+                    <span class="price oswald-sans-serif500"><%= rate.price %> гривень</span>
+                  </div>
+                  <div class="button-wrapper">
+                    <% if user_signed_in? && !course.bought?(current_user.id) %>
+                      <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), course_rate_bought_course_path(course, rate), method: :get %>
+                    <% elsif user_signed_in? && course.bought?(current_user.id) %>
+                      <%= link_to button_tag("Переглянути", class: "all-button openSans-sans-serif600"), course_lessons_path(course) %>
+                    <% else %>
+                      <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), new_user_registration_path %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="footer">
+          <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
+        </div>
+      </section>
+    <% end %>
+
+<!--    Інші блоки-->
     <section class="wait-on-course bottom-card">
       <div class="left-side-text container">
         <span class="oswald-sans-serif500">
@@ -324,6 +316,7 @@
         </p>
       </div>
     </section>
+
     <section class="under-header-section under-quotes-section sale container">
       <div class="buy-ticket">
         <div class="content-wrapper">
@@ -361,6 +354,7 @@
         </div>
       </div>
     </section>
+
     <section class="wait-on-course arnold">
       <div class="right-side-text container">
         <p class="montserrat-sans-serif600 first">
@@ -384,14 +378,16 @@
       </div>
     </section>
   </div>
+
   <section class="container-fluid trailer-section">
     <div class="container wrapper-section-content">
       <span class="oswald-sans-serif500" id="trailer">Трейлер</span>
       <div class="video-container">
-        <%= video_tag 'trailer.mp4', controls: 'controls' %>
+        <%= video_tag @courses.first.trailer.url, controls: 'controls' %>
       </div>
     </div>
   </section>
+
   <footer>
     <div class="footer-wrapper">
       <div class="container top-container">
@@ -401,9 +397,9 @@
         </div>
         <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
         <div class="icons-container">
-          <a href="#"><%= image_tag 'welcome/facebook.svg', alt: "facebook" %></a>
-          <a href="#"><%= image_tag 'welcome/instagram.svg', alt: "instagram" %></a>
-          <a href="#"><%= image_tag 'welcome/vk.svg', alt: "vkontakte" %></a>
+          <a href="#"><%= image_tag 'icons/facebook.svg', alt: "facebook" %></a>
+          <a href="#"><%= image_tag 'icons/instagram.svg', alt: "instagram" %></a>
+          <a href="#"><%= image_tag 'icons/vk.svg', alt: "vkontakte" %></a>
         </div>
       </div>
       <div class="container bottom-container">

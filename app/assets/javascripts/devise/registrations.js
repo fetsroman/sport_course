@@ -1,3 +1,7 @@
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+
 window.onload = function (e) {
     const email = document.getElementById('email'),
         password = document.getElementById('password'),

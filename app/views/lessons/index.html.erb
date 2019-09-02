@@ -1,46 +1,162 @@
-<% if can_download? %>
-  <p>
-    <strong>Document:</strong>
-    <%= link_to "Download", @course.document.url %>
-  </p>
-<% end %>
-
-<% if can_contact? %>
-  <p>
-    <strong>Contact trainer</strong>
-  </p>
-<% end %>
-
-
-<div class="row">
+<div class="modalWindow container-fluid">
   <div class="container">
-    <div class="col-lg-5">
-      <% @course.lessons.each do |lesson| %>
-        <div class="card" style="width: 18rem">
-          <img class="card-img-top" src="<%= lesson.image.url %>" alt="Card image cap">
-
-          <div class="card-body">
-            <h5 class="card-title"><%= lesson.title %> </h5>
-            <p class="card-text"><%= lesson.description %></p>
-
-            <% if can? :manage, @course %>
-              <%= link_to "Edit Lesson", edit_course_lesson_path(@course, lesson) %>
-            <% end %>
-          </div>
-
-          <%= link_to 'watched', course_lesson_watched_path(@course, lesson), method: :put %>
-
-          <% if can_watch?(lesson) %>
-            <%= link_to 'Watch', course_lesson_path(@course, lesson), remote: true %>
-          <% end %>
+    <div class="modal-contacts" id="modal">
+      <span id="close">×</span>
+      <div class="top-name">
+        <%= image_tag 'icons/couch.svg', alt: "couch-image" %>
+        <div class="name-wrapper">
+          <span class="openSans-normal">Артем Васильев</span>
+          <span class="openSans-normal">Тренер</span>
         </div>
-      <% end %>
-    </div>
-
-    <div class="col-lg-5">
-      <div id="lesson">
-        <%= render @lesson %>
+      </div>
+      <div class="botton-contacts">
+        <div class="title">
+          <span class="openSans-normal">Контакти</span>
+        </div>
+        <div class="call-wrapper">
+          <%= image_tag 'icons/phone.svg', alt: "phone" %>
+          <div class="call-content-wrapper">
+            <span class="openSans-normal">+38 (063) 228 13 37</span>
+            <span class="openSans-normal">+38 (098) 148 82 28</span>
+          </div>
+        </div>
+        <div class="mail-wrapper">
+          <%= image_tag 'icons/mail.svg', alt: "mail" %>
+          <div class="call-content-wrapper">
+            <span class="openSans-normal">trenerpetro@mail.com</span>
+          </div>
+        </div>
+        <div class="fb-wrapper">
+          <%= image_tag 'icons/fb.svg', alt: "facebook" %>
+          <div class="call-content-wrapper">
+            <span class="openSans-normal">facebook.com/trenerpetro</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<div class="wrapper">
+  <header class="container-fluid">
+    <div class="container wrapper-header">
+      <div class="logo-wrapper">
+        <%= image_tag 'icons/logo_lessons_page.svg', alt: "logo" %>
+      </div>
+      <div class="profile-header">
+        <%= link_to "Курси", my_courses_path, class: "course openSans-normal" %>
+        <%= link_to "Вийти", destroy_user_session_path, method: :delete, class: "go-out openSans-normal" %>
+      </div>
+    </div>
+  </header>
+  <section class="under-header-line container-fluid">
+    <div class="container">
+      <span class="main-title oswald-bold"><%= @course.title %></span>
+      <div class="content-wrapper">
+        <span class="title oswald-bold"><%= @course.bought_tariff_title %></span>
+        <div class="button-wrapper">
+          <% if can_contact? %>
+            <button class="all-button openSans-normal" id="myBtn">
+              Контакти тренера
+              <%= image_tag 'icons/call-phone.svg', alt: "call" %>
+            </button>
+          <% end %>
+
+          <% if can_download? %>
+            <%= link_to @course.document.url, target: "_blank" do %>
+              <button class="all-button openSans-normal">
+                Робочий зошит
+                <%= image_tag 'icons/download.svg', alt: "download" %>
+              </button>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="main-section container-fluid" id="<%= @course.id %>">
+    <div class="content-wrapper container">
+      <div class="video-navigator">
+        <div class="range-container">
+          <div class="range-result-container">
+            <span class="procent">Загрузка...</span>
+            <span class="lesson"><%= @course.watched_count %> / <%= @course.lessons.count %> уроків</span>
+          </div>
+          <input type="range" id="myRange">
+          <div class="range-value">
+            <div id="range-value"></div>
+          </div>
+          <div class="video-wrapper">
+            <% @course.lessons.each do |lesson| %>
+              <% if can_watch?(lesson) %>
+                <% if @lesson.id == lesson.id %>
+
+                  <%= link_to course_lesson_path(@course, lesson), remote: true, class: "every-video viewing", id: "#{lesson.id}" do %>
+                    <%= image_tag lesson.image.url, alt: "photo" %>
+                    <div class="wrapper-text">
+                      <span class="title openSans-normal"><%= lesson.title %></span>
+                      <span class="description openSans-normal"><%= lesson.description.truncate(100, separator: /\s/) %></span>
+                    </div>
+                  <% end %>
+
+                <% else %>
+
+                  <%= link_to course_lesson_path(@course, lesson), remote: true, class: "every-video viewed", id: "#{lesson.id}" do %>
+                    <%= image_tag lesson.image.url, alt: "photo" %>
+                    <div class="wrapper-text">
+                      <span class="title openSans-normal"><%= lesson.title %></span>
+                      <span class="description openSans-normal"><%= lesson.description.truncate(100, separator: /\s/) %></span>
+                    </div>
+                  <% end %>
+
+                <% end %>
+<!--                if @lesson.id == lesson.id  END-->
+
+              <% else %>
+
+                <%= link_to course_lesson_path(@course, lesson), remote: true, class: "every-video to-view", id: "#{lesson.id}" do %>
+                  <%= image_tag lesson.image.url, alt: "photo" %>
+                  <div class="wrapper-text">
+                    <span class="title openSans-normal"><%= lesson.title %></span>
+                    <span class="description openSans-normal"><%= lesson.description.truncate(100, separator: /\s/) %></span>
+                  </div>
+                <% end %>
+
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%= render @lesson %>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-wrapper">
+      <div class="container top-container">
+        <div class="language-wrapper">
+          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'UK', url_for(locale: :uk) %></button></span>
+          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'RU', url_for(locale: :ru) %></button></span>
+        </div>
+        <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
+        <div class="icons-container">
+          <a href="#"><%= image_tag 'icons/facebook.svg', alt: "facebook" %></a>
+          <a href="#"><%= image_tag 'icons/instagram.svg', alt: "instagram" %></a>
+          <a href="#"><%= image_tag 'icons/vk.svg', alt: "vkontakte" %></a>
+        </div>
+      </div>
+      <div class="container bottom-container">
+        <span class="openSans-sans-serif600">Your Sport Courses 2019</span>
+        <span class="openSans-sans-serif600">Усі права захищено</span>
+        <span class="movadex openSans-sans-serif600">Зроблено в
+            <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+
+      <% @course.lessons.each do |lesson| %>
+      <% end %>

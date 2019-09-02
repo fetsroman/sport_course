@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/ do
     resources :courses do
-      put 'publish', to: 'courses#publish', on: :member, as: :publish
-      put 'unpublish', to: 'courses#unpublish', on: :member, as: :unpublish
       resources :lessons do
-        put '/watched', to: 'watched_lists#watched'
+        get '/watched', to: 'watched_lists#watched'
       end
       resources :rates do
         match '/bought_course', to: 'payment#bought_course', via: [:get, :post]

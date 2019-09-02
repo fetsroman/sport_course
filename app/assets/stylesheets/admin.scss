@@ -56,16 +56,23 @@ body {
     border: none;
     box-sizing: border-box;
 }
-
 .wrapper-buttons .go-out-btn{
+    margin-top: 16px;
+}
+.wrapper-buttons .go-out-btn button{
     border: 1px solid #FF3C3C;
     color: #FF3C3C;
     box-sizing: border-box;
     border-radius: 5px;
     background: #fff;
-    margin-top: 16px;
 }
 
+.wrapper-buttons button{
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    cursor: pointer;
+}
 .wrapper-btn .under-form-section {
     text-align: center;
     padding-top: 20px;

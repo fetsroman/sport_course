@@ -24,12 +24,8 @@
             <h5 class="card-title"><%= lesson.title %> </h5>
             <p class="card-text"><%= lesson.description %></p>
 
-            <% if can? :manage, @course %>
-              <%= link_to "Edit Lesson", edit_admin_course_lesson_path(@course, lesson) %>
-            <% end %>
+              <%= link_to "Edit Lesson", edit_admin_course_lesson_path(@course, lesson, locale: params[:locale]) %>
           </div>
-
-          <%= link_to 'watched', course_lesson_watched_path(@course, lesson), method: :put %>
 
           <% if can_watch?(lesson) %>
             <%= link_to 'Watch', course_lesson_path(@course, lesson), remote: true %>
@@ -38,10 +34,10 @@
       <% end %>
     </div>
 
-    <div class="col-lg-5">
-      <div id="lesson">
-        <%= render @lesson %>
-      </div>
-    </div>
+<!--    <div class="col-lg-5">-->
+<!--      <div id="lesson">-->
+        <%#= render 'admin/lessons/lesson', @lesson %>
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </div>

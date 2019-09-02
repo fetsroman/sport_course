@@ -341,7 +341,8 @@ body {
   grid-template-columns: 1fr 1fr;
   position: relative;
   height: 640px;
-  background: image_url("welcome/waitoncourse.png") no-repeat;
+  //background-image: image_url("welcome/header-image.png");
+  background-repeat: no-repeat;
   background-size: cover;
   transform: skew(0deg, 0deg);
 }
@@ -492,25 +493,8 @@ body {
   margin-left: 6%;
   border-radius: 10px;
   cursor: pointer;
-}
-
-.episode .slider .sl-slide1 {
-  background: image_url("welcome/slider1.png") no-repeat center center;
-  background-size: cover;
-}
-
-.episode .slider .sl-slide2 {
-  background: image_url("welcome/slider2.png") no-repeat center center;
-  background-size: cover;
-}
-
-.episode .slider .sl-slide3 {
-  background: image_url("welcome/slider3.png") no-repeat center center;
-  background-size: cover;
-}
-
-.episode .slider .sl-slide4 {
-  background: image_url("welcome/slider2.png") no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
 }
 

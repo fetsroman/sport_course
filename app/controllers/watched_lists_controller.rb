@@ -11,8 +11,6 @@ class WatchedListsController < ApplicationController
     if @watched_list.present?
       @watched_list.update(watch: true)
     end
-
-    redirect_to @course, notice: "#{@id} dila #{@watched_list}"
   end
 
   private

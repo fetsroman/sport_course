@@ -1,6 +1,34 @@
 <h1>Editing Rate</h1>
 
-<%= render 'form', rate: @rate %>
+<%= simple_form_for(@rate, url: admin_course_rate_path(@course, @rate, locale: params[:locale]), method: "PUT") do |form| %>
+  <%= form.error_notification %>
+  <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
-<%= link_to 'Show', course_rates_path(@rate) %> |
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tariff %>
+    <%= form.select :tariff, options_for_select(Rate.tariffs.keys.to_a, @rate.tariff),{},{ class:"form-control m-b" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', admin_course_rates_path(@rate) %> |
 <%= link_to 'Back', @course %>

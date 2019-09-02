@@ -1,1 +1,13 @@
-fuck
+<div class="container">
+  <div class="row justify-content-center">
+    <%= link_to 'Редагувати', edit_admin_course_lesson_path(@lesson), class: "btn btn-primary" %>
+    <div class="col-md-6">
+      <img style="max-width: 100%;" src="<%= @lesson.image.url %>">
+    </div>
+    <h3><%= @lesson.title %></h3>
+    <p><%= @lesson.description %></p>
+    <video controls autoplay>
+      <source src="<%= @lesson.video.url %>">
+    </video>
+  </div>
+</div>

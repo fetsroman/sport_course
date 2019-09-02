@@ -1,38 +1,31 @@
-<% if can? :manage, @course %>
-  <% if @course.published? %>
-    <%= link_to "Курс опубліковано Unpublish", unpublish_course_path(@course), method: :put %>
-  <% else %>
-    <%= link_to "Publish", publish_course_path(@course), method: :put %>
-  <%  end %>
-  <%= link_to 'Edit', edit_course_path(@course) %>
-  <%= link_to 'Add Lesson', new_course_lesson_path(@course) %>
-  <%= link_to 'Add Rate', new_course_rate_path(@course) %>
-<% end %>
-<%= link_to 'Back', admin_courses_path %>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6">
-      <video controls autoplay>
-        <source src="<%= @course.trailer.url %>">
-      </video>
-      <img src="<%= @course.image.url %>">
-      <p>
-        <strong>Title:</strong>
-        <%= @course.title %>
-      </p>
+<div class="container">
+  <div class="row justify-content-center">
+    <% if @course.published? %>
+      <%= link_to "Курс опубліковано, натисніть аби приховати курс", unpublish_admin_course_path(@course), method: :put, class: "btn btn-success" %>
+    <% else %>
+      <%= link_to "Опублікувати", publish_admin_course_path(@course), method: :put, class: "btn btn-success" %>
+    <%  end %>
+    <%= link_to 'Редагувати', edit_admin_course_path(@course), class: "btn btn-primary" %>
+    <div class="col-md-6">
+      <img style="max-width: 100%;" src="<%= @course.image.url %>">
 
-      <p>
-        <strong>Description:</strong>
-        <%= @course.description %>
-      </p>
 
-        <p>
-          <strong>Document:</strong>
-          <%= link_to "Download", @course.document.url %>
-        </p>
+
     </div>
+    <h3><%= @course.title %></h3>
+    <p><%= @course.description %></p>
+    <p><%= link_to "Скачати документ", @course.document.url %></p>
+    <video controls autoplay>
+      <source src="<%= @course.trailer.url %>">
+    </video>
+  </div>
+</div>
 
-    <div class="col-lg-6">
+
+
+<%= link_to 'Додати тариф', new_admin_course_rate_path(@course), class: "btn btn-warning" %>
+<h1>Тарифи</h1>
+    <div class="col-md-6">
       <% @course.rates.each do |rate| %>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
@@ -41,17 +34,17 @@
             <p class="card-text"><%= rate.price %></p>
             <p class="card-text"><%= rate.description %></p>
 
-              <%= link_to "Edit Rate", edit_course_rate_path(@course, rate) %>
-
+            <%= link_to "Редагувати", edit_admin_course_rate_path(@course, rate), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="container">
-      <div class="col-lg-5">
+      <h1>Уроки</h1>
+
+<%= link_to 'Додати урок', new_admin_course_lesson_path(@course), class: "btn btn-warning" %>
+      <div class="col-md-6">
         <% @course.lessons.each do |lesson| %>
           <div class="card" style="width: 18rem">
             <img class="card-img-top" src="<%= lesson.image.url %>" alt="Card image cap">
@@ -60,12 +53,10 @@
               <h5 class="card-title"><%= lesson.title %> </h5>
               <p class="card-text"><%= lesson.description %></p>
 
-                <%= link_to "Edit Lesson", edit_course_lesson_path(@course, lesson) %>
+              <%= link_to "Переглянутит", admin_course_lesson_path(lesson), clas: "btn btn-info" %>
+              <%= link_to "Редагувати", edit_admin_course_lesson_path(@course, lesson), class: "btn btn-primary" %>
             </div>
-              <%= link_to 'Watch', course_lesson_path(@course, lesson) %>
           </div>
         <% end %>
       </div>
-    </div>
-  </div>
 </div>

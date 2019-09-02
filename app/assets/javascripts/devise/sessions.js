@@ -1,3 +1,7 @@
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+
 document.getElementById('submit').onclick = function (e) {
     const email = document.getElementById('email'),
         password = document.getElementById('password'),

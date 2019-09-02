@@ -1,4 +1,4 @@
-<%= simple_form_for @lesson, url: admin_course_lessons_path(@course, @lesson), method: "POST" do |form| %>
+<%= simple_form_for @lesson, url: admin_course_lessons_path(@course, @lesson, locale: params[:locale]), method: "POST" do |form| %>
   <%= form.error_notification %>
   <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 

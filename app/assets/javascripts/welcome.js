@@ -1,3 +1,10 @@
+//= require jquery3
+//= require bootstrap
+//= require slick.min
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+
 let scrolled,
     timer,
     scroll = document.getElementById('scroll'),
@@ -46,3 +53,72 @@ window.onload = function () {
         scrollToTop();
     };
 };
+
+$(document).on('click', '.scroll-nav', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top - 120
+    }, 900);
+});
+
+$('.slider').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+        {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 767,
+            settings: {
+                slidesToScroll: 1,
+                centerMode: true,
+                variableWidth: true,
+            }
+        }
+    ]
+});
+
+$('.price-wrapper').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [
+        {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 470,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        }
+    ]
+});

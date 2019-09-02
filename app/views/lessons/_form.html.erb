@@ -1,4 +1,4 @@
-<%= simple_form_for([@course, @lesson]) do |form| %>
+<%= simple_form_for(@lesson, url: new_course_lesson_path(@lesson), method: "POST") do |form| %>
   <%= form.error_notification %>
   <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 

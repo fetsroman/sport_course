@@ -1,1 +1,80 @@
-<%= @courses %>
+<div class="wrapper">
+  <header class="container-fluid">
+    <div class="container wrapper-header">
+      <div class="logo-wrapper">
+        <%= image_tag 'icons/logo_my_courses.svg', alt: "logo" %>
+      </div>
+      <div class="profile-go-out">
+        <%= link_to "Вийти", destroy_user_session_path, method: :delete, class: "go-out openSans-normal" %>
+      </div>
+    </div>
+  </header>
+  <section class="card-section container-fluid">
+    <div class="container">
+      <div class="main-title">
+        <span class="main-title oswald-bold">Придбані курси</span>
+      </div>
+      <div class="wrapper-card">
+        <% @courses.each do |course| %>
+          <% if course.bought_tariff == "vip" %>
+            <%= link_to course_lessons_path(course), class: "every-card vip", style: "background-image: url(#{course.image.url})" do %>
+              <div class="bottom-block">
+                <span class="title oswald-bold"><%= course.title %></span>
+                <span class="sub-title"><%= course.bought_tariff_title %></span>
+                <div class="image-container">
+                  <%= image_tag 'icons/calendar.svg', alt: "calendar" %>
+                  <span class="oswald-bold">Залишилось <%= course.watched_count %>/<%= course.lessons.count %> уроків</span>
+                </div>
+              </div>
+            <% end %>
+          <% elsif course.bought_tariff == "advanced" %>
+            <%= link_to course_lessons_path(course), class: "every-card advanced", style: "background-image: url(#{course.image.url})" do %>
+              <div class="bottom-block">
+                <span class="title oswald-bold"><%= course.title %></span>
+                <span class="sub-title"><%= course.bought_tariff_title %></span>
+                <div class="image-container">
+                  <%= image_tag 'icons/calendar.svg', alt: "calendar" %>
+                  <span class="oswald-bold">Залишилось <%= course.watched_count %>/<%= course.lessons.count %> уроків</span>
+                </div>
+              </div>
+            <% end %>
+          <% elsif course.bought_tariff == "standart" %>
+            <%= link_to course_lessons_path(course), class: "every-card standart", style: "background-image: url(#{course.image.url})" do %>
+              <div class="bottom-block">
+                <span class="title oswald-bold"><%= course.title %></span>
+                <span class="sub-title"><%= course.bought_tariff_title %></span>
+                <div class="image-container">
+                  <%= image_tag 'icons/calendar.svg', alt: "calendar" %>
+                  <span class="oswald-bold">Залишилось <%= course.watched_count %>/<%= course.lessons.count %> уроків</span>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-wrapper">
+      <div class="container top-container">
+        <div class="language-wrapper">
+          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'UK', url_for(locale: :uk) %></button></span>
+          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'RU', url_for(locale: :ru) %></button></span>
+        </div>
+        <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
+        <div class="icons-container">
+          <a href="#"><%= image_tag 'icons/facebook.svg', alt: "facebook" %></a>
+          <a href="#"><%= image_tag 'icons/instagram.svg', alt: "instagram" %></a>
+          <a href="#"><%= image_tag 'icons/vk.svg', alt: "vkontakte" %></a>
+        </div>
+      </div>
+      <div class="container bottom-container">
+        <span class="openSans-sans-serif600">Sports Courses 2019</span>
+        <span class="openSans-sans-serif600">Усі права захищено</span>
+        <span class="movadex openSans-sans-serif600">Зроблено в
+          <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>

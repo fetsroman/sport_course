@@ -1,3 +1,366 @@
-// Place all the styles related to the BoughtList controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  vertical-align: top !important;
+}
+
+.oswald-bold {
+  font-family: 'Oswald', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.oswald-sans-serif500 {
+  font-family: 'Oswald', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.openSans-sans-serif600 {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.openSans-normal {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+header .wrapper-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 7px 15px 7px 15px;
+}
+
+header .profile-go-out {
+  justify-self: end;
+  align-self: center;
+
+}
+
+header .profile-go-out a {
+  color: rgba(0, 0, 0, 0.76);
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: capitalize;
+  font-weight: bold !important;
+
+}
+
+header .profile-go-out a:hover {
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.76);
+  text-decoration: none;
+}
+
+.card-section {
+  position: relative;
+  z-index: 2;
+  margin-top: 64px;
+  height: auto;
+  background: #fff;
+  transform: skew(0deg, 3deg);
+  padding-bottom: 20px;
+}
+
+.card-section .container {
+  transform: skew(0deg, -3deg);
+  margin-bottom: 50px;
+}
+
+.card-section .main-title {
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+.card-section .wrapper-card a:first-child {
+  border-radius: 10px !important;
+}
+
+.card-section .wrapper-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 34px;
+  grid-gap: 24px;
+}
+
+.card-section .wrapper-card .every-card {
+  position: relative;
+  z-index: 3;
+  height: 442px;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.bottom-block {
+  perspective: 1px;
+  position: absolute;
+  display: grid;
+  z-index: 2;
+  bottom: 0;
+  width: 100%;
+  height: 188px;
+  background: rgba(20, 141, 0, 0.55);
+  transform: skew(0deg, -3deg);
+  margin-bottom: -10px;
+  padding: 26px 0 0 22px;
+  box-sizing: border-box;
+}
+
+.card-section .wrapper-card .advanced .bottom-block {
+  background: rgba(242, 201, 76, 0.75);
+}
+
+.card-section .wrapper-card .vip .bottom-block {
+  background: rgba(242, 201, 76, 0.75);
+}
+
+.card-section .wrapper-card .standart .bottom-block {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.card-section .wrapper-card .bottom-block * {
+  transform: skew(0deg, 3deg);
+}
+
+.card-section .wrapper-card .every-card .title {
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.card-section .wrapper-card .every-card .sub-title {
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: -20px;
+}
+
+.card-section .wrapper-card .every-card .image-container {
+
+}
+
+.card-section .wrapper-card .every-card .image-container span {
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+/*footer*/
+
+footer {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto;
+  z-index: 1;
+  background: #404040;
+  text-align: center;
+  height: 270px;
+  width: 100%;
+  margin-top: -50px;
+}
+
+.footer-wrapper {
+  height: 100%;
+  padding-top: 20px;
+}
+
+footer span, footer a {
+  color: rgba(255, 255, 255, 0.76);
+  letter-spacing: 0.03em;
+  transform: skew(0deg, 0deg);
+}
+
+footer .top-container .language-wrapper button:focus {
+  text-decoration: underline;
+}
+
+footer .top-container .language-wrapper button, footer .top-container .language-wrapper button a{
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 125%;
+  letter-spacing: 0.06em;
+  color: #D1D1D1;
+  cursor: pointer;
+  transition: .3s;
+}
+
+footer .top-container .language-wrapper button a:hover{
+  text-decoration: none;
+  color: #F2C94C;
+}
+
+footer .top-container .language-wrapper .active {
+  color: #F2C94C;
+}
+
+footer .top-container .language-wrapper button:hover {
+  transition: .3s;
+  color: #F2C94C;
+}
+
+footer .top-container .title {
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.03em;
+  color: #D8D8D8;
+  padding-top: 30px;
+}
+
+footer .top-container {
+  display: grid;
+  align-self: center;
+  padding-top: 70px;
+}
+
+footer .top-container .icons-container {
+  display: grid;
+  justify-self: center;
+  padding: 15px 0 15px;
+  grid-gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+footer .bottom-container {
+  display: grid;
+  align-self: end;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+footer .bottom-container span, footer .bottom-container span a {
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.03em;
+}
+
+footer .bottom-container span a {
+  text-decoration: underline;
+}
+
+footer .bottom-container span a:hover {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper {
+    height: auto;
+  }
+
+  .card-section .wrapper-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer {
+    position: relative;
+    margin-top: -50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-section .wrapper-card {
+    grid-template-columns: 1fr;
+  }
+
+  .card-section .container .main-title {
+    text-align: center;
+  }
+
+  .card-section .wrapper-card .every-card {
+    width: 328px;
+    justify-self: center;
+  }
+
+  footer {
+    position: relative;
+    margin-top: -50px;
+    height: 290px;
+  }
+
+  footer .bottom-container {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+
+  footer .top-container .title {
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card-section .main-title {
+    font-size: 40px;
+  }
+
+  .card-section .container {
+    padding: 0 !important;
+  }
+
+  footer .top-container .title {
+    padding: 10px 10px 0 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card-section .wrapper-card .every-card {
+    width: 308px;
+  }
+
+  .card-section .wrapper-card .every-card .bottom-block {
+    padding: 50px 0 0 15px;
+  }
+
+  .card-section .wrapper-card .every-card .title {
+    font-size: 26px;
+    line-height: 100%;
+  }
+
+  .card-section .wrapper-card .every-card .sub-title {
+    font-size: 14px;
+    line-height: 100%;
+  }
+
+  .card-section .wrapper-card .every-card .image-container span {
+    font-size: 12px;
+    line-height: 100%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .card-section .main-title {
+    font-size: 36px;
+  }
+
+  .card-section .wrapper-card .every-card {
+    width: 278px;
+  }
+
+  footer {
+    height: 310px;
+  }
+}

@@ -1,4 +1,4 @@
-<%= simple_form_for([@course, @rate], html: { class: 'form-inline' }) do |form| %>
+<%= simple_form_for(@rate, url: admin_course_rates_path(@course, @rate, locale: params[:locale]), method: "POST") do |form| %>
   <%= form.error_notification %>
   <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
