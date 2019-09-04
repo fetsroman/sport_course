@@ -78,7 +78,7 @@
       <div class="video-navigator">
         <div class="range-container">
           <div class="range-result-container">
-            <span class="procent">Загрузка...</span>
+            <span class="procent">0%</span>
             <span class="lesson"><%= @course.watched_count %> / <%= @course.lessons.count %> уроків</span>
           </div>
           <input type="range" id="myRange">
@@ -135,8 +135,24 @@
     <div class="footer-wrapper">
       <div class="container top-container">
         <div class="language-wrapper">
-          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'UK', url_for(locale: :uk) %></button></span>
-          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'RU', url_for(locale: :ru) %></button></span>
+          <span class="oswald-sans-serif500">
+            <button class="active">
+              <% unless params[:locale] == "uk" %>
+                <%= link_to "UK", change_locale_path(:uk, path: "#{request.path.to_s.split("/").drop(2).join("/")}") %>
+              <% else %>
+                UK
+              <% end %>
+            </button>
+          </span>
+          <span class="oswald-sans-serif500">
+            <button class="active">
+              <% unless params[:locale] == "ru" %>
+                <%= link_to "RU", change_locale_path(:ru, path: "#{request.path.to_s.split("/").drop(2).join("/")}") %>
+              <% else %>
+                RU
+              <% end %>
+            </button>
+          </span>
         </div>
         <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
         <div class="icons-container">

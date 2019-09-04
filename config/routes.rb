@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get'lang/:locale', to: 'application#change_locale', as: :change_locale
+
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/ do
     resources :courses do
       resources :lessons do
@@ -10,10 +12,8 @@ Rails.application.routes.draw do
     end
     devise_for :users
     root "welcome#index"
-    resources :users do
-      member do
-        get :confirm_email
-      end
+    namespace :users do
+      get :confirm_email
     end
     get '/my_courses', to: 'bought_list#index'
 
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get 'statistics', to: 'statistics#index'
     end
   end
+
   get '/', to: redirect("/#{I18n.default_locale}")
   get "/*path", to: redirect("/#{I18n.default_locale}/%{path}")
 end

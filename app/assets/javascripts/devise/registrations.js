@@ -1,8 +1,9 @@
+//= require jquery3
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 
-window.onload = function (e) {
+$(document).ready(function(){
     const email = document.getElementById('email'),
         password = document.getElementById('password'),
         check = document.getElementById('check'),
@@ -14,8 +15,6 @@ window.onload = function (e) {
         radio = document.querySelector("input[name=language]:checked");
 
     var my_data = $('#foobar').data('foobar');
-
-    e.preventDefault();
 
     function validateEmail(email_check) {
         var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -50,4 +49,4 @@ window.onload = function (e) {
             }
         }
     });
-};
+});

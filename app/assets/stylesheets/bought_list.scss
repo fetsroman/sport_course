@@ -8,6 +8,19 @@ body {
   position: relative;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #F2C94C;
+  overflow-y: hidden;
+}
+
 img {
   vertical-align: top !important;
 }
@@ -71,6 +84,7 @@ header .profile-go-out a:hover {
   z-index: 2;
   margin-top: 64px;
   height: auto;
+  min-height: 592px;
   background: #fff;
   transform: skew(0deg, 3deg);
   padding-bottom: 20px;
@@ -299,7 +313,7 @@ footer .bottom-container span a:hover {
   footer {
     position: relative;
     margin-top: -50px;
-    height: 290px;
+    height: 300px;
   }
 
   footer .bottom-container {

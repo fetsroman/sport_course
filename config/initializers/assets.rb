@@ -14,7 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.scss)
 
 %w( welcome courses lessons rates devise/sessions devise/registrations devise/confirmations bought_list payment admin).each do |controller|
-  Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.js", "#{controller}.scss", "devise/#{controller}.scss"]
+  Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.js", "#{controller}.js", "#{controller}.scss", "devise/#{controller}.scss"]
 end
 
 Rails.application.config.assets.paths << "#{Rails.root}/app/assets/videos"

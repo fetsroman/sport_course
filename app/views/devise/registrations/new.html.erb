@@ -14,7 +14,7 @@
           <div class="icons-wrapper">
             <%= image_tag 'auth/mail.svg' %>
           </div>
-          <%= f.email_field :email, id: "email", validate: true %>
+          <%= f.email_field :email, id: "email", placeholder: "Email", validate: true %>
           <br>
           <span id="email-hint" class="hint"></span>
         </div>
@@ -53,6 +53,12 @@
           </div>
         </div>
         <%= f.submit "Зареєструватись", class: "button", id: "submit" %>
+        <div class="forgetPassword">
+          <span class="openSans-normal">
+            Вже маєте аккаунт?
+            <%= link_to "Увійти", new_user_session_path %>
+          </span>
+        </div>
       <% end %>
     </div>
   </div>

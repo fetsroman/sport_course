@@ -12,10 +12,14 @@ $(document).ready(function(){
 
         range.value = arg;
         range.max.value = max;
-        let p = arg / max * 100;
+        let p = arg / max;
         range_line_width.style.width = p + '%';
-        procent.textContent = p.toFixed(0) + '%';
-        lesson.textContent = `${arg} / ${max}`
+        const total = parseFloat(range_line_width.style.width) * 100;
+        lesson.textContent = `${arg} / ${max} уроків`;
+        setTimeout(function () {
+            range_line_width.style.width = total + '%';
+            procent.textContent = total + '%'
+        }, 0);
     }
 
     var arr = $(".lesson").text().split(" ");

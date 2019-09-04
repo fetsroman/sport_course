@@ -10,9 +10,9 @@
           <div class="icons-wrapper">
             <%= image_tag 'auth/mail.svg' %>
           </div>
-          <%= f.email_field :email, autofocus: true, autocomplete: "Email", id: "email" %>
+          <%= f.email_field :email, autofocus: true, placeholder: "Email", id: "email" %>
           <br>
-          <span id="email-hint" class="hint"><%= alert %></span>
+          <span id="email-hint" class="hint"></span>
         </div>
         <div class="wrapper-input" id="wrapper-input-password">
           <div class="icons-wrapper">
@@ -31,7 +31,14 @@
           <%# end %>
         </div>
         <%= f.submit "Увійти", id: "submit", class: "button" %>
+        <div class="forgetPassword">
+          <span class="openSans-normal">
+            Не маєте аккаунта?
+            <%= link_to "Створити новий", new_user_registration_path %>
+          </span>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
+<span class="hidden" hidden><%= alert %></span>

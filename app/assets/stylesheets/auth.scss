@@ -4,6 +4,15 @@ body {
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  overflow-y: hidden;
+}
+
 .container {
   display: grid;
   width: 100vw;
@@ -62,7 +71,7 @@ body {
   line-height: 160%;
   letter-spacing: 0.03em;
   color: #343434;
-  width: 60%;
+  width: 68%;
   padding-left: 0;
   text-align: left;
 }
@@ -428,6 +437,22 @@ input:focus {
   padding-top: 5px;
 }
 
+.forgetPassword {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.forgetPassword span{
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: 0.03em;
+  color: #343434;
+}
+
+.forgetPassword a{
+  color: #343434;
+}
+
 @media screen and (max-width: 1200px) {
   .wrapper-form {
     width: 65%;
@@ -510,7 +535,7 @@ input:focus {
 @media screen and (max-width: 380px) {
   .wrapper-form form {
     justify-self: start;
-    margin-left: 5vw;
+    margin-left: 6vw;
     grid-gap: 10px;
   }
 }
@@ -528,10 +553,6 @@ input:focus {
 
   .checkbox-container {
     margin: 0;
-  }
-
-  .wrapper-form-registration form {
-
   }
 
   .wrapper-form-registration form {
@@ -586,11 +607,16 @@ input:focus {
     padding: 0;
   }
   .wrapper-form form {
-    grid-gap: 5px;
+    grid-gap: 10px;
     margin-top: 10px;
+    margin-left: 4vw;
   }
-}
 
-@media screen and (max-width: 326px) {
+  .wrapper-form-registration form{
+    margin-left: 5vw;
+  }
 
+  .forgetPassword span {
+    padding-right: 20px;
+  }
 }

@@ -8,12 +8,17 @@ body {
   position: relative;
 }
 
-body * {
-  color: #fff;
+::-webkit-scrollbar {
+  width: 12px;
 }
 
-a {
-  outline: none;
+::-webkit-scrollbar-track-piece {
+  background-color: #2A2A2A;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #F2C94C;
+  overflow-y: hidden;
 }
 
 video::-webkit-media-controls {
@@ -23,6 +28,14 @@ video::-webkit-media-controls {
 video::-webkit-media-controls-enclosure {
   width: calc(100% + 32px);
   margin-left: auto;
+}
+
+body * {
+  color: #fff;
+}
+
+a {
+  outline: none;
 }
 
 .container-fluid {
@@ -296,10 +309,11 @@ header .profile-header a:hover {
 }
 
 .range-value {
-  position: relative;
+  position: absolute;
+  left: 0;
   z-index: 1;
   height: 2px;
-  width: 324px;
+  width: 100%;
   background: #fff;
   margin-top: -15px;
 }
@@ -316,6 +330,7 @@ header .profile-header a:hover {
   grid-template-rows: auto;
   grid-row-gap: 12px;
   margin-top: 24px;
+  transition: width 1.5s linear;
 }
 
 .video-wrapper .every-video {
@@ -333,11 +348,13 @@ header .profile-header a:hover {
 
 .video-wrapper .every-video .wrapper-text {
   display: grid;
+  height: 71px;
   padding: 16px;
 }
 
 .video-wrapper .every-video .title {
   font-size: 14px;
+  opacity: 0;
 }
 
 .video-wrapper .every-video .description {
@@ -347,6 +364,7 @@ header .profile-header a:hover {
 /*ANOTHER CLASS*/
 .video-wrapper .viewed {
   border: 1px solid #F2C94C;
+  cursor: pointer;
 }
 
 .video-wrapper .viewed:after {
@@ -403,19 +421,23 @@ header .profile-header a:hover {
 .video-wrapper .to-view:after {
   content: image_url("icons/block.svg");
   position: absolute;
-  top: 35%;
-  left: 15%;
+  top: 23px;
+  left: 46px;
 }
+
+/*LAST*/
+.video-wrapper .last:after {
+  display: none;
+}
+
+/*LAST*/
 
 /*the end*/
 
 .video-container video {
   width: 100%;
   box-sizing: border-box;
-}
-
-.video-container video {
-  width: 100%;
+  outline: none;
 }
 
 .video-container .under-video-line {
@@ -742,9 +764,24 @@ footer .bottom-container span a:hover {
   .toggleModal {
     margin-top: 275px;
   }
+
+  .video-wrapper .to-view:after {
+    left: 43px;
+  }
+
+  .video-wrapper .every-video {
+    grid-template-columns: 110px 1fr;
+  }
 }
 
 @media screen and (max-width: 350px) {
+  .video-wrapper .every-video {
+    grid-template-columns: 90px 1fr;
+  }
+  .video-wrapper .to-view:after {
+    left: 32px;
+  }
+
   footer {
     height: 310px;
   }

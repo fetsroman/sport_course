@@ -1,30 +1,21 @@
+//= require jquery3
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 
-document.getElementById('submit').onclick = function (e) {
+$(document).ready(function(){
     const email = document.getElementById('email'),
         password = document.getElementById('password'),
         password_hint = document.getElementById('password-hint'),
-        email_hint = document.getElementById('email-hint'),
-        re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        email_hint = document.getElementById('email-hint');
 
-    e.preventDefault();
-    if (password.value.length <= 7) {
-        password.style.border = '1px solid red';
-        password_hint.textContent = 'Неправильний пароль';
-    } else {
-        password.style.border = 'none';
-        password_hint.textContent = '';
-    }
-    if (!re.test(String(email.value).toLowerCase())) {
+    if ( $(".hidden").text() == "Invalid Email or password." ) {
         email.style.border = '1px solid red';
-        email_hint.textContent = 'Неправильний Email';
-    } else {
-        email.style.border = 'none';
-        email_hint.textContent = '';
+        password.style.border = '1px solid red';
+        email_hint.textContent = 'Неправильний Email або Пароль';
     }
-    if(email_hint.textContent === '' && email_hint.textContent === ''){
-        console.log(email.value, password.value)
+    else if($(".hidden").text() == "You have to confirm your email address before continuing.") {
+        email.style.border = '1px solid red';
+        email_hint.textContent = 'Підтвердіть аккаунт за допомогою листа на вашому Email';
     }
-};
+});

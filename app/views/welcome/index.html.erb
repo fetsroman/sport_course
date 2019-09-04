@@ -7,8 +7,10 @@
     <div class="container header-content-wrapper">
       <div class="justify-self-start align-self-center logo-container">
         <%= image_tag 'welcome/logo.svg', alt: "logo" %>
-        <%#= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first.to_s != params[:locale] %>
-        <%#= params[:locale] %>
+        <%= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first.to_s != params[:locale] %>
+        <%= params[:locale] %>
+        <%= user_signed_in? && I18n.available_locales.map(&:to_s).include?('uk') %>
+        <%= request.path.to_s.split("/") %>
         <%#= current_user.locale %>
         <%#= current_user.id %>
       </div>
@@ -261,7 +263,7 @@
       </section>
       <section class="price-section container">
         <div class="title-container">
-          <span class="oswald-sans-serif600" id="price">Три пакети</span>
+          <span class="oswald-sans-serif600" id="price">Два пакети</span>
           <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
         </div>
         <div class="price-wrapper container">
@@ -392,8 +394,24 @@
     <div class="footer-wrapper">
       <div class="container top-container">
         <div class="language-wrapper">
-          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'UK', url_for(locale: :uk) %></button></span>
-          <span class="oswald-sans-serif500"><button class="active"><%= link_to_unless_current 'RU', url_for(locale: :ru) %></button></span>
+          <span class="oswald-sans-serif500">
+            <button class="active">
+              <% unless params[:locale] == "uk" %>
+                <%= link_to "UK", change_locale_path(:uk, path: "#{request.path.to_s.split("/").drop(2).join("/")}") %>
+              <% else %>
+                UK
+              <% end %>
+            </button>
+          </span>
+          <span class="oswald-sans-serif500">
+            <button class="active">
+              <% unless params[:locale] == "ru" %>
+                <%= link_to "RU", change_locale_path(:ru, path: "#{request.path.to_s.split("/").drop(2).join("/")}") %>
+              <% else %>
+                RU
+              <% end %>
+            </button>
+          </span>
         </div>
         <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
         <div class="icons-container">
