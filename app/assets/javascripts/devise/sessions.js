@@ -2,6 +2,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require rails.validations
 
 $(document).ready(function(){
     const email = document.getElementById('email'),

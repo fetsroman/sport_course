@@ -7,12 +7,6 @@
     <div class="container header-content-wrapper">
       <div class="justify-self-start align-self-center logo-container">
         <%= image_tag 'welcome/logo.svg', alt: "logo" %>
-        <%= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first.to_s != params[:locale] %>
-        <%= params[:locale] %>
-        <%= user_signed_in? && I18n.available_locales.map(&:to_s).include?('uk') %>
-        <%= request.path.to_s.split("/") %>
-        <%#= current_user.locale %>
-        <%#= current_user.id %>
       </div>
       <div class="justify-self-end align-self-center button-wrapper">
         <a href="#trailer" class="scroll-nav">
@@ -424,9 +418,23 @@
         <span class="openSans-sans-serif600">Your Sport Courses 2019</span>
         <span class="openSans-sans-serif600">Усі права захищено</span>
         <span class="movadex openSans-sans-serif600">Зроблено в
-                    <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
-                </span>
+          <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
+        </span>
       </div>
     </div>
   </footer>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p><%= notice %></p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<span class="hidden" hidden><%= notice %></span>

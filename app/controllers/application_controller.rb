@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :extract_locale, except: [:change_locale]
+  before_action :set_locale, except: [:change_locale]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def change_locale
-    if current_user
+    if user_signed_in?
       current_user.update(locale: params[:locale])
       I18n.locale = current_user.locale
     else
@@ -13,13 +14,15 @@ class ApplicationController < ActionController::Base
     redirect_to("/" + I18n.locale.to_s + "/"+ params[:path].to_s)
   end
 
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone, :terms_and_conditions])
+  end
+
   private
 
   def set_locale
-    I18n.locale =  extract_locale
-  end
-
-  def extract_locale
     if user_signed_in? && I18n.available_locales.map(&:to_s).include?(current_user.locale)
       I18n.locale = current_user.locale
       if params[:locale] != current_user.locale

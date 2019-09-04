@@ -1,65 +1,148 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 uk:
+  activerecord:
+    attributes:
+      user:
+        confirmation_sent_at: Підтвердження надіслано о
+        confirmation_token: Код підтвердження
+        confirmed_at: Підтверджено
+        created_at: Створено
+        current_password: Поточний пароль
+        current_sign_in_at: Поточна сесія відкрита
+        current_sign_in_ip: IP поточної сесії
+        email: Адреса електронної пошти
+        encrypted_password: Зашифрований пароль
+        failed_attempts: Хибних спроб
+        last_sign_in_at: Останній раз заходив
+        last_sign_in_ip: IP останнього заходу
+        locked_at: Заблокований
+        password: Пароль
+        password_confirmation: Підтвердження пароля
+        remember_created_at: Нагадування створене
+        remember_me: Запам'ятати мене
+        reset_password_sent_at: Листа для скидання пароля надіслано
+        reset_password_token: Посилання на скидання пароля
+        sign_in_count: Кількість входів
+        unconfirmed_email: Не підтверджений email
+        unlock_token: Токен розблокування
+        updated_at: Змінений
+    models:
+      user: Користувач
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: Ваш обліковий запис підтверджено. Ви увійшли в систему.
+      new:
+        resend_confirmation_instructions: Повторно надіслати вказівки з підтвердження
+      send_instructions: Ви отримаєте листа з вказівками щодо підтвердження вашого облікового запису протягом декількох хвилин.
+      send_paranoid_instructions: Якщо Ваша адреса електронної пошти наявна в нашій базі даних, то протягом декількох хвилин Ви отримаєте листа з вказівками щодо підтвердження Вашого облікового запису.
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: Ви вже увійшли в систему.
+      inactive: Ваш обліковий запис ще не активовано.
+      invalid: Невірні %{authentication_keys} або пароль.
+      last_attempt: У вас залишилась ще одна спроба перед блокуванням облікового запису.
+      locked: Ваш обліковий запис заблоковано.
+      not_found_in_database: Невірні %{authentication_keys} або пароль.
+      timeout: Час вашої сесії вичерпано. Будь ласка, увійдіть в систему знову.
+      unauthenticated: Вам необхідно увійти в систему чи зареєструватися.
+      unconfirmed: Вам потрібно підтвердити Ваш обліковий запис.
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
-      reset_password_instructions:
-        subject: "Reset password instructions"
-      unlock_instructions:
-        subject: "Unlock instructions"
+        action: Підтвердити мій обліковий запис
+        greeting: Ласкаво просимо, %{recipient}!
+        instruction: 'Ви можете підтвердити свою адресу електронної пошти через посилання нижче:'
+        subject: Вказівки щодо підтвердження облікового запису
       email_changed:
-        subject: "Email Changed"
+        greeting: Вітаємо, %{recipient}!
+        message: Ми звертаємось до вас щоб повідомити про те, що вашу адресу електронної пошти було змінено на %{email}.
+        subject: Адресу електронної пошти змінено
       password_change:
-        subject: "Password Changed"
+        greeting: Вітаємо, %{recipient}!
+        message: Ми намагаємося зв'язатися з Вами, щоб сповістити, що Ваш пароль було змінено.
+        subject: Пароль змінено
+      reset_password_instructions:
+        action: Зміна паролю
+        greeting: Доброго дня, %{recipient}!
+        instruction: Хтось подав запит на зміну Вашого паролю, Ви можете підтвердити цю зміну через посилання нижче.
+        instruction_2: Якщо Ви не робили запит на зміну паролю - проігноруйте це повідомлення.
+        instruction_3: Ваш пароль не мінятиметься, доки Ви не перейдете за посиланням вище і не створите новий.
+        subject: Вказівки щодо відновлення пароля
+      unlock_instructions:
+        action: Розблокувати мій обліковий запис
+        greeting: Доброго дня, %{recipient}!
+        instruction: 'Перейдіть за нижченаведеним посиланням, щоб розблокувати обліковий запис:'
+        message: Ваш обліковий запис був заблокований через велику кількість невдалих спроб входу.
+        subject: Вказівки щодо розблокування облікового запису
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: Ви не можете увійти в систему з обліковим записом %{kind}, тому що "%{reason}".
+      success: Успішний вхід в систему з обліковим записом %{kind}.
     passwords:
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password has been changed successfully. You are now signed in."
-      updated_not_active: "Your password has been changed successfully."
+      edit:
+        change_my_password: Змінити мій пароль
+        change_your_password: Змінити Ваш пароль
+        confirm_new_password: Підтвердьте новий пароль
+        new_password: Новий пароль
+      new:
+        forgot_your_password: Забули пароль?
+        send_me_reset_password_instructions: Відправити мені вказівки щодо скидання паролю
+      no_token: Ця сторінка доступна тільки під час переходу з листа для скидання паролю. Якщо Ви все-таки перейшли через посилання з нього, будь ласка, переконайтесь, що використали повний URL.
+      send_instructions: Протягом декількох хвилин Ви отримаєте листа з вказівками щодо скидання Вашого пароля.
+      send_paranoid_instructions: Якщо Ваша адреса електронної пошти наявна в нашій базі даних, то протягом декількох хвилин Ви отримаєте листа з вказівками щодо відновлення пароля.
+      updated: Ваш пароль змінено. Ви увійшли в систему.
+      updated_not_active: Ваш пароль успішно змінено.
     registrations:
-      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
-      signed_up: "Welcome! You have signed up successfully."
-      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
-      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
-      signed_up_but_unconfirmed: "Хлопче, переглянь пошту, тобі лист прийшов"
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
-      updated: "Your account has been updated successfully."
-      updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+      destroyed: Бувайте! Ваш обліковий запис було успішно видалено. Сподіваємось незабаром побачитись з Вами знову.
+      edit:
+        are_you_sure: Ви впевнені?
+        cancel_my_account: Скасувати мій обліковий запис
+        currently_waiting_confirmation_for_email: 'В даний час очікуємо підтвердження від: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: залиште порожнім, якщо ви не хочете змінити його
+        title: Редагувати %{resource}
+        unhappy: Незадоволені
+        update: Оновити
+        we_need_your_current_password_to_confirm_your_changes: введіть свій поточний пароль для підтвердження змін
+      new:
+        sign_up: Зареєструватись
+      signed_up: Ласкаво просимо! Ви успішно зареєструвалися.
+      signed_up_but_inactive: Ви успішно зареєструвалися, але не можете увійти в систему, тому що ваш обліковий запис ще не активовано.
+      signed_up_but_locked: Ви успішно зареєструвалися, але не можете увійти в систему, тому що ваш обліковий запис заблоковано.
+      signed_up_but_unconfirmed: Ви отримаєте листа з вказівками щодо підтвердження облікового запису протягом декількох хвилин.
+      update_needs_confirmation: Ваш обліковий запис оновлено, але необхідно підтвердити нову адресу електронної пошти. Будь ласка, перевірте свою електронну скриньку і перейдіть за посиланням "Підтвердити", шоб завершити оновлення адреси електронної пошти.
+      updated: Ваш обліковий запис змінено.
+      updated_but_not_signed_in:
     sessions:
-      signed_in: "Ви ввійшли. УХУ"
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      already_signed_out: Успішний вихід з системи.
+      new:
+        sign_in: Увійти
+      signed_in: Ви увійшли в систему.
+      signed_out: Успішний вихід з системи.
+    shared:
+      links:
+        back: Повернутися
+        didn_t_receive_confirmation_instructions: Не отримали листа з підтвердженням?
+        didn_t_receive_unlock_instructions: Не отримали вказівок з розблокування?
+        forgot_your_password: Забули пароль?
+        sign_in: Увійти
+        sign_in_with_provider: Увійти за допомогою %{provider}
+        sign_up: Зареєструватися
+      minimum_password_length:
+        few: ''
+        many: ''
+        one: "(мінімум %{count} символ)"
+        other: "(мінімум %{count} символи/ів)"
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      new:
+        resend_unlock_instructions: Повторно надіслати вказівки з розблокування
+      send_instructions: Протягом декількох хвилин Ви отримаєте лист з вказівками щодо розблокування облікового запису.
+      send_paranoid_instructions: Якщо обліковий запис наявний, то протягом декількох хвилин Ви отримаєте листа з вказівками щодо його розблокування.
+      unlocked: Обліковий запис розблоковано. Ви увійшли в систему.
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      already_confirmed: вже підтверджено. Будь ласка, спробуйте увійти в систему
+      confirmation_period_expired: має бути підтверджено протягом %{period}, будь ласка, подайте запит на підтвердження запису ще раз
+      expired: застаріла. Будь ласка, спробуйте знову
+      not_found: не знайдено
+      not_locked: не заблоковано
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        few: "%{resource}: не вдалося зберегти через %{count} помилки"
+        many: "%{resource}: не вдалося зберегти через %{count} помилок"
+        one: "%{resource}: не вдалося зберегти через %{count} помилку"
+        other: "%{resource}: не вдалося зберегти через %{count} помилок"

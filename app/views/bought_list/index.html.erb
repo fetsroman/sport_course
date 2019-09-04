@@ -2,7 +2,9 @@
   <header class="container-fluid">
     <div class="container wrapper-header">
       <div class="logo-wrapper">
-        <%= image_tag 'icons/logo_my_courses.svg', alt: "logo" %>
+        <%= link_to root_path do %>
+          <%= image_tag 'icons/logo_my_courses.svg', alt: "logo" %>
+        <% end %>
       </div>
       <div class="profile-go-out">
         <%= link_to "Вийти", destroy_user_session_path, method: :delete , class: "go-out openSans-normal" %>

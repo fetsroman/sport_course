@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container login-container">
   <div class="wrapper-form">
     <div class="child-wrapper-container">
       <div class="title-wrapper">
-        <span class="title">УВІйти <br class="title-br">в&nbsp;акаунт</span>
+        <span class="title">Увійти <br class="title-br">в&nbsp;акаунт</span>
         <span class="description">Введіть логін та пароль, щоб отримати доступ до придбаних курсів.</span>
       </div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: "form" }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: "form" }, validate: true) do |f| %>
         <div class="wrapper-input" id="wrapper-input-email">
           <div class="icons-wrapper">
-            <%= image_tag 'auth/mail.svg' %>
+            <%= image_tag 'icons/mail.svg' %>
           </div>
           <%= f.email_field :email, autofocus: true, placeholder: "Email", id: "email" %>
           <br>
@@ -16,19 +16,16 @@
         </div>
         <div class="wrapper-input" id="wrapper-input-password">
           <div class="icons-wrapper">
-            <%= image_tag 'auth/key-25.svg' %>
+            <%= image_tag 'icons/key-25.svg' %>
           </div>
           <%= f.password_field :password, placeholder: "Password", id: "password" %>
           <br>
           <%= render "devise/shared/links" %>
 
           <span id="password-hint" class="hint"></span>
-          <%# if devise_mapping.rememberable? %>
-<!--            <div class="field">-->
-              <%#= f.check_box :remember_me %>
-              <%#= f.label :remember_me %>
-<!--            </div>-->
-          <%# end %>
+          <% if devise_mapping.rememberable? %>
+            <%= f.label :remember_me, checked: 'checked', hidden: true %>
+          <% end %>
         </div>
         <%= f.submit "Увійти", id: "submit", class: "button" %>
         <div class="forgetPassword">

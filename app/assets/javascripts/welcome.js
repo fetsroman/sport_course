@@ -1,9 +1,6 @@
 //= require jquery3
 //= require bootstrap
 //= require slick.min
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
 
 let scrolled,
     timer,
@@ -61,7 +58,12 @@ $(document).on('click', '.scroll-nav', function (event) {
         scrollTop: $($.attr(this, 'href')).offset().top - 120
     }, 900);
 });
-$( document ).ready(function() {
+
+$(document).ready(function() {
+    if( $(".hidden").text() != ""){
+        $('.modal').modal('show');
+    }
+
     $('.slider').slick({
         infinite: true,
         slidesToShow: 3,

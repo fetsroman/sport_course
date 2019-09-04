@@ -40,7 +40,9 @@
   <header class="container-fluid">
     <div class="container wrapper-header">
       <div class="logo-wrapper">
-        <%= image_tag 'icons/logo_lessons_page.svg', alt: "logo" %>
+        <%= link_to root_path do %>
+          <%= image_tag 'icons/logo_lessons_page.svg', alt: "logo" %>
+        <% end %>
       </div>
       <div class="profile-header">
         <%= link_to "Курси", my_courses_path, class: "course openSans-normal" %>

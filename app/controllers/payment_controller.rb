@@ -6,9 +6,13 @@ class PaymentController < ApplicationController
   before_action :can_buy?
 
   def bought_course
+    @payment = Payment.new
     if request.post?
       @liqpay = ::Liqpay::Liqpay.new
       token = SecureRandom.urlsafe_base64.to_s
+
+      card_month = params[:card_params][:card_date].split('/').first
+      card_year = params[:card_params][:card_date].split('/').last
 
       if I18n.locale == :uk
         currency = "UAH"
@@ -31,8 +35,8 @@ class PaymentController < ApplicationController
           order_id: token,
           receiver_card: receiver_card.to_s,
           card: params[:card_params][:card].to_s,
-          card_exp_month: params[:card_params][:card_month].to_s,
-          card_exp_year: params[:card_params][:card_year].to_s,
+          card_exp_month: card_month.to_s,
+          card_exp_year: card_year.to_s,
           card_cvv: params[:card_params][:card_cvv].to_s
       })
 
@@ -46,8 +50,17 @@ class PaymentController < ApplicationController
         first_lesson.watch = true
         first_lesson.save!
 
-        redirect_to @course, notice: "Thanks for buy"
+        # respond_to do |format|
+        #   format.html { redirect_to root_url }
+        #   format.js #default behaviour is to run app/views/notes/create.js.erb file
+        # end
+        redirect_to my_courses_path, notice: "Thanks for buy"
       else
+        # respond_to do |format|
+        #   format.html { redirect_to root_url }
+        #   format.js {@liqpay_request['err_description']}
+        # end
+
         flash[:alert] = @liqpay_request['err_description']
         render :bought_course
         # render json: @liqpay_request['err_description']

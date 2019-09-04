@@ -115,7 +115,7 @@ body {
 }
 
 input:focus {
-  border: 2px solid #F2C94C;
+  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
 }
 
 
@@ -153,6 +153,17 @@ input:focus {
 }
 
 .hint {
+  //height: 0px;
+  color: red !important;
+  font-size: 12px !important;
+  font-family: 'Oswald', sans-serif;
+  line-height: 100%;
+  //padding-left: 3px;
+  width: 100%;
+  letter-spacing: 0.03em;
+}
+
+label.message {
   color: red !important;
   font-size: 12px !important;
   font-family: 'Oswald', sans-serif;
@@ -160,6 +171,10 @@ input:focus {
   padding-left: 3px;
   width: 100%;
   letter-spacing: 0.03em;
+}
+
+.field_with_errors #email, .field_with_errors #password, .field_with_errors #phone, .field_with_errors #name {
+  border: 1px solid red;
 }
 
 /*radio*/
@@ -381,16 +396,16 @@ input:focus {
 
 .card-number-section .icons-wrapper {
   position: absolute;
-  margin-top: 16px;
-  margin-left: 13px;
+  margin-top: 17px;
+  margin-left: 12px;
   border-right: 1px solid #3c3c3c;
   padding-right: 7px;
 }
 
 .wrapper-cvv-and-date .icons-wrapper {
   position: absolute;
-  margin-top: 30px;
-  margin-left: 13px;
+  margin-top: 31px;
+  margin-left: 11px;
   border-right: 1px solid #3c3c3c;
   padding-right: 7px;
 }
@@ -451,6 +466,14 @@ input:focus {
 
 .forgetPassword a{
   color: #343434;
+}
+
+.wrapper-form-registration form {
+  grid-gap: 10px !important;
+}
+
+#check{
+  height: 35px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -602,6 +625,16 @@ input:focus {
 }
 
 @media screen and (max-width: 330px) {
+  body {
+    overflow: hidden auto;
+  }
+  .container {
+    height: auto;
+    padding: 10px 0 10px 0;
+  }
+  .login-container {
+    height: 100vh;
+  }
   .wrapper-form .title-wrapper .title {
     font-size: 32px;
     padding: 0;
@@ -614,6 +647,7 @@ input:focus {
 
   .wrapper-form-registration form{
     margin-left: 5vw;
+    grid-gap: 8px !important;
   }
 
   .forgetPassword span {
