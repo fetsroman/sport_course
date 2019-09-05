@@ -34,7 +34,7 @@ class PaymentController < ApplicationController
           description: "Дякуємо за покупку, за допомогою нашого сервісу!",
           order_id: token,
           receiver_card: receiver_card.to_s,
-          card: params[:card_params][:card].to_s,
+          card: params[:card_params][:card].to_s.gsub(' ', ''),
           card_exp_month: card_month.to_s,
           card_exp_year: card_year.to_s,
           card_cvv: params[:card_params][:card_cvv].to_s
