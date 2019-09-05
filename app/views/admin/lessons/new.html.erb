@@ -1,5 +1,43 @@
-<h1>New Lesson</h1>
-
-<%= render 'form', lesson: @lesson %>
-
-<%= link_to 'Back', course_lessons_path %>
+<div class="wrapper">
+  <div class="container-statistics">
+    <div class="navigator">
+      <a href="" class="roboto-font">
+        Головне меню
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Курс
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Додати урок
+        <span></span>
+      </a>
+    </div>
+    <%= simple_form_for @lesson, url: admin_course_lessons_path(@course, @lesson, locale: params[:locale]), method: "POST", html: { class: 'wrapper-added-course' } do |form| %>
+      <div class="main-title">
+        <span class="title roboto-font">Загальна інформація</span>
+      </div>
+      <div class="add_new_course">
+        <div class="wrapper-content">
+          <span class="roboto-font">Прев’ю зображення уроку</span>
+          <%= form.file_field :image, class:"roboto-font" %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Трейлер курсу</span>
+          <%= form.file_field :video, class:"roboto-font" %>
+        </div>
+        <div class="inputs-wrapper">
+          <label for="name" class="roboto-font">Назва уроку</label>
+          <%= form.text_field :title, id: "name" %>
+          <label for="description" class="roboto-font">Опис</label>
+          <%= form.text_area :description, id: "description" %>
+        </div>
+        <br>
+        <div class="button-wrapper">
+          <%= form.submit "Зберегти Урок", class:"roboto-font button save" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

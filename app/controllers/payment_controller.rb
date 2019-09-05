@@ -41,7 +41,7 @@ class PaymentController < ApplicationController
       })
 
       if @liqpay_request['result'] == 'ok'  && @liqpay_request['currency'] == currency && @liqpay_request['order_id'] == token
-        current_user.bought_lists.create!(user_id: current_user.id, course_id: @course.id, rate_id: @rate.id)
+        current_user.bought_lists.create!(user_id: current_user.id, course_id: @course.id, rate_id: @rate.id, currency: currency, price: @rate.price)
         @rate.increment_bought_count
         @course.lessons.each do |lesson|
           current_user.watched_lists.create!(user_id: current_user.id, course_id: @course.id, lesson_id: lesson.id)

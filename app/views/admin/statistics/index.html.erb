@@ -1,11 +1,21 @@
 <div class="wrapper">
   <div class="container-statistics">
+    <div class="navigator">
+      <a href="" class="roboto-font">
+        Головне меню
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Статистика
+        <span></span>
+      </a>
+    </div>
     <div class="wrapper-statistics">
       <div class="main-title">
         <span class="title roboto-font">Статистика</span>
       </div>
       <% @courses.each do |course| %>
-        <div class="course">
+        <div class="first-course">
           <div class="wrapper-content">
             <span class="title roboto-font"><%= course.title %></span>
             <div class="titles">
@@ -25,45 +35,34 @@
       <% end %>
     </div>
   </div>
-
   <div class="wrapper-shopping">
     <div class="main-title">
       <span class="title roboto-font">Покупки</span>
     </div>
     <div class="wrapper-content">
-      <span class="title roboto-font">Пакет</span>
-      <div class="titles">
-        <span class="roboto-font">Ім'я</span>
-        <span class="roboto-font">Email</span>
-        <span class="roboto-font">Курс</span>
-        <span class="roboto-font">Пакет</span>
-        <span class="roboto-font">Дата</span>
-        <span class="roboto-font">Ціна</span>
-      </div>
-      <div class="line">
-        <span class="roboto-font">Ім’я Прізвище</span>
-        <span class="roboto-font">stochkomira@gmail.com</span>
-        <span class="roboto-font">Курс 1</span>
-        <span class="roboto-font">Пакет 1</span>
-        <span class="roboto-font">Пакет 1</span>
-        <span class="roboto-font">4000 грн</span>
-      </div>
-      <div class="line">
-        <span class="roboto-font">Ім’я Прізвище</span>
-        <span class="roboto-font">stochkomira@gmail.com</span>
-        <span class="roboto-font">Курс 1</span>
-        <span class="roboto-font">Пакет 1</span>
-        <span class="roboto-font">Пакет 1</span>
-        <span class="roboto-font">4000 грн</span>
-      </div>
-      <div class="line">
-        <span class="roboto-font">Ім’я Прізвище</span>
-        <span class="roboto-font">stochkomira@gmail.com</span>
-        <span class="roboto-font">Курс 1</span>
-        <span class="roboto-font">Пакет 1</span>
-        <span class="roboto-font">Пакет 1</span>
-        <span class="roboto-font">4000 грн</span>
-      </div>
+      <% @rates.each do |rate| %>
+        <span class="title roboto-font"><%= rate.title %></span>
+        <div class="titles">
+          <span class="roboto-font">Ім'я</span>
+          <span class="roboto-font">Email</span>
+          <span class="roboto-font">Курс</span>
+          <span class="roboto-font">Пакет</span>
+          <span class="roboto-font">Дата</span>
+          <span class="roboto-font">Ціна</span>
+        </div>
+        <% if @bought_lists.find_by(rate_id: rate.id).present? %>
+          <% @bought_lists.where(rate_id: rate.id).each do |bought_list| %>
+            <div class="line">
+              <span class="roboto-font"><%= @users.find_by(id: bought_list.user_id).name %></span>
+              <span class="roboto-font"><%= @users.find_by(id: bought_list.user_id).email %></span>
+              <span class="roboto-font"><%= @courses.find_by(id: bought_list.course_id).title %></span>
+              <span class="roboto-font"><%= rate.title %></span>
+              <span class="roboto-font"><%= bought_list.created_at %></span>
+              <span class="roboto-font"><%= bought_list.price %> <%= bought_list.currency %></span>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

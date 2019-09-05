@@ -4,5 +4,8 @@ class Admin::StatisticsController < ApplicationController
 
   def index
     @courses = Course.all
+    @rates = Rate.all
+    @bought_lists = BoughtList.all
+    @users = User.all
   end
 end

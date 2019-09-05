@@ -1,5 +1,39 @@
-<h1>New Rate</h1>
-
-<%= render 'form', rate: @rate %>
-
-<%= link_to 'Back', course_rates_path %>
+<div class="wrapper">
+  <div class="container-statistics">
+    <div class="navigator">
+      <a href="" class="roboto-font">
+        Головне меню
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Курс
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Додати пакет
+        <span></span>
+      </a>
+    </div>
+    <%= simple_form_for @rate, url: admin_course_rates_path(@course, @rate, locale: params[:locale]), method: "POST", html: { class: 'wrapper-added-course' } do |form| %>
+      <div class="main-title">
+        <span class="title roboto-font">Загальна інформація</span>
+      </div>
+      <div class="add_new_course">
+        <div class="inputs-wrapper">
+          <label for="name" class="roboto-font">Назва пакету</label>
+          <%= form.text_field :title, id: "name" %>
+          <label for="description" class="roboto-font">Тариф</label>
+          <%= form.select :tariff, options_for_select(Rate.tariffs.keys.to_a, @rate.tariff),{},{ class:"form-control m-b" } %>
+          <label for="description" class="roboto-font">Опис</label>
+          <%= form.text_area :description, id: "description" %>
+          <label for="description" class="roboto-font">Ціна</label>
+          <%= form.number_field :price, id: "price" %>
+        </div>
+        <br>
+        <div class="button-wrapper">
+          <%= form.submit "Зберегти Пакет", class:"roboto-font button save" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

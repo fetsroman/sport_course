@@ -1,38 +1,45 @@
-<h1>Editing Lesson</h1>
-
-<%= simple_form_for([@course, @lesson]) do |form| %>
-  <%= form.error_notification %>
-  <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="wrapper">
+  <div class="container-statistics">
+    <div class="navigator">
+      <a href="" class="roboto-font">
+        Головне меню
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Курс
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Редагувати урок
+        <span></span>
+      </a>
+    </div>
+    <%= simple_form_for @lesson, url: admin_course_lesson_path(@course, @lesson, locale: params[:locale]), method: "PUT", html: { class: 'wrapper-added-course' } do |form| %>
+      <div class="main-title">
+        <span class="title roboto-font">Загальна інформація</span>
+      </div>
+      <div class="add_new_course">
+        <div class="wrapper-content">
+          <span class="roboto-font">Прев’ю зображення уроку</span>
+          <%= image_tag @lesson.image.url, style: "height: 500px" %>
+          <%= form.file_field :image, class:"roboto-font" %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Трейлер курсу</span>
+          <%= video_tag @lesson.video.url, controls: 'controls' %>
+          <%= form.file_field :video, class:"roboto-font" %>
+        </div>
+        <div class="inputs-wrapper">
+          <label for="name" class="roboto-font">Назва уроку</label>
+          <%= form.text_field :title, id: "name" %>
+          <label for="description" class="roboto-font">Опис</label>
+          <%= form.text_area :description, id: "description" %>
+        </div>
+        <br>
+        <div class="button-wrapper">
+          <%= form.submit "Зберегти Урок", class:"roboto-font button save" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <h2>You doesn't need to attach new photo and video when you don't want to change it</h2>
-  <div class="field">
-    <p>Old foto:</p>
-    <img src="<%= @lesson.image.url %>" alt="">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="field">
-    <p>Old Video</p>
-    <video src="<%= @lesson.video.url %>"></video>
-    <%= form.label :video %>
-    <%= form.file_field :video %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', course_lessons_path(@lesson) %> |
-<%= link_to 'Back', @course %>
+</div>

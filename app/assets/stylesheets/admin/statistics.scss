@@ -9,21 +9,22 @@ body {
   height: 100vh;
 }
 
-.container-statistics , .wrapper-shopping{
+.container-statistics, .wrapper-shopping {
   align-self: start;
   justify-self: center;
   width: 856px;
   margin-top: 136px;
   background: #FFFFFF;
-  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
   border-radius: 10px;
   box-sizing: border-box;
 }
-.wrapper-shopping{
+
+.wrapper-shopping {
   align-self: end;
   background: #fff;
   margin-bottom: 220px;
 }
+
 .roboto-font {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -48,22 +49,69 @@ body {
   color: #000
 }
 
-.course {
+.first-course, .second-course {
   background: #FAFAFA;
 }
 
 .wrapper-statistics .first-course .title,
 .wrapper-statistics .second-course .title,
-.wrapper-shopping .wrapper-content .title{
+.wrapper-shopping .wrapper-content .title {
   padding: 16px 0 0 26px;
   font-size: 18px;
   line-height: 21px;
   color: #000000;
 }
 
+.container-statistics {
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.container-statistics .navigator {
+  width: 100%;
+  justify-self: start;
+  align-self: center;
+  box-shadow: none
+}
+
+.container-statistics .navigator a span {
+  content: image_url("admin/icons/vector.svg");
+  padding-left: 20px;
+  margin-bottom: -3px;
+}
+
+.container-statistics .navigator a:last-child span {
+  display: none !important;
+}
+
+.container-statistics .navigator a {
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.38);
+  padding-left: 15px;
+}
+
+.container-statistics .navigator a:last-child {
+  color: #000
+}
+
+.container-statistics .navigator a:first-child {
+  padding: 0;
+}
+
+.container-statistics .wrapper-statistics {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+}
+
 .container-statistics .wrapper-content {
   padding-top: 16px;
 }
+
 .container-statistics .wrapper-content .titles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -83,24 +131,28 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.wrapper-shopping .wrapper-content .titles{
+
+.wrapper-shopping .wrapper-content .titles {
   display: grid;
   grid-template-columns: 3fr 3fr 2fr repeat(3, 1fr);
   padding: 20px 0 0 26px;
 }
-.wrapper-shopping .wrapper-content .titles span{
+
+.wrapper-shopping .wrapper-content .titles span {
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.06em;
   color: rgba(0, 0, 0, 0.76);
 }
-.wrapper-shopping .wrapper-content .line{
+
+.wrapper-shopping .wrapper-content .line {
   padding: 9px 0 12px 26px;
   display: grid;
   grid-template-columns: 3fr 3fr 2fr repeat(3, 1fr);
   border-bottom: 1px solid #E8E8E8;
 }
-.wrapper-shopping .wrapper-content .line span{
+
+.wrapper-shopping .wrapper-content .line span {
   font-size: 14px;
   line-height: 19px;
   color: rgba(0, 0, 0, 0.6);

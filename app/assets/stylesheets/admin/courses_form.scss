@@ -1,0 +1,294 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #E5E5E5;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+}
+
+.wrapper {
+  display: grid;
+  margin-bottom: 30px;
+}
+
+.container-statistics {
+  align-self: start;
+  justify-self: center;
+  width: 1032px;
+  margin-top: 136px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+}
+
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.container-statistics .navigator {
+  width: 100%;
+  justify-self: start;
+  align-self: center;
+  box-shadow: none;
+  background: transparent;
+}
+
+.container-statistics .navigator a span {
+  content: image_url("admin/icons/vector.svg");
+  padding-left: 19px;
+  margin-bottom: -3px;
+}
+
+.container-statistics .navigator a:last-child span {
+  display: none !important;
+}
+
+.container-statistics .navigator a:first-child {
+  padding: 0;
+}
+
+.container-statistics .navigator a {
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.38);
+  padding-left: 15px;
+}
+
+.container-statistics .navigator a:last-child {
+  color: #000
+}
+
+.wrapper-added-course {
+  display: grid;
+  grid-row-gap: 24px;
+  padding: 32px;
+}
+
+.wrapper-added-course .main-title span {
+  font-size: 24px;
+  line-height: 28px;
+  color: #000
+}
+
+.container-statistics .wrapper-added-course {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+}
+
+.add_new_course .wrapper-content:first-child {
+  margin-top: 5px;
+  display: grid;
+}
+
+.add_new_course .wrapper-content {
+  margin-top: 29px;
+  display: grid;
+}
+
+.add_new_course .wrapper-content span {
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.add_new_course .wrapper-content a {
+  width: 208px;
+  height: 44px;
+  margin-top: 12px;
+}
+
+.add_new_course .wrapper-content .button, .button-wrapper .button {
+  width: 208px;
+  height: 44px;
+  border: 1px solid #F2C94C;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.add_new_course .wrapper-content .button:hover, .button-wrapper .button {
+  background: #F2C94C;
+  transition: .5s;
+}
+
+.inputs-wrapper {
+  display: grid;
+}
+
+.inputs-wrapper label {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.inputs-wrapper input, .inputs-wrapper textarea {
+  margin-top: 8px;
+  background: #F2F2F2;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.inputs-wrapper input:focus, .inputs-wrapper textarea:focus {
+  outline: none;
+  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+}
+
+#name {
+  height: 44px;
+}
+
+#description {
+  min-height: 188px;
+  resize: none;
+  overflow: auto;
+}
+
+.add-video {
+  display: grid;
+  margin-top: 39px;
+}
+
+.add-video span {
+  font-size: 24px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.add-video a {
+  margin-top: 20px;
+  width: 208px;
+  height: 44px;
+}
+
+.add-video button {
+  width: 208px;
+  height: 44px;
+  border: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  background: #F2C94C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-video button img {
+  margin-bottom: -5px;
+  padding-left: 3px;
+}
+
+.add-video .wrapper-courses {
+  margin-top: 45px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  display: grid;
+  grid-row-gap: 32px;
+}
+
+.add-video .wrapper-courses .every-block-course {
+  display: grid;
+  padding: 24px 32px 24px 32px;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  position: relative;
+}
+
+.add-video .wrapper-courses .every-block-course .name-file {
+  font-size: 14px;
+  line-height: 16px;
+  color: #000;
+}
+
+.add-video .wrapper-courses .every-block-course .delete_block {
+  position: absolute;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+  font-size: 30px;
+  right: 32px;
+}
+
+.add-video .wrapper-courses .every-block-course .inputs-wrapper input {
+  padding-top: 8px;
+  height: 44px;
+}
+
+.add-video .wrapper-courses .every-block-course .inputs-wrapper span {
+  padding-top: 19px;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.add-video .wrapper-courses .every-block-course:first-child {
+  margin-top: 16px;
+}
+
+
+.button-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button-wrapper a {
+  margin-top: 24px;
+}
+
+.button-wrapper a, .button-wrapper button {
+  width: 206px;
+  height: 44px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: none;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  color: #333333;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.button-wrapper .save {
+  justify-self: start;
+}
+
+.button-wrapper .save button, .button-wrapper .button {
+  background: #F2C94C;
+}
+
+.button-wrapper .delete {
+  justify-self: end;
+}
+
+.button-wrapper .delete button {
+  background: transparent;
+  border: 1px solid #EB5757;
+  transition: .5s;
+}
+
+.button-wrapper .delete button:hover {
+  background: #EB5757;
+  color: #fff;
+  transition: .5s;
+}

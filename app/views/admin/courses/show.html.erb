@@ -1,62 +1,115 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <% if @course.published? %>
-      <%= link_to "Курс опубліковано, натисніть аби приховати курс", unpublish_admin_course_path(@course), method: :put, class: "btn btn-success" %>
-    <% else %>
-      <%= link_to "Опублікувати", publish_admin_course_path(@course), method: :put, class: "btn btn-success" %>
-    <%  end %>
-    <%= link_to 'Редагувати', edit_admin_course_path(@course), class: "btn btn-primary" %>
-    <div class="col-md-6">
-      <img style="max-width: 100%;" src="<%= @course.image.url %>">
-
-
-
+<div class="wrapper">
+  <div class="container-statistics">
+    <div class="navigator">
+      <a href="" class="roboto-font">
+        Головне меню
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Курси
+        <span></span>
+      </a>
+      <a href="" class="roboto-font">
+        Курс
+        <span></span>
+      </a>
     </div>
-    <h3><%= @course.title %></h3>
-    <p><%= @course.description %></p>
-    <p><%= link_to "Скачати документ", @course.document.url %></p>
-    <video controls autoplay>
-      <source src="<%= @course.trailer.url %>">
-    </video>
+    <div class="wrapper-added-course">
+      <div class="main-title">
+        <span class="title roboto-font">Загальна інформація</span>
+      </div>
+      <div class="add_new_course">
+        <div class="wrapper-content">
+          <%= link_to edit_admin_course_path(@course) do %>
+            <button class="button">Редагувати</button>
+          <% end %>
+          <% if @course.published? %>
+            <%= link_to unpublish_admin_course_path(@course), method: :put do %>
+              <button class="button">Натисніть аби приховати курс</button>
+            <% end %>
+          <% else %>
+            <%= link_to publish_admin_course_path(@course), method: :put do %>
+              <button class="button">Опублікувати</button>
+            <% end %>
+          <%  end %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Прев’ю зображення курсу</span>
+          <%= image_tag @course.image.url, style: "height: 500px" %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Трейлер курсу</span>
+          <%= video_tag @course.trailer.url, controls: 'controls' %>
+        </div>
+        <div class="inputs-wrapper">
+          <label for="name" class="roboto-font">Назва курсу</label>
+          <%= @course.title %>
+          <label for="description" class="roboto-font">Опис</label>
+          <%= @course.description %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Зошит (Для пакету VIP)</span>
+          <%= link_to "Переглянути документ", @course.document.url, target: "_blank" %>
+        </div>
+      </div>
+  </div>
   </div>
 </div>
 
+<div class="container-fluid">
+  <div class="container">
+    <div class="under-navigator">
+      <span class="roboto-font">Cписок уроків</span>
+      <%= link_to new_admin_course_lesson_path(@course) do %>
+        <button class="roboto-bold">
+          Додати урок
+          <%= image_tag "admin/icons/plus.svg", alt: "plus" %>
+        </button>
+      <% end %>
+    </div>
+    <div class="card-wrapper">
+      <% @course.lessons.each do |lesson| %>
+        <div class="every-card">
+          <%= link_to admin_course_path(lesson), class: "every-card" do %>
+              <div class="img" style="background: url(<%= lesson.image.url %>) "></div>
+              <div class="content-wrapper">
+                <span class="roboto-bold title"><%= lesson.title %></span>
+                <%= link_to edit_admin_course_lesson_path(@course, lesson) do %>
+                  <button class="roboto-font">Редагувати</button>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-
-<%= link_to 'Додати тариф', new_admin_course_rate_path(@course), class: "btn btn-warning" %>
-<h1>Тарифи</h1>
-    <div class="col-md-6">
+<div class="container-fluid">
+  <div class="container">
+    <div class="under-navigator">
+      <span class="roboto-font">Cписок пакетів</span>
+      <%= link_to new_admin_course_rate_path(@course) do %>
+        <button class="roboto-bold">
+          Додати пакет
+          <%= image_tag "admin/icons/plus.svg", alt: "plus" %>
+        </button>
+      <% end %>
+    </div>
+    <div class="card-wrapper">
       <% @course.rates.each do |rate| %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= rate.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= rate.tariff %></h6>
-            <p class="card-text"><%= rate.price %></p>
-            <p class="card-text"><%= rate.description %></p>
-
-            <%= link_to "Редагувати", edit_admin_course_rate_path(@course, rate), class: "btn btn-primary" %>
+        <div class="every-card">
+          <div class="content-wrapper">
+            <span class="roboto-bold title"><%= rate.title %></span><br>
+            <span class="roboto-font total-packet"><%= rate.tariff %></span><br>
+            <span class="roboto-font total-packet"><%= rate.description %></span><br>
+            <span class="roboto-font total-packet"><%= rate.price %></span>
+            <%= link_to edit_admin_course_rate_path(@course, rate) do %>
+              <button class="roboto-font">Редагувати</button>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-
-      <h1>Уроки</h1>
-
-<%= link_to 'Додати урок', new_admin_course_lesson_path(@course), class: "btn btn-warning" %>
-      <div class="col-md-6">
-        <% @course.lessons.each do |lesson| %>
-          <div class="card" style="width: 18rem">
-            <img class="card-img-top" src="<%= lesson.image.url %>" alt="Card image cap">
-
-            <div class="card-body">
-              <h5 class="card-title"><%= lesson.title %> </h5>
-              <p class="card-text"><%= lesson.description %></p>
-
-              <%= link_to "Переглянутит", admin_course_lesson_path(lesson), clas: "btn btn-info" %>
-              <%= link_to "Редагувати", edit_admin_course_lesson_path(@course, lesson), class: "btn btn-primary" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
 </div>
