@@ -22,12 +22,12 @@
           <div class="wrapper-content">
             <span class="roboto-font">Прев’ю зображення курсу</span>
             <br>
-            <div>
+            <a>
               <label for="preview" class="custom-file-upload">
                 Завантажити
               </label>
-              <%= form.file_field :image, class:"roboto-font" %>
-            </div>
+              <%= form.file_field :image, class:"roboto-font", id: "preview" %>
+            </a>
           </div>
           <div class="wrapper-content">
             <span class="roboto-font">Трейлер курсу</span>
@@ -36,7 +36,7 @@
               <label for="preview" class="custom-file-upload">
                 Завантажити
               </label>
-              <%= form.file_field :trailer, class:"roboto-font" %>
+              <%= form.file_field :trailer, class:"roboto-font", id: "preview" %>
             </div>
           </div>
           <div class="inputs-wrapper">
@@ -52,7 +52,7 @@
               <label for="preview" class="custom-file-upload">
                 Завантажити
               </label>
-              <%= form.file_field :document, class:"roboto-font" %>
+              <%= form.file_field :document, class:"roboto-font", id: "preview" %>
             </div>
           </div>
           <br>

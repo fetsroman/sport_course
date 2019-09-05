@@ -27,12 +27,12 @@
             <label for="preview" class="custom-file-upload">
               Завантажити
             </label>
-            <%= form.file_field :image, class:"roboto-font" %>
+            <%= form.file_field :image, class:"roboto-font", id: "preview" %>
           </div>
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Трейлер курсу</span>
-          <%= video_tag @lesson.video.url, controls: 'controls' %>
+          <%= video_tag @lesson.video.url, controls: 'controls', id: "preview" %>
           <br>
           <div>
             <label for="preview" class="custom-file-upload">
