@@ -1,18 +1,18 @@
 <div class="wrapper">
   <div class="container-statistics">
     <div class="navigator">
-      <a href="" class="roboto-font">
+      <%= link_to admin_path, class: "roboto-font" do %>
         Головне меню
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
-        Курс
+      <% end %>
+      <%= link_to admin_course_path(@course), class: "roboto-font" do %>
+        <%= @course.title %>
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to new_admin_lessons_path, class: "roboto-font" do %>
         Додати урок
         <span></span>
-      </a>
+      <% end %>
     </div>
     <%= simple_form_for @lesson, url: admin_course_lessons_path(@course, @lesson, locale: params[:locale]), method: "POST", html: { class: 'wrapper-added-course' } do |form| %>
       <div class="main-title">
@@ -21,11 +21,23 @@
       <div class="add_new_course">
         <div class="wrapper-content">
           <span class="roboto-font">Прев’ю зображення уроку</span>
-          <%= form.file_field :image, class:"roboto-font" %>
+          <br>
+          <div>
+            <label for="preview" class="custom-file-upload">
+              Завантажити
+            </label>
+            <%= form.file_field :image, class:"roboto-font" %>
+          </div>
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Трейлер курсу</span>
-          <%= form.file_field :video, class:"roboto-font" %>
+          <br>
+          <div>
+            <label for="preview" class="custom-file-upload">
+              Завантажити
+            </label>
+            <%= form.file_field :video, class:"roboto-font" %>
+          </div>
         </div>
         <div class="inputs-wrapper">
           <label for="name" class="roboto-font">Назва уроку</label>

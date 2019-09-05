@@ -564,6 +564,7 @@ label.message {
 }
 
 @media screen and (max-width: 355px) {
+
   .radio-toolbar {
     width: 90%;
     margin: 0;
@@ -626,7 +627,7 @@ label.message {
 
 @media screen and (max-width: 330px) {
   body {
-    overflow: hidden auto;
+    overflow: hidden;
   }
   .container {
     height: auto;
@@ -644,12 +645,10 @@ label.message {
     margin-top: 10px;
     margin-left: 4vw;
   }
-
   .wrapper-form-registration form{
     margin-left: 5vw;
     grid-gap: 8px !important;
   }
-
   .forgetPassword span {
     padding-right: 20px;
   }

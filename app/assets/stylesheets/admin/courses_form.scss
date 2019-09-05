@@ -102,6 +102,23 @@ button {
   display: grid;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #F2C94C;;
+  display: inline-block;
+  padding: 13px 64px 13px 64px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  color: #333333;
+}
+
 .add_new_course .wrapper-content span {
   font-size: 14px;
   line-height: 16px;

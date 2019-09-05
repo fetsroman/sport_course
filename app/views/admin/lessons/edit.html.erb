@@ -1,18 +1,18 @@
 <div class="wrapper">
   <div class="container-statistics">
     <div class="navigator">
-      <a href="" class="roboto-font">
+      <%= link_to admin_path, class: "roboto-font" do %>
         Головне меню
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
-        Курс
+      <% end %>
+      <%= link_to admin_course_path(@course), class: "roboto-font" do %>
+        <%= @course.title %>
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to edit_admin_course_lesson_path(@course, @lesson), class: "roboto-font" do %>
         Редагувати урок
         <span></span>
-      </a>
+      <% end %>
     </div>
     <%= simple_form_for @lesson, url: admin_course_lesson_path(@course, @lesson, locale: params[:locale]), method: "PUT", html: { class: 'wrapper-added-course' } do |form| %>
       <div class="main-title">
@@ -22,12 +22,24 @@
         <div class="wrapper-content">
           <span class="roboto-font">Прев’ю зображення уроку</span>
           <%= image_tag @lesson.image.url, style: "height: 500px" %>
-          <%= form.file_field :image, class:"roboto-font" %>
+          <br>
+          <div>
+            <label for="preview" class="custom-file-upload">
+              Завантажити
+            </label>
+            <%= form.file_field :image, class:"roboto-font" %>
+          </div>
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Трейлер курсу</span>
           <%= video_tag @lesson.video.url, controls: 'controls' %>
-          <%= form.file_field :video, class:"roboto-font" %>
+          <br>
+          <div>
+            <label for="preview" class="custom-file-upload">
+              Завантажити
+            </label>
+            <%= form.file_field :video, class:"roboto-font" %>
+          </div>
         </div>
         <div class="inputs-wrapper">
           <label for="name" class="roboto-font">Назва уроку</label>

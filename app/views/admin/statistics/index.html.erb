@@ -1,14 +1,14 @@
 <div class="wrapper">
   <div class="container-statistics">
     <div class="navigator">
-      <a href="" class="roboto-font">
+      <%= link_to admin_path, class: "roboto-font" do %>
         Головне меню
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to admin_statistics_path, class: "roboto-font" do %>
         Статистика
         <span></span>
-      </a>
+      <% end %>
     </div>
     <div class="wrapper-statistics">
       <div class="main-title">

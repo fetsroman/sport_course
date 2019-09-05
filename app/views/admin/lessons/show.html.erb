@@ -1,13 +1,44 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <%= link_to 'Редагувати', edit_admin_course_lesson_path(@lesson), class: "btn btn-primary" %>
-    <div class="col-md-6">
-      <img style="max-width: 100%;" src="<%= @lesson.image.url %>">
+<div class="wrapper">
+  <div class="container-statistics">
+    <div class="navigator">
+      <%= link_to admin_path, class: "roboto-font" do %>
+        Головне меню
+        <span></span>
+      <% end %>
+      <%= link_to admin_courses_path, class: "roboto-font" do %>
+        <%= @course.title %>
+        <span></span>
+      <% end %>
+      <%= link_to admin_course_lesson_path(@course, @lesson), class: "roboto-font" do %>
+        <%= @course.title %>
+        <span></span>
+      <% end %>
     </div>
-    <h3><%= @lesson.title %></h3>
-    <p><%= @lesson.description %></p>
-    <video controls autoplay>
-      <source src="<%= @lesson.video.url %>">
-    </video>
+    <div class="wrapper-added-course">
+      <div class="main-title">
+        <span class="title roboto-font">Загальна інформація</span>
+      </div>
+      <div class="add_new_course">
+        <div class="wrapper-content">
+          <%= link_to edit_admin_course_lesson_path(@course, @lesson) do %>
+            <button class="button">Редагувати</button>
+          <% end %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Прев’ю зображення курсу</span>
+          <%= image_tag @lesson.image.url, style: "height: 500px" %>
+        </div>
+        <div class="wrapper-content">
+          <span class="roboto-font">Трейлер курсу</span>
+          <%= video_tag @lesson.video.url, controls: 'controls' %>
+        </div>
+        <div class="inputs-wrapper">
+          <label for="name" class="roboto-font">Назва курсу</label>
+          <%= @lesson.title %>
+          <label for="description" class="roboto-font">Опис</label>
+          <%= @lesson.description %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

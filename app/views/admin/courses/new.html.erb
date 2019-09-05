@@ -1,37 +1,43 @@
 <div class="wrapper">
   <div class="container-statistics">
     <div class="navigator">
-      <a href="" class="roboto-font">
+      <%= link_to admin_path, class: "roboto-font" do %>
         Головне меню
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to admin_courses_path, class: "roboto-font" do %>
         Курси
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to new_admin_courses_path, class: "roboto-font" do %>
         Додати курс
         <span></span>
-      </a>
+      <% end %>
     </div>
-      <%= simple_form_for(@course, url: admin_courses_path(locale: params[:locale]), method: "POST", html: { class: 'wrapper-added-course' }) do |form| %>
+      <%= simple_form_for(@course, url: admin_courses_path(@course, locale: params[:locale]), method: "POST", html: { class: 'wrapper-added-course' }) do |form| %>
         <div class="main-title">
           <span class="title roboto-font">Загальна інформація</span>
         </div>
         <div class="add_new_course">
           <div class="wrapper-content">
             <span class="roboto-font">Прев’ю зображення курсу</span>
-            <%= form.file_field :image, class:"roboto-font" %>
-            <a href="">
-              <button>Завантажити</button>
-            </a>
+            <br>
+            <div>
+              <label for="preview" class="custom-file-upload">
+                Завантажити
+              </label>
+              <%= form.file_field :image, class:"roboto-font" %>
+            </div>
           </div>
           <div class="wrapper-content">
             <span class="roboto-font">Трейлер курсу</span>
-            <%= form.file_field :trailer, class:"roboto-font" %>
-            <a href="">
-              <button>Завантажити</button>
-            </a>
+            <<br>
+            <div>
+              <label for="preview" class="custom-file-upload">
+                Завантажити
+              </label>
+              <%= form.file_field :trailer, class:"roboto-font" %>
+            </div>
           </div>
           <div class="inputs-wrapper">
             <label for="name" class="roboto-font">Назва курсу</label>
@@ -41,10 +47,13 @@
           </div>
           <div class="wrapper-content">
             <span class="roboto-font">Зошит (Для пакету VIP)</span>
-            <%= form.file_field :document, class:"roboto-font" %>
-            <a href="">
-              <button>Завантажити</button>
-            </a>
+            <br>
+            <div>
+              <label for="preview" class="custom-file-upload">
+                Завантажити
+              </label>
+              <%= form.file_field :document, class:"roboto-font" %>
+            </div>
           </div>
           <br>
           <div class="button-wrapper">

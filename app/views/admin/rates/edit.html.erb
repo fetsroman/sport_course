@@ -1,18 +1,18 @@
 <div class="wrapper">
   <div class="container-statistics">
     <div class="navigator">
-      <a href="" class="roboto-font">
+      <%= link_to admin_path, class: "roboto-font" do %>
         Головне меню
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
-        Курс
+      <% end %>
+      <%= link_to admin_course_path(@course), class: "roboto-font" do %>
+        <%= @course.title %>
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to edit_admin_course_rates_path(@course, @rate), class: "roboto-font" do %>
         Редагувати пакет
         <span></span>
-      </a>
+      <% end %>
     </div>
     <%= simple_form_for @rate, url: admin_course_rate_path(@course, @rate, locale: params[:locale]), method: "PUT", html: { class: 'wrapper-added-course' } do |form| %>
       <div class="main-title">

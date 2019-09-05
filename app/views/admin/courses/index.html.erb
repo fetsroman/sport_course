@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="container">
     <div class="navigator">
-      <a href="" class="roboto-font">
+      <%= link_to admin_path, class: "roboto-font" do %>
         Головне меню
         <span></span>
-      </a>
-      <a href="" class="roboto-font">
+      <% end %>
+      <%= link_to admin_courses_path, class: "roboto-font" do %>
         Курси
         <span></span>
-      </a>
+      <% end %>
     </div>
     <div class="under-navigator">
       <span class="roboto-font">Cписок курсів</span>
@@ -25,7 +25,7 @@
         <%= link_to admin_course_path(course), class: "every-card" do %>
             <div class="img" style="background: url(<%= course.image.url %>)"></div>
             <div class="content-wrapper">
-              <span class="roboto-bold title"><%= course.title %></span>
+              <span class="roboto-bold title"><%= course.title %></span><br>
               <span class="roboto-font total-packet"><%= course.rates.count %> пакети</span>
               <%= link_to edit_admin_course_path(course) do %>
                 <button class="roboto-font">Редагувати</button>
