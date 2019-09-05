@@ -81,7 +81,8 @@
     </section>
 
 <!--    Інфа про перший курс-->
-    <section class="wait-on-course" style='background-image: url(<%=  @courses.first.image.url %>);'>
+    <% if @courses.first.present? %>
+      <section class="wait-on-course" style='background-image: url(<%=  @courses.first.image.url %>);'>
       <div class="left-side-text container">
         <span class="oswald-sans-serif500"><%= @courses.first.title %></span>
       </div>
@@ -90,6 +91,7 @@
         </p>
       </div>
     </section>
+    <% end %>
 <!------->
 
     <section class="course-for-you container">
@@ -170,25 +172,26 @@
     </section>
 
 <!--    Епізоди та пакети першого урока-->
-    <section class="episode">
-      <span class="title oswald-sans-serif500">Епізоди</span>
-      <div class="slider container">
-        <% @courses.first.lessons.each.with_index(1) do |lesson, index| %>
-          <div class="slide-wrapper">
-            <div class="slide" style='background-image: url(<%= @courses.first.image.url %>);'>
-              <div class="top-number-container">
-                <span class="oswald-sans-serif500"><%= index %></span>
-              </div>
-              <div class="episode-content-wrapper">
-                <span class="name-of-episode oswald-sans-serif500"><%= lesson.title %></span>
-                <span class="description-of-episode montserrat-sans-serif600"><%= lesson.description %></span>
+    <% if @courses.first.present? %>
+      <section class="episode">
+        <span class="title oswald-sans-serif500">Епізоди</span>
+        <div class="slider container">
+          <% @courses.first.lessons.each.with_index(1) do |lesson, index| %>
+            <div class="slide-wrapper">
+              <div class="slide" style='background-image: url(<%= @courses.first.image.url %>);'>
+                <div class="top-number-container">
+                  <span class="oswald-sans-serif500"><%= index %></span>
+                </div>
+                <div class="episode-content-wrapper">
+                  <span class="name-of-episode oswald-sans-serif500"><%= lesson.title %></span>
+                  <span class="description-of-episode montserrat-sans-serif600"><%= lesson.description %></span>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    </section>
-    <section class="price-section container">
+          <% end %>
+        </div>
+      </section>
+      <section class="price-section container">
       <div class="title-container">
         <span class="oswald-sans-serif600" id="price">Три пакети</span>
         <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
@@ -224,6 +227,7 @@
         <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
       </div>
     </section>
+    <% end %>
 <!------->
 
 <!--    Решта курсів-->
@@ -375,7 +379,8 @@
     </section>
   </div>
 
-  <section class="container-fluid trailer-section">
+  <% if @courses.first.present? %>
+    <section class="container-fluid trailer-section">
     <div class="container wrapper-section-content">
       <span class="oswald-sans-serif500" id="trailer">Трейлер</span>
       <div class="video-container">
@@ -383,6 +388,7 @@
       </div>
     </div>
   </section>
+  <% end %>
 
   <footer>
     <div class="footer-wrapper">
