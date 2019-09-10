@@ -1,0 +1,61 @@
+<% if resource.errors.any? %>
+  <% if resource.errors.keys.include?(:name) %>
+    $("#name-hint").text("<%= resource.errors[:name].first %>");
+    $("#name").css("border", "1px solid red");
+  <% else %>
+    $("#name-hint").text("");
+    $("#name").css("border", "none");
+  <% end %>
+
+  <% if resource.errors.keys.include?(:phone) %>
+    $("#phone-hint").text("<%= resource.errors[:phone].first %>");
+    $("#phone").css("border", "1px solid red");
+  <% else %>
+    $("#phone-hint").text("");
+    $("#phone").css("border", "none");
+  <% end %>
+
+  <% if resource.errors.keys.include?(:email) %>
+    $("#email-hint").text("<%= resource.errors[:email].first %>");
+    $("#email").css("border", "1px solid red");
+  <% else %>
+    $("#email-hint").text("");
+    $("#email").css("border", "none");
+  <% end %>
+
+  <% if resource.errors.keys.include?(:password) %>
+    $("#password-hint").text("<%= resource.errors[:password].first %>");
+    $("#password").css("border", "1px solid red");
+  <% else %>
+    $("#password-hint").text("");
+    $("#password").css("border", "none");
+  <% end %>
+
+  <% if resource.errors.keys.include?(:terms_and_conditions) %>
+    $("#check-valid").css("color", "red");
+    $("#span1").css("color", "red");
+    $("#span2").css("color", "red");
+  <% else %>
+    $("#check-valid").css("color", "#3c3c3c");
+    $("#span1").css("color", "#3c3c3c");
+    $("#span2").css("color", "#3c3c3c");
+  <% end %>
+<% else %>
+  // Get the modal
+  $("#myModal").css("display", "block");
+
+  // When the user clicks on <span> (x), close the modal
+  $(".close").click(function() {
+      $("#myModal").css("display", "none");
+      window.location.replace("/");
+  });
+
+  // When the user clicks anywhere outside of the modal, close it
+  $(window).click(function(e) {
+      if (e.target == $("#myModal")) {
+          $("#myModal").css("display", "block");
+          window.location.replace("/");
+      }
+  });
+
+<% end %>

@@ -18,16 +18,18 @@
       <div class="main-title">
         <span class="title roboto-font">Загальна інформація</span>
       </div>
+      <%= form.error_notification %>
+      <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
       <div class="add_new_course">
         <div class="wrapper-content">
           <span class="roboto-font">Прев’ю зображення курсу</span>
           <%= image_tag @course.image.url, style: "height: 500px" %>
           <br>
           <div>
-            <label for="preview" class="custom-file-upload">
+            <label for="image" class="custom-file-upload">
               Завантажити
             </label>
-            <%= form.file_field :image, class:"roboto-font", id: "preview" %>
+            <%= form.file_field :image, class:"roboto-font", id: "image" %>
           </div>
         </div>
         <div class="wrapper-content">
@@ -35,10 +37,10 @@
           <%= video_tag @course.trailer.url, controls: 'controls' %>
           <br>
           <div>
-            <label for="preview" class="custom-file-upload">
+            <label for="trailer" class="custom-file-upload">
               Завантажити
             </label>
-            <%= form.file_field :trailer, class:"roboto-font", id: "preview" %>
+            <%= form.file_field :trailer, class:"roboto-font", id: "trailer" %>
           </div>
         </div>
         <div class="inputs-wrapper">
@@ -52,10 +54,10 @@
           <%= link_to "Переглянути документ", @course.document.url, target: "_blank" %>
           <br>
           <div>
-            <label for="preview" class="custom-file-upload">
+            <label for="document" class="custom-file-upload">
               Завантажити
             </label>
-            <%= form.file_field :document, class:"roboto-font", id: "preview" %>
+            <%= form.file_field :document, class:"roboto-font", id: "document" %>
           </div>
         </div>
         <br>

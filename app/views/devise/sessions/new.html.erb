@@ -5,7 +5,7 @@
         <span class="title">Увійти <br class="title-br">в&nbsp;акаунт</span>
         <span class="description">Введіть логін та пароль, щоб отримати доступ до придбаних курсів.</span>
       </div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: "form" }, validate: true) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), id: "form", remote: true) do |f| %>
         <div class="wrapper-input" id="wrapper-input-email">
           <div class="icons-wrapper">
             <%= image_tag 'icons/mail.svg' %>
@@ -20,9 +20,6 @@
           </div>
           <%= f.password_field :password, placeholder: "Password", id: "password" %>
           <br>
-          <%= render "devise/shared/links" %>
-
-          <span id="password-hint" class="hint"></span>
           <% if devise_mapping.rememberable? %>
             <%= f.label :remember_me, checked: 'checked', hidden: true %>
           <% end %>
@@ -38,4 +35,3 @@
     </div>
   </div>
 </div>
-<span class="hidden" hidden><%= alert %></span>

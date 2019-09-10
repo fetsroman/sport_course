@@ -10,7 +10,10 @@ Rails.application.routes.draw do
         match '/bought_course', to: 'payment#bought_course', via: [:get, :post]
       end
     end
-    devise_for :users
+    devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+    }
     root "welcome#index"
     namespace :users do
       get :confirm_email

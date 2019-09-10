@@ -60,10 +60,6 @@ $(document).on('click', '.scroll-nav', function (event) {
 });
 
 $(document).ready(function() {
-    if( $(".hidden").text() != ""){
-        $('.modal').modal('show');
-    }
-
     $('.slider').slick({
         infinite: true,
         slidesToShow: 3,

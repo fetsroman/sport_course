@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :bought_lists
   has_many :watched_lists
 
-  validates_acceptance_of :terms_and_conditions, acceptance: true, on: :create, message: ""
+  validates :terms_and_conditions, acceptance: true, on: :create
   validates_presence_of :name, :phone, :email, :password
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates_format_of :phone, with: /\d[0-9+]\)*\z/

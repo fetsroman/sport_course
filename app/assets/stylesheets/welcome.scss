@@ -1,7 +1,3 @@
-@import "bootstrap";
-@import 'slick';
-@import 'slick-theme';
-
 html,
 body {
   margin: 0;
@@ -1715,3 +1711,7 @@ footer .bottom-container span a:hover {
     height: 330px;
   }
 }
+
+@import "bootstrap";
+@import 'slick-theme';
+@import 'slick';

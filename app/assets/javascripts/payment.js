@@ -15,7 +15,7 @@ $(document).ready(function(){
         date_hint = document.getElementById('date-hint'),
         dateOfCard = document.getElementById('dateOfCard');
 
-    if ( $(".hidden").text() == "Required parameter not passed card") {
+    if ( $(".hidden").text() == "Required parameter not passed card" || $(".hidden").text() == "Invalid parameter card") {
         card_number.style.border = '1px solid red';
         dateOfCard.style.border = '1px solid red';
         cvv.style.border = '1px solid red';

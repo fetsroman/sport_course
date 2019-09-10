@@ -18,6 +18,8 @@
       <div class="main-title">
         <span class="title roboto-font">Загальна інформація</span>
       </div>
+      <%= form.error_notification %>
+      <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
       <div class="add_new_course">
         <div class="inputs-wrapper">
           <label for="name" class="roboto-font">Назва пакету</label>

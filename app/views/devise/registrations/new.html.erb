@@ -2,14 +2,13 @@
   <div class="wrapper-form wrapper-form-registration">
     <div class="child-wrapper-container">
       <div class="title-wrapper">
-        <%= alert %>
         <span class="title registration-title">Реєстрація <br class="title-br">акаунта</span>
         <span class="description registration-description">
           Для отримання доступу до кабінету та покупки курсів
           потрібно пройти коротку реєстрацію
         </span>
       </div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id: "form", validate: true) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id: "form", remote: true) do |f| %>
         <div class="wrapper-input">
           <div class="icons-wrapper">
             <%= image_tag 'icons/user.svg' %>
@@ -40,7 +39,7 @@
           </div>
           <%= f.password_field :password, placeholder: "Password", id: "password" %>
           <br>
-
+          <span id="password-hint" class="hint"></span>
         </div>
         <div class="radio-toolbar">
           <% if I18n.locale == :ru %>
@@ -55,13 +54,11 @@
             <%= label_tag :locale_uk, 'Українська' %>
           <% end %>
         </div>
-          <%#= f.check_box :terms_and_conditions %>
         <div class="checkbox-container">
           <label class="checkbox-label">
-            <%= check_box_tag :terms_and_conditions %>
+            <%= f.check_box :terms_and_conditions, id: "check" %>
             <span class="checkbox-custom rectangular"></span>
           </label>
-
           <div class="input-title" id="check-valid">
             <label for="check">Я згоден з <span id="span1">умовами сервісу</span> та
               <span id="span2">правилами надання послуг</span></label>
@@ -79,7 +76,11 @@
     </div>
   </div>
 </div>
-
-<% if resource.errors.any? %>
-  <%= content_tag "div", '', id: "foobar", data: {foobar: resource.errors.keys}, hidden: true %>
-<% end %>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Подтвердите свой аккаунт, листом на єлектронной поште!!! </p>
+  </div>
+</div>

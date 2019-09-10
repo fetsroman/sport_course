@@ -1,0 +1,7 @@
+<% if params[:locale] == "ru" %>
+  $("#email-hint").text("Неверный Email или Пароль");
+<% elsif params[:locale] == "ru" %>
+  $("#email-hint").text("Неправильний Email або Пароль");
+<% end %>
+$("#email").css("border", "1px solid red");
+$("#password").css("border", "1px solid red");
