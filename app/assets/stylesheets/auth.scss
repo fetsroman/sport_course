@@ -4,6 +4,12 @@ body {
   overflow: hidden;
 }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -141,6 +147,7 @@ input:focus {
   border: none;
   outline: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .wrapper-form span {
@@ -626,13 +633,12 @@ label.message {
     grid-template-columns: 137px 137px;
     grid-gap: 16px;
   }
-
 }
 
 @media screen and (max-width: 330px) {
-  body {
-    overflow: hidden;
-  }
+  //body {
+  //  overflow: hidden;
+  //}
   .container {
     height: auto;
     padding: 10px 0 10px 0;

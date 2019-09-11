@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # before_action :not_found
   before_action :set_locale, except: [:change_locale]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -23,17 +24,27 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    if user_signed_in? && I18n.available_locales.map(&:to_s).include?(current_user.locale)
-      I18n.locale = current_user.locale
-      if params[:locale] != current_user.locale
+    begin
+      if user_signed_in? && I18n.available_locales.map(&:to_s).include?(current_user.locale)
+        I18n.locale = current_user.locale
+        if params[:locale] != current_user.locale
+          redirect_to("/" + I18n.locale.to_s + "/"+ request.path.to_s.split("/").drop(2).join("/"))
+        end
+      elsif params[:locale].present?
+        I18n.locale = params[:locale]
+        # redirect_to("/" + I18n.locale.to_s + "/"+ request.path.to_s.split("/").drop(2).join("/"))
+      else
+        I18n.locale = I18n.default_locale
         redirect_to("/" + I18n.locale.to_s + "/"+ request.path.to_s.split("/").drop(2).join("/"))
       end
-    elsif params[:locale].present?
-      I18n.locale = params[:locale]
-      # redirect_to("/" + I18n.locale.to_s + "/"+ request.path.to_s.split("/").drop(2).join("/"))
-    else
-      I18n.locale = I18n.default_locale
-      redirect_to("/" + I18n.locale.to_s + "/"+ request.path.to_s.split("/").drop(2).join("/"))
+    rescue ActionController::RoutingError
+      redirect_to root_path
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { errors: e.message }, status: :unauthorized
+    rescue JWT::DecodeError => e
+      render json: { errors: e.message, status: 401 }
+    rescue SessionExpiredError => e
+      render json: { errors: e.message, status: 401 }
     end
   end
 

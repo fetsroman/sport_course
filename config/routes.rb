@@ -35,5 +35,5 @@ Rails.application.routes.draw do
   end
 
   get '/', to: redirect("/#{I18n.default_locale}")
-  get "/*path", to: redirect("/#{I18n.default_locale}/%{path}")
+  get "/*path", to: redirect("/#{I18n.default_locale}/%{path}"), constraints: { path: %r{(?!(#{I18n.available_locales.join('|')})\/).*} }
 end

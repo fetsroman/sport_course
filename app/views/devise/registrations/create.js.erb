@@ -4,7 +4,7 @@
     $("#name").css("border", "1px solid red");
   <% else %>
     $("#name-hint").text("");
-    $("#name").css("border", "none");
+    $("#name").css("border", "1px solid #3c3c3c");
   <% end %>
 
   <% if resource.errors.keys.include?(:phone) %>
@@ -12,7 +12,7 @@
     $("#phone").css("border", "1px solid red");
   <% else %>
     $("#phone-hint").text("");
-    $("#phone").css("border", "none");
+    $("#phone").css("border", "1px solid #3c3c3c");
   <% end %>
 
   <% if resource.errors.keys.include?(:email) %>
@@ -20,7 +20,7 @@
     $("#email").css("border", "1px solid red");
   <% else %>
     $("#email-hint").text("");
-    $("#email").css("border", "none");
+    $("#email").css("border", "1px solid #3c3c3c");
   <% end %>
 
   <% if resource.errors.keys.include?(:password) %>
@@ -28,7 +28,7 @@
     $("#password").css("border", "1px solid red");
   <% else %>
     $("#password-hint").text("");
-    $("#password").css("border", "none");
+    $("#password").css("border", "1px solid #3c3c3c");
   <% end %>
 
   <% if resource.errors.keys.include?(:terms_and_conditions) %>
@@ -41,6 +41,8 @@
     $("#span2").css("color", "#3c3c3c");
   <% end %>
 <% else %>
+
+window.location.replace("/");
   // Get the modal
   $("#myModal").css("display", "block");
 
