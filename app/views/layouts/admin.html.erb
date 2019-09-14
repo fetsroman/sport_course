@@ -9,10 +9,34 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Oswald&display=swap" rel="stylesheet">
   <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.6.5/video-js.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.6.5/video.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-resolution-switcher/0.4.2/videojs-resolution-switcher.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 
 <body>
+<div class="language-wrapper">
+  <span class="oswald-sans-serif500">
+    <button class="active">
+      <% unless params[:locale] == "uk" %>
+        <%= link_to "UK", change_locale_path(:uk, path: "#{request.path.to_s.split("/").drop(2).join("/")}") %>
+      <% else %>
+        UK
+      <% end %>
+    </button>
+  </span>
+  <span class="oswald-sans-serif500">
+    <button class="active">
+      <% unless params[:locale] == "ru" %>
+        <%= link_to "RU", change_locale_path(:ru, path: "#{request.path.to_s.split("/").drop(2).join("/")}") %>
+      <% else %>
+        RU
+      <% end %>
+    </button>
+  </span>
+</div>
   <%= yield %>
 </body>
 </html>

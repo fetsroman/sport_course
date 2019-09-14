@@ -120,8 +120,15 @@ input {
   border-radius: 5px;
 }
 
+.openSans-normal{
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+
 input:focus {
-  box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+  box-shadow: 0 0 30px rgba(236, 211, 133, 0.47);
 }
 
 

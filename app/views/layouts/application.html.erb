@@ -4,11 +4,17 @@
     <title>Fitness</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Oswald&display=swap" rel="stylesheet">
-    <%= stylesheet_link_tag  params[:controller], 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag params[:controller], 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag params[:controller], 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Oswald&display=swap', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag params[:controller], 'https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Oswald&display=swap', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/video.js/7.6.5/video-js.css", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/video.js/7.6.5/video.js", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/videojs-resolution-switcher/0.4.2/videojs-resolution-switcher.js", 'data-turbolinks-track': 'reload' %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script>window.replainSettings = {id: 'bb49806e-cae9-4f51-9b8d-d1adff2d9a31'};(function (u) {var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = u;var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);})('https://widget.replain.cc/dist/client.js');</script>
   </head>

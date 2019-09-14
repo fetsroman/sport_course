@@ -44,9 +44,9 @@
       <div class="under-header-section container">
         <div class="buy-ticket">
           <div class="content-wrapper">
-            <s class="crossed-out oswald-sans-serif500">6000</s>
+            <s class="crossed-out oswald-sans-serif500"><%= (@courses.first.rates.first.price*1.2) %></s>
             <span class="price oswald-sans-serif500">від<strong
-              class="oswald-sans-serif600">4000</strong>гривень</span>
+              class="oswald-sans-serif600"><%= @courses.first.rates.first.price %></strong>гривень</span>
           </div>
           <div class="buy-button-wrapper container">
             <a href="#price" class="scroll-nav">
@@ -206,7 +206,7 @@
               </div>
               <div class="price-of-every-card">
                 <div class="content-wrapper">
-                  <s class="crossed-out col oswald-sans-serif500">6000</s>
+                  <s class="crossed-out col oswald-sans-serif500"><%= (rate.price*1.2) %></s>
                   <span class="price oswald-sans-serif500"><%= rate.price %> гривень</span>
                 </div>
                 <div class="button-wrapper">
@@ -274,7 +274,7 @@
                 </div>
                 <div class="price-of-every-card">
                   <div class="content-wrapper">
-                    <s class="crossed-out col oswald-sans-serif500">6000</s>
+                    <s class="crossed-out col oswald-sans-serif500"><%= (rate.price*1.2) %></s>
                     <span class="price oswald-sans-serif500"><%= rate.price %> гривень</span>
                   </div>
                   <div class="button-wrapper">
@@ -320,9 +320,9 @@
     <section class="under-header-section under-quotes-section sale container">
       <div class="buy-ticket">
         <div class="content-wrapper">
-          <s class="crossed-out col oswald-sans-serif500">6000</s>
+          <s class="crossed-out col oswald-sans-serif500"><%= (@courses.first.rates.first.price*1.2) %></s>
           <span class="price oswald-sans-serif500">від<strong
-            class="oswald-sans-serif600">4000</strong>гривень</span>
+            class="oswald-sans-serif600"><%= @courses.first.rates.first.price %></strong>гривень</span>
         </div>
         <div class="buy-button-wrapper container">
           <a href="#price" class="scroll-nav">
@@ -382,9 +382,9 @@
   <% if @courses.first.present? %>
     <section class="container-fluid trailer-section">
     <div class="container wrapper-section-content">
-      <span class="oswald-sans-serif500" id="trailer">Трейлер</span>
+      <span class="oswald-sans-serif500 trailer-title" id="trailer">Трейлер</span>
       <div class="video-container">
-        <%= video_tag @courses.first.trailer.url, controls: 'controls' %>
+        <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
       </div>
     </div>
   </section>
@@ -430,3 +430,60 @@
     </div>
   </footer>
 </div>
+
+<style>
+  .video-js .vjs-menu-button .vjs-icon-placeholder:before {
+    content: '\2731';
+  }
+  .video-js .vjs-big-play-button, .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
+    left: 50%;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -45px;
+    background-color: #F2C94C;
+  }
+</style>
+
+<script>
+    videojs('video', {
+        controls: true,
+        plugins: {
+            videoJsResolutionSwitcher: {
+                default: 'high', // Default resolution [{Number}, 'low', 'high'],
+                dynamicLabel: true
+            }
+        }
+    }, function(){
+        var player = this;
+        window.player = player
+        player.updateSrc([
+            {
+                src: '<%= @courses.first.trailer.fullhd.url %>',
+                type: 'video/mp4',
+                label: '1080p',
+                res: 1080
+            },
+            {
+                src: '<%= @courses.first.trailer.hd.url %>',
+                type: 'video/mp4',
+                label: '720p',
+                res: 720
+            },
+            {
+                src: '<%= @courses.first.trailer.lowhd.url %>',
+                type: 'video/mp4',
+                label: '480p',
+                res: 480
+            },
+            {
+                src: '<%= @courses.first.trailer.verylowhd.url %>',
+                type: 'video/mp4',
+                label: '360p',
+                res: 360
+            }
+        ])
+        player.on('resolutionchange', function(){
+            console.info('Source changed to %s', player.src())
+        })
+    })
+</script>

@@ -210,7 +210,7 @@ body {
 
 .toggleHeader {
   background: #ffffff !important;
-  box-shadow: 0 0 40px rgba(214, 220, 251, 0.7);
+  box-shadow: 0 0 30px rgba(236, 211, 133, 0.47);
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -859,7 +859,7 @@ body {
   transform: skew(0deg, -3deg);
 }
 
-.trailer-section span {
+.trailer-section .trailer-title {
   font-size: 48px;
   line-height: 100%;
   text-transform: uppercase;

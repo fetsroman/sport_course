@@ -30,8 +30,8 @@
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Трейлер курсу</span>
-          <%= video_tag @lesson.video.url, controls: 'controls' %>
         </div>
+        <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
         <div class="inputs-wrapper">
           <label for="name" class="roboto-font">Назва курсу</label>
           <%= @lesson.title %>
@@ -42,3 +42,60 @@
     </div>
   </div>
 </div>
+
+<style>
+  .video-js .vjs-menu-button .vjs-icon-placeholder:before {
+    content: '\2731';
+  }
+  .video-js .vjs-big-play-button, .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
+    left: 50%;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -45px;
+    background-color: #F2C94C;
+  }
+</style>
+
+<script>
+    videojs('video', {
+        controls: true,
+        plugins: {
+            videoJsResolutionSwitcher: {
+                default: 'high', // Default resolution [{Number}, 'low', 'high'],
+                dynamicLabel: true
+            }
+        }
+    }, function(){
+        var player = this;
+        window.player = player
+        player.updateSrc([
+            {
+                src: '<%= @lesson.video.fullhd.url %>',
+                type: 'video/mp4',
+                label: '1080p',
+                res: 1080
+            },
+            {
+                src: '<%= @lesson.video.hd.url %>',
+                type: 'video/mp4',
+                label: '720p',
+                res: 720
+            },
+            {
+                src: '<%= @lesson.video.lowhd.url %>',
+                type: 'video/mp4',
+                label: '480p',
+                res: 480
+            },
+            {
+                src: '<%= @lesson.video.verylowhd.url %>',
+                type: 'video/mp4',
+                label: '360p',
+                res: 360
+            }
+        ])
+        player.on('resolutionchange', function(){
+            console.info('Source changed to %s', player.src())
+        })
+    })
+</script>

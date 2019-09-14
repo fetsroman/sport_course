@@ -515,6 +515,36 @@ footer span, footer a {
   transform: skew(0deg, 0deg);
 }
 
+footer .top-container .language-wrapper button:focus {
+  text-decoration: underline;
+}
+
+footer .top-container .language-wrapper button, footer .top-container .language-wrapper button a{
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 125%;
+  letter-spacing: 0.06em;
+  color: #D1D1D1;
+  cursor: pointer;
+  transition: .3s;
+}
+
+footer .top-container .language-wrapper button a:hover{
+  text-decoration: none;
+  color: #F2C94C;
+}
+
+footer .top-container .language-wrapper .active {
+  color: #F2C94C;
+}
+
+footer .top-container .language-wrapper button:hover {
+  transition: .3s;
+  color: #F2C94C;
+}
+
 footer .top-container .title {
   font-size: 14px;
   line-height: 19px;

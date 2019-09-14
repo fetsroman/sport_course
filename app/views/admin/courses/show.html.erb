@@ -39,8 +39,8 @@
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Трейлер курсу</span>
-          <%= video_tag @course.trailer.url, controls: 'controls' %>
         </div>
+        <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
         <div class="inputs-wrapper">
           <label for="name" class="roboto-font">Назва курсу</label>
           <%= @course.title %>
@@ -70,7 +70,7 @@
     <div class="card-wrapper">
       <% @course.lessons.each do |lesson| %>
         <div class="every-card">
-          <%= link_to admin_course_path(lesson), class: "every-card" do %>
+          <%= link_to admin_course_lesson_path(@course, lesson), class: "every-card" do %>
               <div class="img" style="background: url(<%= lesson.image.url %>) "></div>
               <div class="content-wrapper">
                 <span class="roboto-bold title"><%= lesson.title %></span>
@@ -113,3 +113,60 @@
     </div>
   </div>
 </div>
+
+<style>
+  .video-js .vjs-menu-button .vjs-icon-placeholder:before {
+    content: '\2731';
+  }
+  .video-js .vjs-big-play-button, .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
+    left: 50%;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -45px;
+    background-color: #F2C94C;
+  }
+</style>
+
+<script>
+    videojs('video', {
+        controls: true,
+        plugins: {
+            videoJsResolutionSwitcher: {
+                default: 'high', // Default resolution [{Number}, 'low', 'high'],
+                dynamicLabel: true
+            }
+        }
+    }, function(){
+        var player = this;
+        window.player = player
+        player.updateSrc([
+            {
+                src: '<%= @course.trailer.fullhd.url %>',
+                type: 'video/mp4',
+                label: '1080p',
+                res: 1080
+            },
+            {
+                src: '<%= @course.trailer.hd.url %>',
+                type: 'video/mp4',
+                label: '720p',
+                res: 720
+            },
+            {
+                src: '<%= @course.trailer.lowhd.url %>',
+                type: 'video/mp4',
+                label: '480p',
+                res: 480
+            },
+            {
+                src: '<%= @course.trailer.verylowhd.url %>',
+                type: 'video/mp4',
+                label: '360p',
+                res: 360
+            }
+        ])
+        player.on('resolutionchange', function(){
+            console.info('Source changed to %s', player.src())
+        })
+    })
+</script>

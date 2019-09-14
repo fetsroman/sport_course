@@ -47,7 +47,7 @@ class Admin::LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to @course, notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to admin_course_lessons_path(@course, @lesson, locale: params[:locale]), notice: 'Lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }

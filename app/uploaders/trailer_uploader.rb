@@ -4,7 +4,22 @@ class TrailerUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   include CarrierWave::Video
 
-  process encode_video: [:mp4]
+  version :fullhd do
+    process encode_video: [:mp4, resolution: "1920x1080"]
+  end
+
+  version :hd do
+    process encode_video: [:mp4, resolution: "1280x720"]
+  end
+
+  version :lowhd do
+    process encode_video: [:mp4, resolution: "854x480"]
+  end
+
+  version :verylowhd do
+    process encode_video: [:mp4, resolution: "640x360"]
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
