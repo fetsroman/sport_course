@@ -1,6 +1,5 @@
 //= require jquery3
 //= require rails-ujs
-//= require video
 //= require activestorage
 //= require turbolinks
 
