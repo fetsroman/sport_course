@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "video";
+@import "video-cdn";
 
 html,
 body {
@@ -406,6 +408,10 @@ header .profile-header a:hover {
   right: 2px;
 }
 
+
+.video-wrapper .viewed .title{
+  color: white;
+}
 /*ANOTHER CLASS*/
 
 .video-wrapper .viewing {

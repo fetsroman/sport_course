@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # before_action :not_found
   before_action :set_locale, except: [:change_locale]
   before_action :configure_permitted_parameters, if: :devise_controller?
 

@@ -7,11 +7,12 @@
 <!--  <source src="<%#= @lesson.video.url %>"-->
 <!--          type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>-->
 <!--</video>-->
-  <video id='video' style="width: 640px; height: 360px;" class="video-js vjs-default-skin"></video>
+  <video id='video' style="width: 640px; height: 360px;" class="video-js vjs-default-skin videoControl"></video>
   <div class="under-video-line">
     <span class="title oswald-bold"><%= @lesson.title %></span>
     <p class="openSans-normal"><%= @lesson.description %></p>
   </div>
+
   <div class="wrapper-button">
     <% if @lesson.next %>
       <%= link_to course_lesson_path(@course, @lesson.next), remote: true do %>
@@ -22,7 +23,6 @@
       <% end %>
     <% end %>
   </div>
-</div>
 
 <style>
   .video-js .vjs-menu-button .vjs-icon-placeholder:before {
@@ -35,6 +35,10 @@
     margin-left: -45px;
     background-color: #F2C94C;
   }
+
+  .vjs-selected span{
+    color: black;
+  }
 </style>
 
 <script>
@@ -43,7 +47,7 @@
         plugins: {
             videoJsResolutionSwitcher: {
                 default: 'high', // Default resolution [{Number}, 'low', 'high'],
-                dynamicLabel: true
+                dynamicLabel: false
             }
         }
     }, function(){
@@ -80,3 +84,5 @@
         })
     })
 </script>
+
+</div>

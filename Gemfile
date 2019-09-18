@@ -7,7 +7,7 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
+# Use Puma as the app serverG
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -46,7 +46,6 @@ gem 'carrierwave-video'
 gem 'rails-i18n', '~> 5.1'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'liqpay', github: 'liqpay/sdk-ruby'
-gem 'client_side_validations'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
