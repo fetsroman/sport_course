@@ -17,7 +17,7 @@
     <% @rates.each do |rate| %>bu
       <tr>
         <td><%= rate.title %></td>
-        <td><%= rate.description %></td>
+        <td><%= simple_format(rate.description) %></td>
         <td><%= Rate.tariffs.key(rate.tariff) %></td>
         <td><%= rate.price %></td>
 <!--        <td><%#= link_to 'Show', rate %></td>-->

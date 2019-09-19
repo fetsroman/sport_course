@@ -36,7 +36,7 @@
           <label for="name" class="roboto-font">Назва курсу</label>
           <%= @lesson.title %>
           <label for="description" class="roboto-font">Опис</label>
-          <%= @lesson.description %>
+          <%= simple_format(@lesson.description) %>
         </div>
       </div>
     </div>

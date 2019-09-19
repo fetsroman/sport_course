@@ -22,7 +22,7 @@
 
           <div class="card-body">
             <h5 class="card-title"><%= lesson.title %> </h5>
-            <p class="card-text"><%= lesson.description %></p>
+            <p class="card-text"><%= simple_format(lesson.description) %></p>
 
               <%= link_to "Edit Lesson", edit_admin_course_lesson_path(@course, lesson, locale: params[:locale]) %>
           </div>

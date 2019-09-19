@@ -45,7 +45,7 @@
           <label for="name" class="roboto-font">Назва курсу</label>
           <%= @course.title %>
           <label for="description" class="roboto-font">Опис</label>
-          <%= @course.description %>
+          <%= simple_format(@course.description) %>
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Зошит (Для пакету VIP)</span>
@@ -102,7 +102,7 @@
           <div class="content-wrapper">
             <span class="roboto-bold title"><%= rate.title %></span><br>
             <span class="roboto-font total-packet"><%= rate.tariff %></span><br>
-            <span class="roboto-font total-packet"><%= rate.description %></span><br>
+            <span class="roboto-font total-packet"><%= simple_format(rate.description) %></span><br>
             <span class="roboto-font total-packet"><%= rate.price %></span>
             <%= link_to edit_admin_course_rate_path(@course, rate) do %>
               <button class="roboto-font">Редагувати</button>
