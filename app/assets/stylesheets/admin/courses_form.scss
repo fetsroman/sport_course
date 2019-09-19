@@ -129,6 +129,9 @@ input[type="file"] {
   width: 208px;
   height: 44px;
   margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .add_new_course .wrapper-content .button, .button-wrapper .button {
@@ -169,6 +172,16 @@ input[type="file"] {
 .inputs-wrapper input:focus, .inputs-wrapper textarea:focus {
   outline: none;
   box-shadow: 0 4px 5px rgba(0, 82, 242, 0.1), 0 0 20px rgba(23, 0, 162, 0.08);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.filename{
+  display: inline;
+  align-self: center;
+  width: 300px;
 }
 
 #name {

@@ -26,10 +26,13 @@
           <%= image_tag @course.image.url, style: "height: 500px" %>
           <br>
           <div>
-            <label for="image" class="custom-file-upload">
-              Завантажити
-            </label>
-            <%= form.file_field :image, class:"roboto-font", id: "image" %>
+            <a>
+              <label for="image" class="custom-file-upload">
+                Завантажити
+                <%= form.file_field :image, class:"roboto-font", id: "image" %>
+              </label>
+              <span id="image-filename" class="filename"></span>
+            </a>
           </div>
         </div>
         <div class="wrapper-content">
@@ -37,10 +40,13 @@
           <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
           <br>
           <div>
-            <label for="trailer" class="custom-file-upload">
-              Завантажити
-            </label>
-            <%= form.file_field :trailer, class:"roboto-font", id: "trailer" %>
+            <a>
+              <label for="video" class="custom-file-upload">
+                Завантажити
+                <%= form.file_field :trailer, class:"roboto-font", id: "video" %>
+              </label>
+              <span id="video-filename" class="filename"></span>
+            </a>
           </div>
         </div>
         <div class="inputs-wrapper">
@@ -54,10 +60,13 @@
           <%= link_to "Переглянути документ", @course.document.url, target: "_blank" %>
           <br>
           <div>
-            <label for="document" class="custom-file-upload">
-              Завантажити
-            </label>
-            <%= form.file_field :document, class:"roboto-font", id: "document" %>
+            <a>
+              <label for="document" class="custom-file-upload">
+                Завантажити
+                <%= form.file_field :document, class:"roboto-font", id: "document" %>
+              </label>
+              <span id="document-filename" class="filename"></span>
+            </a>
           </div>
         </div>
         <br>

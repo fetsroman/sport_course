@@ -9,7 +9,7 @@
         <%= @course.title %>
         <span></span>
       <% end %>
-      <%= link_to new_admin_lesson_path, class: "roboto-font" do %>
+      <%= link_to new_admin_course_lesson_path(@course), class: "roboto-font" do %>
         Додати урок
         <span></span>
       <% end %>
@@ -25,20 +25,26 @@
           <span class="roboto-font">Прев’ю зображення уроку</span>
           <br>
           <div>
-            <label for="image" class="custom-file-upload">
-              Завантажити
-            </label>
-            <%= form.file_field :image, class:"roboto-font", id: "image" %>
+            <a>
+              <label for="image" class="custom-file-upload">
+                Завантажити
+                <%= form.file_field :image, class:"roboto-font", id: "image" %>
+              </label>
+              <span id="image-filename" class="filename"></span>
+            </a>
           </div>
         </div>
         <div class="wrapper-content">
           <span class="roboto-font">Трейлер курсу</span>
           <br>
           <div>
-            <label for="video" class="custom-file-upload">
-              Завантажити
-            </label>
-            <%= form.file_field :video, class:"roboto-font", id: "video" %>
+            <a>
+              <label for="video" class="custom-file-upload">
+                Завантажити
+                <%= form.file_field :video, class:"roboto-font", id: "video" %>
+              </label>
+              <span id="video-filename" class="filename"></span>
+            </a>
           </div>
         </div>
         <div class="inputs-wrapper">
