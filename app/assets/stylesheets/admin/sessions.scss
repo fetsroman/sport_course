@@ -80,6 +80,43 @@ form .under-form-section span {
   color: rgba(0, 0, 0, 0.16);
 }
 
+.language-wrapper{
+  padding: 10px 0;
+  background: #404040;
+  text-align: center;
+  align-items: center;
+}
+
+.language-wrapper button:focus {
+  text-decoration: underline;
+}
+
+.language-wrapper button, .language-wrapper button a{
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 125%;
+  letter-spacing: 0.06em;
+  color: #D1D1D1;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.language-wrapper button a:hover{
+  text-decoration: none;
+  color: #F2C94C;
+}
+
+.language-wrapper .active {
+  color: #F2C94C;
+}
+
+.language-wrapper button:hover {
+  transition: .3s;
+  color: #F2C94C;
+}
+
 @media screen and (max-width: 550px) {
   body {
     background: #fff;

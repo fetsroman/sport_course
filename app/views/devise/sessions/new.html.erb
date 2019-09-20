@@ -2,8 +2,8 @@
   <div class="wrapper-form">
     <div class="child-wrapper-container">
       <div class="title-wrapper">
-        <span class="title">Увійти <br class="title-br">в&nbsp;акаунт</span>
-        <span class="description">Введіть логін та пароль, щоб отримати доступ до придбаних курсів.</span>
+        <span class="title"><%= t 'session.title_html' %></span>
+        <span class="description"><%= t 'session.description' %></span>
       </div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), id: "form", remote: true) do |f| %>
         <div class="wrapper-input" id="wrapper-input-email">
@@ -24,11 +24,11 @@
             <%= f.label :remember_me, checked: 'checked', hidden: true %>
           <% end %>
         </div>
-        <%= f.submit "Увійти", id: "submit", class: "button" %>
+        <%= f.submit (t 'session.button'), id: "submit", class: "button" %>
         <div class="forgetPassword">
           <span class="openSans-normal">
-            Не маєте аккаунта?
-            <%= link_to "Створити новий", new_user_registration_path %>
+            <%= t 'session.dont_have_account' %>
+            <%= link_to (t 'session.create_new'), new_user_registration_path %>
           </span>
         </div>
       <% end %>

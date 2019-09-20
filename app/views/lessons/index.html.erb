@@ -5,13 +5,13 @@
       <div class="top-name">
         <%= image_tag 'icons/couch.svg', alt: "couch-image" %>
         <div class="name-wrapper">
-          <span class="openSans-normal">Артем Васильев</span>
-          <span class="openSans-normal">Тренер</span>
+          <span class="openSans-normal"><%= t 'lessons.modal_name' %></span>
+          <span class="openSans-normal"><%= t 'lessons.modal_coach' %></span>
         </div>
       </div>
       <div class="botton-contacts">
         <div class="title">
-          <span class="openSans-normal">Контакти</span>
+          <span class="openSans-normal"><%= t 'lessons.modal_contacts' %></span>
         </div>
         <div class="call-wrapper">
           <%= image_tag 'icons/phone.svg', alt: "phone" %>
@@ -45,8 +45,8 @@
         <% end %>
       </div>
       <div class="profile-header">
-        <%= link_to "Курси", my_courses_path, class: "course openSans-normal" %>
-        <%= link_to "Вийти", destroy_user_session_path, method: :delete, class: "go-out openSans-normal" %>
+        <%= link_to (t 'courses_link'), my_courses_path, class: "course openSans-normal" %>
+        <%= link_to (t 'exit'), destroy_user_session_path, method: :delete, class: "go-out openSans-normal" %>
       </div>
     </div>
   </header>
@@ -58,7 +58,7 @@
         <div class="button-wrapper">
           <% if can_contact? %>
             <button class="all-button openSans-normal" id="myBtn">
-              Контакти тренера
+              <%= t 'lessons.coach_contacts' %>
               <%= image_tag 'icons/call-phone.svg', alt: "call" %>
             </button>
           <% end %>
@@ -66,7 +66,7 @@
           <% if can_download? %>
             <%= link_to @course.document.url, target: "_blank" do %>
               <button class="all-button openSans-normal">
-                Робочий зошит
+                <%= t 'lessons.workbook' %>
                 <%= image_tag 'icons/download.svg', alt: "download" %>
               </button>
             <% end %>
@@ -81,7 +81,7 @@
         <div class="range-container">
           <div class="range-result-container">
             <span class="procent">0%</span>
-            <span class="lesson"><%= @course.watched_count %> / <%= @course.lessons.count %> уроків</span>
+            <span class="lesson"><%= @course.watched_count %> / <%= @course.lessons.count %> <%= t 'lessons_text' %></span>
           </div>
           <input type="range" id="myRange">
           <div class="range-value">
@@ -96,7 +96,7 @@
                     <%= image_tag lesson.image.url, alt: "photo" %>
                     <div class="wrapper-text">
                       <span class="title openSans-normal"><%= lesson.title %></span>
-                      <span class="description openSans-normal"><%= lesson.description.truncate(100, separator: /\s/) %></span>
+                      <span class="description openSans-normal"><%= simple_format(lesson.description.truncate(100, separator: /\s/)) %></span>
                     </div>
                   <% end %>
 
@@ -106,7 +106,7 @@
                     <%= image_tag lesson.image.url, alt: "photo" %>
                     <div class="wrapper-text">
                       <span class="title openSans-normal"><%= lesson.title %></span>
-                      <span class="description openSans-normal"><%= lesson.description.truncate(100, separator: /\s/) %></span>
+                      <span class="description openSans-normal"><%= simple_format(lesson.description.truncate(100, separator: /\s/)) %></span>
                     </div>
                   <% end %>
 
@@ -119,7 +119,7 @@
                   <%= image_tag lesson.image.url, alt: "photo" %>
                   <div class="wrapper-text">
                     <span class="title openSans-normal"><%= lesson.title %></span>
-                    <span class="description openSans-normal"><%= lesson.description.truncate(100, separator: /\s/) %></span>
+                    <span class="description openSans-normal"><%= simple_format(lesson.description.truncate(100, separator: /\s/)) %></span>
                   </div>
                 <% end %>
 
@@ -158,7 +158,7 @@
             </button>
           </span>
         </div>
-        <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
+        <span class="title openSans-sans-serif600"><%= t 'footer.title' %></span>
         <div class="icons-container">
           <a href="#"><%= image_tag 'icons/facebook.svg', alt: "facebook" %></a>
           <a href="#"><%= image_tag 'icons/instagram.svg', alt: "instagram" %></a>
@@ -167,8 +167,8 @@
       </div>
       <div class="container bottom-container">
         <span class="openSans-sans-serif600">Your Sport Courses 2019</span>
-        <span class="openSans-sans-serif600">Усі права захищено</span>
-        <span class="movadex openSans-sans-serif600">Зроблено в
+        <span class="openSans-sans-serif600"><%= t 'footer.copyright' %></span>
+        <span class="movadex openSans-sans-serif600"><%= t 'footer.made_in' %>
             <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
         </span>
       </div>

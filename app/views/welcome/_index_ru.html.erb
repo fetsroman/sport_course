@@ -11,13 +11,13 @@
       <div class="justify-self-end align-self-center button-wrapper">
         <a href="#trailer" class="scroll-nav">
           <button class="first-button-header all-button openSans-sans-serif600">
-            Подивитись трейлер
+            Просмотреть трейлер
           </button>
         </a>
         <% if user_signed_in? %>
-          <%= link_to button_tag("Мої курси", class: "all-button sign-in-button openSans-sans-serif600"), my_courses_path %>
+          <%= link_to button_tag("Мои курсы", class: "all-button sign-in-button openSans-sans-serif600"), my_courses_path %>
         <% else %>
-          <%= link_to button_tag("Ввійти", class: "all-button sign-in-button openSans-sans-serif600"), new_user_session_path %>
+          <%= link_to button_tag("Ввойти", class: "all-button sign-in-button openSans-sans-serif600"), new_user_session_path %>
         <% end %>
       </div>
     </div>
@@ -25,151 +25,150 @@
 
   <section class="container-fluid align-self-center header-content-on-image" id="wrapper">
     <div class="container content-wrapper">
-      <span class="header-title oswald-sans-serif600">Розпочни нове спортивне життя разом з нами!</span>
+      <span class="header-title oswald-sans-serif600">Начни новую спортивную жизнь вместе с нами</span>
       <span class="header-under-title oswald-sans-serif500">
-                З нашим курсом ви зможете змінити своє життя.
-                Склади свою програму тренувань і забудь про неефективних тренерів.
-        </span>
+        С нами вы научитесь составлять программу тренировок и рацион питания так, чтобы получить долгожданный результат!
+      </span>
       <a href="#trailer" class="scroll-nav">
         <button class="all-button watch-trailer openSans-sans-serif600">
           <%= image_tag 'welcome/play-icon.svg', alt: "play" %>
-          Дивитись трейлер
+          Просмотреть трейлер
         </button>
       </a>
     </div>
   </section>
 
-  <% if @courses.first.present? %>
-      <div class="wrapper2 container-fluid">
-      <section class="under-header-section-wrapper container-fluid">
-        <div class="under-header-section container">
-          <div class="buy-ticket">
-            <div class="content-wrapper">
-              <s class="crossed-out oswald-sans-serif500"><%= (@courses.first.rates.first.price*1.2) %></s>
-              <span class="price oswald-sans-serif500">від<strong
-                class="oswald-sans-serif600"><%= @courses.first.rates.first.price %></strong>гривень</span>
-            </div>
-            <div class="buy-button-wrapper container">
-              <a href="#price" class="scroll-nav">
-                <button class="all-button openSans-sans-serif600">Придбати</button>
-              </a>
-              <span class="oswald-sans-serif500">* Тільки до 31.08.2019</span>
-            </div>
+  <div class="wrapper2 container-fluid">
+    <section class="under-header-section-wrapper container-fluid">
+      <div class="under-header-section container">
+        <div class="buy-ticket">
+          <div class="content-wrapper">
+            <s class="crossed-out oswald-sans-serif500"><%= (@courses.first.rates.first.price*1.2) %></s>
+            <span class="price oswald-sans-serif500">від<strong
+              class="oswald-sans-serif600"><%= @courses.first.rates.first.price %></strong>рублей</span>
           </div>
-          <div class="our-lesson">
-            <div class="wrapper-content">
-              <div class="image-container">
-                <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-              </div>
-              <div class="our-lesson-content-container">
-                <span class="title oswald-sans-serif600">13 ГОДИН УРОКІВ</span>
-                <span class="sub-title oswald-sans-serif500">ДЛЯ ДОСЯГНЕННЯ РЕЗУЛЬТАТУ</span>
-              </div>
-            </div>
+          <div class="buy-button-wrapper container">
+            <a href="#price" class="scroll-nav">
+              <button class="all-button openSans-sans-serif600">Купить</button>
+            </a>
+            <span class="oswald-sans-serif500">* Только до 31.08.2019</span>
           </div>
-          <div class="our-lesson">
-            <div class="wrapper-content">
-              <div class="image-container">
-                <%= image_tag 'welcome/like.svg', alt: "like-image" %>
-              </div>
-              <div class="our-lesson-content-container">
-                <span class="title oswald-sans-serif600">500 КЛІЄНТІВ</span>
-                <span class="sub-title oswald-sans-serif500">ВЖЕ ОЦІНИЛИ НАШУ ПРОГРАМУ</span>
-              </div>
+        </div>
+        <div class="our-lesson">
+          <div class="wrapper-content">
+            <div class="image-container">
+              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
+            </div>
+            <div class="our-lesson-content-container">
+              <span class="title oswald-sans-serif600">13 ЧАСОВ УРОКОВ</span>
+              <span class="sub-title oswald-sans-serif500">ДЛЯ ДОСТИЖЕНИЯ РЕЗУЛЬТАТА</span>
             </div>
           </div>
         </div>
-      </section>
+        <div class="our-lesson">
+          <div class="wrapper-content">
+            <div class="image-container">
+              <%= image_tag 'welcome/like.svg', alt: "like-image" %>
+            </div>
+            <div class="our-lesson-content-container">
+              <span class="title oswald-sans-serif600">500 КЛИЕНТОВ</span>
+              <span class="sub-title oswald-sans-serif500">УЖЕ ОЦЕНИЛИ НАШУ ПРОГРАМУ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="we-are-coach-with-experience wait-on-course">
+      <div class="left-side-text container">
+        <span class="oswald-sans-serif500">Что Вас ожидает в течение курса</span>
+      </div>
+      <div class="right-side-text container">
+        <p class="montserrat-sans-serif600">
+          1. Вы почувствуете свое тело и организм, поймете их особенности и потребности.
+          <br>
+          2. Знания о тренировках, которые станут необходимыми для достижения поставленной цели и получения желаемого результата.
+          <br>
+          3. Вы научитесь самостоятельно строить рацион питания, одновременно резко не отказываясь от любимой пищи.
+          <br>
+          4.Примеры тренировок и питания, чтобы правильно построить спортивный режим.
+          <br>
+          5.Специальная тетрадь с расчетами и основной информацией по курсу. Мы позаботились, чтобы вы всегда имели под рукой все необходимое.
+          <br>
+          6.Мотивация и поддержка, мы всегда будем рядом и поможем даже с мелочами.
+          <br>
+          7. Экономия времени и денег, поскольку пройдя курс, вы получите необходимые знания и материалы для достижения желаемого результата.
+          <br>
+          8.Удобство и комфорт - вы самостоятельно выбираете где и когда вам тренироваться.
+        </p>
+      </div>
+    </section>
+
+    <section class="course-for-you container">
+      <span class="title oswald-sans-serif500">Этот курс подойдет для:</span>
+      <div class="wrapper-content">
+        <div class="wrapper-every-blocks">
+          <div>
+            <%= image_tag 'icons/cup.svg', alt: "oclock-image" %>
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600">Начинающих, которые хотят получить не только знания, но и желанный результат</span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <%= image_tag 'icons/dumbbell.svg', alt: "oclock-image" %>
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600">Людей, которые хотят набрать мышечную массу или похудеть</span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <%= image_tag 'icons/apple.svg', alt: "oclock-image" %>
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600">Тех, кто хочет узнать как составить программу питания и тренировок</span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <%= image_tag 'icons/question.svg', alt: "oclock-image" %>
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600">Тех, кто не получил желаемого результата от своих предыдущих тренировок</span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <%= image_tag 'icons/man.svg', alt: "oclock-image" %>
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600">Людей, которые начинают вести здоровый образ жизни</span>
+          </div>
+        </div>
+        <div class="wrapper-every-blocks">
+          <div>
+            <%= image_tag 'icons/money.svg', alt: "oclock-image" %>
+          </div>
+          <div>
+            <span class="montserrat-sans-serif600">Людей, ценящих свое время и деньги на пути к результату</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <% if @courses.first.present? %>
       <!--    Інфа про перший курс-->
       <section class="wait-on-course" style='background-image: url(<%=  @courses.first.image.url %>);'>
-        <div class="left-side-text container">
-          <span class="oswald-sans-serif500"><%= @courses.first.title %></span>
+        <div class="coach-left-side container right-side-text">
+          <p><%= simple_format(@courses.first.description) %></p>
         </div>
-        <div class="right-side-text container">
-          <p class="montserrat-sans-serif600"><%= simple_format(@courses.first.description) %>
-          </p>
+        <div class="coach-right-side left-side-text container">
+          <span class="oswald-sans-serif500"><%= @courses.first.title %></span>
         </div>
       </section>
       <!------->
-
-      <section class="course-for-you container">
-        <span class="title oswald-sans-serif500">Цей курс для тебе, якщо...</span>
-        <div class="wrapper-content">
-          <div class="wrapper-every-blocks">
-            <div>
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div>
-              <span class="montserrat-sans-serif600">Любиш спорт і спортивний спосіб життя.</span>
-            </div>
-          </div>
-          <div class="wrapper-every-blocks">
-            <div>
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div>
-              <span class="montserrat-sans-serif600">Тобі набридли неефективні тренери.</span>
-            </div>
-          </div>
-          <div class="wrapper-every-blocks">
-            <div>
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div>
-              <span class="montserrat-sans-serif600">Ти надаєш перевагу домашнім завданням замість спортзалу.</span>
-            </div>
-          </div>
-          <div class="wrapper-every-blocks">
-            <div>
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div>
-              <span class="montserrat-sans-serif600">Любиш спорт і спортивний спосіб життя.</span>
-            </div>
-          </div>
-          <div class="wrapper-every-blocks">
-            <div>
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div>
-              <span class="montserrat-sans-serif600">Тобі набридли неефективні тренери.</span>
-            </div>
-          </div>
-          <div class="wrapper-every-blocks">
-            <div>
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div>
-              <span class="montserrat-sans-serif600">Ти надаєш перевагу домашнім завданням замість спортзалу.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="we-are-coach-with-experience wait-on-course">
-        <div class="coach-left-side container right-side-text">
-          <p>
-            І ми навчимо вас тому, чого не зможуть інші навіть офлайн
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Amet varius ultricies quam neque consectetur. Ultricies
-            justo amet, id tortor eget neque feugiat eu duis. Vitae
-            mi neque, lacus, mus in mauris mauris, massa nunc. Adipiscing
-            eget vitae phasellus turpis accumsan sapien aliquet adipiscing
-            risus.
-          </p>
-          <p>
-            Adipiscing eget vitae phasellus turpis accumsan sapien
-            aliquet adipiscing risus.
-          </p>
-        </div>
-        <div class="coach-right-side left-side-text container">
-          <span class="oswald-sans-serif500">Результат курсу</span>
-        </div>
-      </section>
-
       <!--    Епізоди та пакети першого урока-->
       <section class="episode">
         <span class="title oswald-sans-serif500">Епізоди</span>
@@ -190,41 +189,41 @@
         </div>
       </section>
       <section class="price-section container">
-          <div class="title-container">
-            <span class="oswald-sans-serif600" id="price">Три пакети</span>
-            <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
-          </div>
-          <div class="price-wrapper container">
-            <% @courses.first.rates.each do |rate| %>
-              <div class="price-card">
-                <div class="slide">
-                  <div class="title-of-card">
-                    <span class="card-title oswald-sans-serif500"><%= rate.title %></span>
-                    <span class="card-description oswald-sans-serif500"><%= simple_format(rate.description) %></span>
+        <div class="title-container">
+          <span class="oswald-sans-serif600" id="price">Три пакети</span>
+          <span class="oswald-sans-serif500">Виберіть пакет, який підійде саме вам</span>
+        </div>
+        <div class="price-wrapper container">
+          <% @courses.first.rates.each do |rate| %>
+            <div class="price-card">
+              <div class="slide">
+                <div class="title-of-card">
+                  <span class="card-title oswald-sans-serif500"><%= rate.title %></span>
+                  <span class="card-description oswald-sans-serif500"><%= simple_format(rate.description) %></span>
+                </div>
+                <div class="price-of-every-card">
+                  <div class="content-wrapper">
+                    <s class="crossed-out col oswald-sans-serif500"><%= (rate.price*1.2) %></s>
+                    <span class="price oswald-sans-serif500"><%= rate.price %> гривень</span>
                   </div>
-                  <div class="price-of-every-card">
-                    <div class="content-wrapper">
-                      <s class="crossed-out col oswald-sans-serif500"><%= (rate.price*1.2) %></s>
-                      <span class="price oswald-sans-serif500"><%= rate.price %> гривень</span>
-                    </div>
-                    <div class="button-wrapper">
-                      <% if user_signed_in? && !@courses.first.bought?(current_user.id) %>
-                        <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), course_rate_bought_course_path(@courses.first, rate), method: :get %>
-                      <% elsif user_signed_in? && @courses.first.bought?(current_user.id) %>
-                        <%= link_to button_tag("Переглянути", class: "all-button openSans-sans-serif600"), course_lessons_path(@courses.first) %>
-                      <% else %>
-                        <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), new_user_registration_path %>
-                      <% end %>
-                    </div>
+                  <div class="button-wrapper">
+                    <% if user_signed_in? && !@courses.first.bought?(current_user.id) %>
+                      <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), course_rate_bought_course_path(@courses.first, rate), method: :get %>
+                    <% elsif user_signed_in? && @courses.first.bought?(current_user.id) %>
+                      <%= link_to button_tag("Переглянути", class: "all-button openSans-sans-serif600"), course_lessons_path(@courses.first) %>
+                    <% else %>
+                      <%= link_to button_tag("Придбати", class: "all-button openSans-sans-serif600"), new_user_registration_path %>
+                    <% end %>
                   </div>
                 </div>
               </div>
-            <% end %>
-          </div>
-          <div class="footer">
-            <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
-          </div>
-        </section>
+            </div>
+          <% end %>
+        </div>
+        <div class="footer">
+          <span class="openSans-sans-serif600">Поспішіть! Акційна пропозиція діє лише до 31 серпня 2019 року.</span>
+        </div>
+      </section>
       <!------->
 
       <!--    Решта курсів-->
@@ -293,98 +292,95 @@
           </div>
         </section>
       <% end %>
+    <% end %>
 
-      <!--    Інші блоки-->
-      <section class="wait-on-course bottom-card">
-        <div class="left-side-text container">
-          <span class="oswald-sans-serif500">
-              НЕ ВАГАЙСЯ, ПРИЄДНУЙСЯ
-          </span>
-        </div>
-        <div class="right-side-text container">
-          <p class="openSans-sans-serif600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur.
-          </p>
-        </div>
-      </section>
+    <!--    Інші блоки-->
+    <section class="wait-on-course arnold">
+      <div class="right-side-text container">
+        <p class="montserrat-sans-serif600 first">
+          <%= image_tag 'welcome/quotes.svg', alt: "quotes-image", class: "quotes1" %>
+          Я открыл для себя секрет успеха в формулировке из трех частей:
+        </p>
+        <ul>
+          <li class="montserrat-sans-serif600">- Уверенность в себе.</li>
+          <li class="montserrat-sans-serif600">- Позитивный настрой.</li>
+          <li class="montserrat-sans-serif600">- Честная интенсивная работа.</li>
+        </ul>
+        <p class="montserrat-sans-serif600 last">
+          Многие люди знают эти три принципа, но некоторые из них могут применить их на практике
+          <%= image_tag 'welcome/quotes.svg', alt: "quotes-image", class: "quotes2" %>
+        </p>
+      </div>
+      <div class="left-side-text container">
+        <span class="oswald-sans-serif500">
+            Арнольд Шварценеггер
+        </span>
+      </div>
+    </section>
 
-      <section class="under-header-section under-quotes-section sale container">
-        <div class="buy-ticket">
-          <div class="content-wrapper">
-            <s class="crossed-out col oswald-sans-serif500"><%= (@courses.first.rates.first.price*1.2) %></s>
-            <span class="price oswald-sans-serif500">від<strong
-              class="oswald-sans-serif600"><%= @courses.first.rates.first.price %></strong>гривень</span>
-          </div>
-          <div class="buy-button-wrapper container">
-            <a href="#price" class="scroll-nav">
-              <button class="all-button openSans-sans-serif600">Придбати</button>
-            </a>
-            <span class="oswald-sans-serif500">* Тільки до 31.08.2019</span>
-          </div>
+    <section class="under-header-section under-quotes-section sale container">
+      <div class="buy-ticket">
+        <div class="content-wrapper">
+          <s class="crossed-out col oswald-sans-serif500"><%= (@courses.first.rates.first.price*1.2) %></s>
+          <span class="price oswald-sans-serif500">від<strong
+            class="oswald-sans-serif600"><%= @courses.first.rates.first.price %></strong>рублей</span>
         </div>
-        <div class="our-lesson">
-          <div class="wrapper-content">
-            <div class="image-container">
-              <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
-            </div>
-            <div class="our-lesson-content-container">
-              <span class="title oswald-sans-serif600">13 ГОДИН УРОКІВ</span>
-              <span class="sub-title oswald-sans-serif500">ДЛЯ ДОСЯГНЕННЯ РЕЗУЛЬТАТУ</span>
-            </div>
-          </div>
+        <div class="buy-button-wrapper container">
+          <a href="#price" class="scroll-nav">
+            <button class="all-button openSans-sans-serif600">Купить</button>
+          </a>
+          <span class="oswald-sans-serif500">* Только до 31.08.2019</span>
         </div>
-        <div class="our-lesson dwaldlwa">
-          <div class="wrapper-content">
-            <div class="image-container">
-              <%= image_tag 'welcome/like.svg', alt: "like-image" %>
-            </div>
-            <div class="our-lesson-content-container">
-              <span class="title oswald-sans-serif600">500 КЛІЄНТІВ</span>
-              <span class="sub-title oswald-sans-serif500">ВЖЕ ОЦІНИЛИ НАШУ ПРОГРАМУ</span>
-            </div>
+      </div>
+      <div class="our-lesson">
+        <div class="wrapper-content">
+          <div class="image-container">
+            <%= image_tag 'welcome/oclock.svg', alt: "oclock-image" %>
+          </div>
+          <div class="our-lesson-content-container">
+            <span class="title oswald-sans-serif600">13 ЧАСОВ УРОКОВ</span>
+            <span class="sub-title oswald-sans-serif500">ДЛЯ ДОСТИЖЕНИЯ РЕЗУЛЬТАТА</span>
           </div>
         </div>
-      </section>
-
-      <section class="wait-on-course arnold">
-        <div class="right-side-text container">
-          <p class="montserrat-sans-serif600 first">
-            <%= image_tag 'welcome/quotes.svg', alt: "quotes-image", class: "quotes1" %>
-            Я відкрив для себе секрет успіху в формулюванні з трьох частин:
-          </p>
-          <ul>
-            <li class="montserrat-sans-serif600">- Впевненість у собі.</li>
-            <li class="montserrat-sans-serif600">- Позитивний настрій.</li>
-            <li class="montserrat-sans-serif600">- Чесна інтенсивна праця.</li>
-          </ul>
-          <p class="montserrat-sans-serif600 last">
-            Багато людей знають ці три принципи, але деякі з них можуть застосувати їх на практиці
-            <%= image_tag 'welcome/quotes.svg', alt: "quotes-image", class: "quotes2" %>
-          </p>
-        </div>
-        <div class="left-side-text container">
-          <span class="oswald-sans-serif500">
-              Арнольд Шварцнеггер
-          </span>
-        </div>
-      </section>
-    </div>
-
-    <section class="container-fluid trailer-section">
-      <div class="container wrapper-section-content">
-        <span class="oswald-sans-serif500 trailer-title" id="trailer">Трейлер</span>
-        <div class="video-container">
-          <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
+      </div>
+      <div class="our-lesson dwaldlwa">
+        <div class="wrapper-content">
+          <div class="image-container">
+            <%= image_tag 'welcome/like.svg', alt: "like-image" %>
+          </div>
+          <div class="our-lesson-content-container">
+            <span class="title oswald-sans-serif600">500 КЛИЕНТОВ</span>
+            <span class="sub-title oswald-sans-serif500">УЖЕ ОЦЕНИЛИ НАШУ ПРОГРАМУ</span>
+          </div>
         </div>
       </div>
     </section>
-  <% end %>
+
+    <section class="wait-on-course bottom-card">
+      <div class="left-side-text container">
+        <span class="oswald-sans-serif500">
+            Максим Олексюк
+        </span>
+      </div>
+      <div class="right-side-text container">
+        <p class="openSans-sans-serif600">
+          Более 15 лет своей жизни я посвятил спорту, из них 7 лет я занимаюсь и развиваюсь в направлении фитнеса. Уже как 4 года я являюсь сертифицированным персональным тренером по фитнесу и одновременно 3 года онлайн тренером. Вместе со мной более 150 клиентов получили желаемый результат. Я шагаю в ногу со временем, развивая будущие направления в сфере спорта и здоровья.
+          <br>
+          <br>
+          Ваш путь к цели не будет слишком легким. Но мы сделаем все, чтобы убедить вас, что маленькие победы - это уже результат, а ошибки - это еще не разочарование. Поэтому, несмотря ни на что, продолжайте идти к цели. День за днем. Тренировка за тренировкой. А мы - будем рядом.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <section class="container-fluid trailer-section">
+    <div class="container wrapper-section-content">
+      <span class="oswald-sans-serif500 trailer-title" id="trailer">Трейлер</span>
+      <div class="video-container">
+        <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-wrapper">
@@ -428,6 +424,10 @@
 </div>
 
 <style>
+  .video-js{
+    margin: 0 auto;
+  }
+
   .video-js .vjs-menu-button .vjs-icon-placeholder:before {
     content: '\2731';
   }
@@ -439,8 +439,8 @@
     background-color: #F2C94C;
   }
 </style>
-<% if @courses.first.present? %>
-  <script>
+
+<script>
     videojs('video', {
         controls: true,
         plugins: {
@@ -483,4 +483,3 @@
         })
     })
 </script>
-<% end %>

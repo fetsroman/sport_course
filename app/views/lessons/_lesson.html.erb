@@ -10,14 +10,14 @@
   <video id='video' style="width: 640px; height: 360px;" class="video-js vjs-default-skin videoControl"></video>
   <div class="under-video-line">
     <span class="title oswald-bold"><%= @lesson.title %></span>
-    <p class="openSans-normal"><%= @lesson.description %></p>
+    <p class="openSans-normal"><%= simple_format(@lesson.description) %></p>
   </div>
 
   <div class="wrapper-button">
     <% if @lesson.next %>
       <%= link_to course_lesson_path(@course, @lesson.next), remote: true do %>
         <button class="all-button">
-          Дивитись наступну
+          <%= t 'lesson.next_video' %>
           <%= image_tag 'icons/Vector.svg', alt: "next" %>
         </button>
       <% end %>

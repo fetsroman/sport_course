@@ -2,8 +2,8 @@
   <div class="wrapper-form">
     <div class="child-wrapper-container pay-wrapper-container">
       <div class="title-wrapper pay-title-wrapper">
-        <span class="title">Оплата</span>
-        <span class="description">Ви збираєтесь купити курс.<br>Введіть будь ласка данні для оплати</span>
+        <span class="title"><%= t 'payment.title' %></span>
+        <span class="description"><%= t 'payment.description_html' %></span>
       </div>
       <%= simple_form_for :card_params, url: course_rate_bought_course_path(@course, @rate), method: "POST", id: "form" do |form| %>
         <div class="course-name" course_id="<%= @course.id %>" rate_id="<%= @rate.id %>">
@@ -12,17 +12,17 @@
           </div>
           <div class="wrapper-courses-lesson">
             <div class="name">
-              <span>Пакет:</span>
-              <span>Ціна:</span>
+              <span><%= t 'payment.package' %></span>
+              <span><%= t 'payment.price' %></span>
             </div>
             <div class="price">
               <span><%= @rate.tariff %></span>
-              <span><%= @rate.price %> грн</span>
+              <span><%= @rate.price %> <%= t 'payment.currency' %></span>
             </div>
           </div>
         </div>
         <div class="card-number-section">
-          <label for="card-number">Номер картки</label><br>
+          <label for="card-number"><%= t 'payment.card_number' %></label><br>
           <div class="icons-wrapper">
             <%= image_tag 'icons/card.svg', alt: "card" %>
           </div>
@@ -35,7 +35,7 @@
             <div class="icons-wrapper">
               <%= image_tag 'icons/calendar-dates.jpg', alt: "date" %>
             </div>
-            <label for="dateOfCard">Термін дії картки</label>
+            <label for="dateOfCard"><%= t 'payment.card_time' %></label>
             <%= form.text_field :card_date, id: "dateOfCard" %>
             <span id="date-hint" class="hint"></span>
           </div>
@@ -43,7 +43,7 @@
             <div class="icons-wrapper">
               <%= image_tag 'icons/CVV.svg', alt: "cvv", class: "cvv-image" %>
             </div>
-            <label for="cvv">CVV код</label>
+            <label for="cvv">CVV <%= t 'payment.code' %></label>
             <%= form.password_field :card_cvv, id: "cvv", maxlength: 3 %>
             <span id="cvv-hint" class="hint"></span>
           </div>
@@ -57,7 +57,7 @@
 <!--            <label for="check">Я згоден з <span id="span1">умовами сервісу</span> та <span id="span2">правилами надання послуг</span></label>-->
 <!--          </div>-->
 <!--        </div>-->
-        <%= form.submit "Купити", class: "button", id: "submit" %>
+        <%= form.submit (t 'payment.button'), class: "button", id: "submit" %>
       <% end %>
     </div>
   </div>

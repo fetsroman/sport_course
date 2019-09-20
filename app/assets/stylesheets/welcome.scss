@@ -387,7 +387,7 @@ body {
   line-height: 180%;
   letter-spacing: 0.06em;
   color: #FFFFFF;
-  width: 100%;
+  width: 90%;
   justify-self: start;
   transform: skew(0deg, -3deg);
 }
@@ -434,7 +434,7 @@ body {
 /*NEXT SECTION*/
 
 .we-are-coach-with-experience {
-  background: image_url("welcome/alex2.png") no-repeat;
+  background: image_url("welcome/image-1.jpg") no-repeat;
   background-size: cover;
   margin-top: 100px;
 }
@@ -820,8 +820,12 @@ body {
   background: none;
 }
 
+.bottom-card p{
+  width: 60%;
+}
+
 .bottom-card .left-side-text {
-  background: image_url("welcome/alex.png");
+  background: image_url("welcome/maksym.jpg");
   background-size: cover;
 }
 

@@ -7,14 +7,14 @@
         <% end %>
       </div>
       <div class="profile-go-out">
-        <%= link_to "Вийти", destroy_user_session_path, method: :delete , class: "go-out openSans-normal" %>
+        <%= link_to (t 'exit'), destroy_user_session_path, method: :delete , class: "go-out openSans-normal" %>
       </div>
     </div>
   </header>
   <section class="card-section container-fluid">
     <div class="container">
       <div class="main-title">
-        <span class="main-title oswald-bold">Придбані курси</span>
+        <span class="main-title oswald-bold"><%= t 'bought_list.title' %></span>
       </div>
       <div class="wrapper-card">
         <% @courses.each do |course| %>
@@ -25,7 +25,7 @@
                 <span class="sub-title"><%= course.bought_tariff_title %></span>
                 <div class="image-container">
                   <%= image_tag 'icons/calendar.svg', alt: "calendar" %>
-                  <span class="oswald-bold">Залишилось <%= course.watched_count %>/<%= course.lessons.count %> уроків</span>
+                  <span class="oswald-bold"><%= t 'bought_list.remains' %> <%= course.watched_count %>/<%= course.lessons.count %> <%= t 'lessons_text' %></span>
                 </div>
               </div>
             <% end %>
@@ -36,7 +36,7 @@
                 <span class="sub-title"><%= course.bought_tariff_title %></span>
                 <div class="image-container">
                   <%= image_tag 'icons/calendar.svg', alt: "calendar" %>
-                  <span class="oswald-bold">Залишилось <%= course.watched_count %>/<%= course.lessons.count %> уроків</span>
+                  <span class="oswald-bold"><%= t 'bought_list.remains' %> <%= course.watched_count %>/<%= course.lessons.count %> <%= t 'lessons_text' %></span>
                 </div>
               </div>
             <% end %>
@@ -47,7 +47,7 @@
                 <span class="sub-title"><%= course.bought_tariff_title %></span>
                 <div class="image-container">
                   <%= image_tag 'icons/calendar.svg', alt: "calendar" %>
-                  <span class="oswald-bold">Залишилось <%= course.watched_count %>/<%= course.lessons.count %> уроків</span>
+                  <span class="oswald-bold"><%= t 'bought_list.remains' %> <%= course.watched_count %>/<%= course.lessons.count %> <%= t 'lessons_text' %></span>
                 </div>
               </div>
             <% end %>
@@ -79,7 +79,7 @@
             </button>
           </span>
         </div>
-        <span class="title openSans-sans-serif600">За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність</span>
+        <span class="title openSans-sans-serif600"><%= t 'footer.title' %></span>
         <div class="icons-container">
           <a href="#"><%= image_tag 'icons/facebook.svg', alt: "facebook" %></a>
           <a href="#"><%= image_tag 'icons/instagram.svg', alt: "instagram" %></a>
@@ -88,8 +88,8 @@
       </div>
       <div class="container bottom-container">
         <span class="openSans-sans-serif600">Sports Courses 2019</span>
-        <span class="openSans-sans-serif600">Усі права захищено</span>
-        <span class="movadex openSans-sans-serif600">Зроблено в
+        <span class="openSans-sans-serif600"><%= t 'footer.copyright' %></span>
+        <span class="movadex openSans-sans-serif600"><%= t 'footer.made_in' %>
           <a class="openSans-sans-serif600" href="https://www.movadex.com/">Movadex</a>
         </span>
       </div>

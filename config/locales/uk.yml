@@ -263,3 +263,51 @@ uk:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: по полудні
+  registration:
+    title_html: 'Реєстрація <br class="title-br">акаунта'
+    description: 'Для отримання доступу до кабінету та покупки курсів потрібно пройти коротку реєстрацію'
+    check_valid_html: 'Я згоден з <span id="span1">умовами сервісу</span> та <span id="span2">правилами надання послуг</span>'
+    have_account: 'Вже маєте аккаунт?'
+    button: 'Увійти'
+    confirm_account: 'Підтвердіть свій аккаунт листом на електронній пошті!'
+    placeholder_name: "Ім'я"
+    placeholder_phone: "Номер телефону"
+    placeholder_password: 'Пароль'
+  session:
+    title_html: 'Увійти <br class="title-br"> в&nbsp;аккаунт'
+    description: 'Введіть логін та пароль, щоб отримати доступ до придбаних курсів.'
+    button: 'Увійти'
+    dont_have_account: 'Не маєте аккаунта?'
+    create_new: 'Створити новий'
+  mailer:
+    hello: 'Доброго дня '
+    confirm: 'Ви можете підтвердити адресу електронної пошти свого облікового запису за посиланням нижче:'
+    button: 'Підтвердити мій акаунт'
+  bought_list:
+    title: 'Придбані курси'
+    remains: 'Залишилось'
+  lessons_text: 'уроків'
+  exit: 'Вийти'
+  courses_link: 'Курси'
+  lessons:
+    coach_contacts: 'Контакти тренера'
+    workbook: 'Робочий зошит'
+    modal_name: 'Максим Олексюк'
+    modal_coach: 'Тренер'
+    modal_contacts: 'Контакти'
+  lesson:
+    next_video: 'Дивитись наступну'
+  payment:
+    title: 'Оплата'
+    description_html: 'Ви збираєтесь купити курс.<br>Введіть будь ласка данні для оплати'
+    package: 'Пакет:'
+    price: 'Ціна:'
+    currency: 'грн'
+    card_number: 'Номер картки'
+    card_time: 'Термін дії картки'
+    code: 'код'
+    button: 'Купити'
+  footer:
+    title: 'За незаконне копіювання матеріалів сайту передбачена кримінальна відповідальність'
+    copyright: 'Усі права захищено'
+    made_in: 'Зроблено в'

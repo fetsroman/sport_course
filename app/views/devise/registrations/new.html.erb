@@ -2,18 +2,15 @@
   <div class="wrapper-form wrapper-form-registration">
     <div class="child-wrapper-container">
       <div class="title-wrapper">
-        <span class="title registration-title">Реєстрація <br class="title-br">акаунта</span>
-        <span class="description registration-description">
-          Для отримання доступу до кабінету та покупки курсів
-          потрібно пройти коротку реєстрацію
-        </span>
+        <span class="title registration-title"><%= t 'registration.title_html' %></span>
+        <span class="description registration-description"><%= t 'registration.description' %></span>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id: "form", remote: true) do |f| %>
         <div class="wrapper-input">
           <div class="icons-wrapper">
             <%= image_tag 'icons/user.svg' %>
           </div>
-          <%= f.text_field :name, placeholder: "Ім'я", id: "name" %>
+          <%= f.text_field :name, placeholder: (t 'registration.placeholder_name'), id: "name" %>
           <br>
           <span id="name-hint" class="hint"></span>
         </div>
@@ -21,7 +18,7 @@
           <div class="icons-wrapper">
             <%= image_tag 'icons/call.svg' %>
           </div>
-          <%= f.text_field :phone, placeholder: "Номер телефону", id: "phone", maxlength: 16 %>
+          <%= f.text_field :phone, placeholder: (t 'registration.placeholder_phone'), id: "phone", maxlength: 16 %>
           <br>
           <span id="phone-hint" class="hint"></span>
         </div>
@@ -37,7 +34,7 @@
           <div class="icons-wrapper">
             <%= image_tag 'icons/key-25.svg' %>
           </div>
-          <%= f.password_field :password, placeholder: "Password", id: "password" %>
+          <%= f.password_field :password, placeholder: (t 'registration.placeholder_password'), id: "password" %>
           <br>
           <span id="password-hint" class="hint"></span>
         </div>
@@ -60,15 +57,14 @@
             <span class="checkbox-custom rectangular"></span>
           </label>
           <div class="input-title" id="check-valid">
-            <label for="check">Я згоден з <span id="span1">умовами сервісу</span> та
-              <span id="span2">правилами надання послуг</span></label>
+            <label for="check"><%= t 'registration.check_valid_html' %></label>
           </div>
         </div>
         <%= f.submit "Зареєструватись", class: "button", id: "submit" %>
         <div class="forgetPassword">
           <span class="openSans-normal">
-            Вже маєте аккаунт?
-            <%= link_to "Увійти", new_user_session_path %>
+            <%= t 'registration.have_account' %>
+            <%= link_to (t 'registration.button'), new_user_session_path %>
           </span>
         </div>
       <% end %>
@@ -81,6 +77,6 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Подтвердите свой аккаунт, листом на єлектронной поште!!! </p>
+    <p><%= t 'registration.confirm_account' %></p>
   </div>
 </div>

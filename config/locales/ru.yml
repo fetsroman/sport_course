@@ -266,3 +266,51 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  registration:
+    title_html: 'Регистрация <br class="title-br">аккаунта'
+    description: 'Для получения доступа в кабинет и покупки курсов нужно пройти короткую регистрацию'
+    check_valid_html: 'Я согласен с <span id = "span1"> условиями сервиса </ span> и <span id = "span2"> правилами предоставления услуг </ span>'
+    have_account: 'Уже есть аккаунт?'
+    button: 'Ввойти'
+    confirm_account: 'Подтвердите свой аккаунт, листом на электронной почте!'
+    placeholder_name: "Имя"
+    placeholder_phone: "Номер телефона"
+    placeholder_password: 'Пароль'
+  session:
+    title_html: 'Войти <br class="title-br"> в&nbsp;аккаунт'
+    description: 'Введите логин и пароль для доступа к приобретенным курсов.'
+    button: 'Ввойти'
+    dont_have_account: 'Не имеете аккаунта?'
+    create_new: 'Создать новый'
+  mailer:
+    hello: 'Здраствуйте '
+    confirm: 'Вы можете подтвердить адрес электронной почты своей учетной записи по ссылке ниже:'
+    button: 'Подтвердить мой аккаунт'
+  bought_list:
+    title: 'Приобретенные курсы'
+    remains: 'Осталось'
+  lessons_text: 'уроков'
+  exit: 'Выйти'
+  courses_link: 'Курсы'
+  lessons:
+    coach_contacts: 'Контакты тренера'
+    workbook: 'Рабочая тетрадь'
+    modal_name: 'Максим Олексюк'
+    modal_coach: 'Тренер'
+    modal_contacts: 'Контакты'
+  lesson:
+    next_video: 'Смотреть следующую'
+  payment:
+    title: 'Оплата'
+    description_html: 'Вы собираетесь купить курс. <br> Введите пожалуйста данные для оплаты'
+    package: 'Пакет:'
+    price: 'Цена:'
+    currency: 'руб'
+    card_number: 'Номер карточки'
+    card_time: 'Срок действия карты'
+    code: 'код'
+    button: 'Купить'
+  footer:
+    title: 'За незаконное копирование материалов сайта предусмотрена уголовная ответственность'
+    copyright: 'Все права защищены'
+    made_in: 'Сделано в'
