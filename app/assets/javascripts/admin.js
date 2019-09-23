@@ -1,8 +1,4 @@
 //= require jquery3
-//= require bootstrap
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
 
 $(document).ready(function() {
     $("#image").change(function () {
@@ -16,4 +12,4 @@ $(document).ready(function() {
     $("#document").change(function () {
         $("#document-filename").text($(this).val().split('\\').pop());
     });
-})
+});
