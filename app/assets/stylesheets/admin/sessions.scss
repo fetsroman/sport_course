@@ -1,3 +1,5 @@
+@import 'admin';
+
 body {
   overflow: hidden;
   margin: 0;
@@ -8,6 +10,18 @@ body {
 .wrapper-form {
   display: grid;
   height: 100vh;
+}
+
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
 }
 
 .oswald-sans-serif500 {
@@ -92,6 +106,8 @@ form .under-form-section span {
   background: #404040;
   text-align: center;
   align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 .language-wrapper button:focus {

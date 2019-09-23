@@ -1,3 +1,5 @@
+@import 'admin';
+
 body {
   margin: 0;
   padding: 0;
@@ -24,13 +26,13 @@ body {
   background: #FFFFFF;
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0 4px 5px rgba(236, 211, 133, 0.47), 0 0 20px rgba(236, 211, 133, 0.47);
 }
 
 .wrapper-shopping {
   align-self: end;
   background: #fff;
   margin-bottom: 220px;
+  box-shadow: 0 4px 5px rgba(236, 211, 133, 0.2), 0 0 20px rgba(236, 211, 133, 0.2);
 }
 
 .roboto-font {
@@ -113,7 +115,7 @@ body {
 .container-statistics .wrapper-statistics {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 5px rgba(236, 211, 133, 0.47), 0 0 20px rgba(236, 211, 133, 0.47);
+  box-shadow: 0 4px 5px rgba(236, 211, 133, 0.2), 0 0 20px rgba(236, 211, 133, 0.2);
 }
 
 .container-statistics .wrapper-content {
@@ -171,6 +173,8 @@ body {
   background: #404040;
   text-align: center;
   align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 .language-wrapper button:focus {
