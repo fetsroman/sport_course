@@ -39,6 +39,23 @@
   .vjs-selected span{
     color: black;
   }
+
+  .vjs-fullscreen video{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    #video, video{
+      width: 100% !important;
+      height: calc(100vw/1.778) !important;
+    }
+
+    video{
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
 </style>
 
 <script>

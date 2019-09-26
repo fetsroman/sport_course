@@ -377,10 +377,11 @@
       <div class="container wrapper-section-content">
         <span class="oswald-sans-serif500 trailer-title" id="trailer">Трейлер</span>
         <div class="video-container">
-          <video id='video' style="width: 854px; height: 480px;" class="video-js vjs-default-skin"></video>
+          <video id='video' style="width: 100%; height: auto;" class="video-js vjs-default-skin"></video>
         </div>
       </div>
     </section>
+
 
   <footer>
     <div class="footer-wrapper">
@@ -431,12 +432,36 @@
   .video-js .vjs-menu-button .vjs-icon-placeholder:before {
     content: '\2731';
   }
+
   .video-js .vjs-big-play-button, .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
     left: 50%;
     top: 50%;
     margin-top: -25px;
     margin-left: -45px;
     background-color: #F2C94C;
+  }
+
+  .vjs-fullscreen video{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    .trailer-section .container {
+      max-width: 100% !important;
+    }
+  }
+
+  @media screen and (max-width: 856px) {
+    #video, video{
+      width: 100% !important;
+      height: calc(100vw/1.778) !important;
+    }
+
+    video{
+      width: 100% !important;
+      height: auto !important;
+    }
   }
 </style>
 
