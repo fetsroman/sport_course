@@ -41,9 +41,9 @@
           <br>
           <div>
             <a>
-              <label for="video" class="custom-file-upload">
+              <label for="video-upload" class="custom-file-upload">
                 Завантажити
-                <%= form.file_field :trailer, class:"roboto-font", id: "video" %>
+                <%= form.file_field :trailer, class:"roboto-font", id: "video-upload" %>
               </label>
               <span id="video-filename" class="filename"></span>
             </a>
@@ -89,6 +89,27 @@
     margin-top: -25px;
     margin-left: -45px;
     background-color: #F2C94C;
+  }
+
+  .vjs-selected span{
+    color: black;
+  }
+
+  .vjs-fullscreen video{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    #video, video{
+      width: 100% !important;
+      height: calc(100vw/1.778) !important;
+    }
+
+    video{
+      width: 100% !important;
+      height: auto !important;
+    }
   }
 </style>
 

@@ -6,7 +6,7 @@ $(document).ready(function() {
         $("#image-filename").text($(this).val().split('\\').pop());
     });
 
-    $("#video").change(function () {
+    $("#video-upload").change(function () {
         $("#video-filename").text($(this).val().split('\\').pop());
     });
 
