@@ -33,7 +33,7 @@ class Admin::LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to admin_course_lessons_path(@course, @lesson, locale: params[:locale]), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to admin_course_lesson_path(@course, @lesson, locale: params[:locale]), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
