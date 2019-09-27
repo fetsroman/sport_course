@@ -4,6 +4,7 @@
 body {
   margin: 0;
   padding: 0;
+  padding-bottom: 20px;
 }
 
 .roboto-font {
@@ -130,7 +131,7 @@ a:hover {
 }
 
 .card-wrapper .every-card .content-wrapper {
-  height: 170px;
+  height: auto !important;
   display: grid;
   background: #F2F2F2;
   padding: 24px 24px 20px 24px;
@@ -160,7 +161,8 @@ a:hover {
   line-height: 16px;
   letter-spacing: 0.03em;
   transition: .5s;
-  padding-top: 3px
+  padding-top: 3px;
+  margin-top: 10px;
 }
 
 .card-wrapper .every-card .content-wrapper a button:hover {

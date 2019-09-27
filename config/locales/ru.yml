@@ -269,7 +269,10 @@ ru:
   registration:
     title_html: 'Регистрация <br class="title-br">аккаунта'
     description: 'Для получения доступа в кабинет и покупки курсов нужно пройти короткую регистрацию'
-    check_valid_html: 'Я согласен с <span id = "span1"> условиями сервиса </ span> и <span id = "span2"> правилами предоставления услуг </ span>'
+    check_valid: 'Я согласен с '
+    and: 'и'
+    privacy_policy: 'условиями сервиса'
+    terms_and_conditions: 'правилами предоставления услуг'
     have_account: 'Уже есть аккаунт?'
     button: 'Ввойти'
     confirm_account: 'Подтвердите свой аккаунт, листом на электронной почте!'

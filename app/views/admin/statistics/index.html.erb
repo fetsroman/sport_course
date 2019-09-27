@@ -27,7 +27,7 @@
               <div class="line">
                 <span class="roboto-font"><%= rate.title %></span>
                 <span class="roboto-font"><%= rate.bought_count %></span>
-                <span class="roboto-font"><%= rate.price %></span>
+                <span class="roboto-font"><%= rate.price %> <%= currency %></span>
               </div>
             <% end %>
           </div>
@@ -41,23 +41,23 @@
     </div>
     <div class="wrapper-content">
       <% @rates.each do |rate| %>
-        <span class="title roboto-font"><%= rate.title %></span>
-        <div class="titles">
-          <span class="roboto-font">Ім'я</span>
-          <span class="roboto-font">Email</span>
-          <span class="roboto-font">Курс</span>
-          <span class="roboto-font">Пакет</span>
-          <span class="roboto-font">Дата</span>
-          <span class="roboto-font">Ціна</span>
-        </div>
         <% if @bought_lists.find_by(rate_id: rate.id).present? %>
           <% @bought_lists.where(rate_id: rate.id).each do |bought_list| %>
+            <span class="title roboto-font"><%= rate.title %></span>
+            <div class="titles">
+              <span class="roboto-font">Ім'я</span>
+              <span class="roboto-font">Email</span>
+              <span class="roboto-font">Курс</span>
+              <span class="roboto-font">Пакет</span>
+              <span class="roboto-font">Дата</span>
+              <span class="roboto-font">Ціна</span>
+            </div>
             <div class="line">
               <span class="roboto-font"><%= @users.find_by(id: bought_list.user_id).name %></span>
               <span class="roboto-font"><%= @users.find_by(id: bought_list.user_id).email %></span>
               <span class="roboto-font"><%= @courses.find_by(id: bought_list.course_id).title %></span>
               <span class="roboto-font"><%= rate.title %></span>
-              <span class="roboto-font"><%= bought_list.created_at %></span>
+              <span class="roboto-font"><%= bought_list.created_at.strftime("%-d.%-m.%Y") %></span>
               <span class="roboto-font"><%= bought_list.price %> <%= bought_list.currency %></span>
             </div>
           <% end %>

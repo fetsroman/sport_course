@@ -1,0 +1,2 @@
+module CustomPageHelper
+end

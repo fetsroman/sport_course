@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get :confirm_email
     end
     get '/my_courses', to: 'bought_list#index'
+    get 'privacy_policy', to: 'custom_page#privacy_policy'
+    get 'terms_and_conditions', to: 'custom_page#terms_and_conditions'
 
     get '/admin', to: "admin#index"
     devise_for :admins, path: "admin", only: [:sessions], controllers: { sessions: "admin/sessions"}

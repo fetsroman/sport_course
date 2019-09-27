@@ -25,7 +25,7 @@
           <% end %>
           <% if @course.published? %>
             <%= link_to unpublish_admin_course_path(@course), method: :put do %>
-              <button class="button">Натисніть аби приховати курс</button>
+              <button class="button">Приховати курс</button>
             <% end %>
           <% else %>
             <%= link_to publish_admin_course_path(@course), method: :put do %>

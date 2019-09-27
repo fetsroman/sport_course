@@ -57,7 +57,12 @@
             <span class="checkbox-custom rectangular"></span>
           </label>
           <div class="input-title" id="check-valid">
-            <label for="check"><%= t 'registration.check_valid_html' %></label>
+            <label for="check">
+              <%= t 'registration.check_valid' %>
+              <%= link_to (t 'registration.privacy_policy'), privacy_policy_path, target: "_blank", id: "span1" %>
+              <%= t 'registration.and' %>
+              <%= link_to (t 'registration.terms_and_conditions'), terms_and_conditions_path, target: "_blank", id: "span2" %>
+            </label>
           </div>
         </div>
         <%= f.submit "Зареєструватись", class: "button", id: "submit" %>
@@ -72,6 +77,7 @@
     </div>
   </div>
 </div>
+
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->

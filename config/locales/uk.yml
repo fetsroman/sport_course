@@ -266,7 +266,10 @@ uk:
   registration:
     title_html: 'Реєстрація <br class="title-br">акаунта'
     description: 'Для отримання доступу до кабінету та покупки курсів потрібно пройти коротку реєстрацію'
-    check_valid_html: 'Я згоден з <span id="span1">умовами сервісу</span> та <span id="span2">правилами надання послуг</span>'
+    check_valid: 'Я згоден з '
+    and: 'та'
+    privacy_policy: 'умовами сервісу'
+    terms_and_conditions: 'правилами надання послуг'
     have_account: 'Вже маєте аккаунт?'
     button: 'Увійти'
     confirm_account: 'Підтвердіть свій аккаунт листом на електронній пошті!'

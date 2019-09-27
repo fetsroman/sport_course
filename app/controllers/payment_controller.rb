@@ -50,6 +50,7 @@ class PaymentController < ApplicationController
         first_lesson.watch = true
         first_lesson.save!
 
+        PaymentMailer.buy_vip(current_user, @rate, @course, currency).deliver
         # respond_to do |format|
         #   format.html { redirect_to root_url }
         #   format.js #default behaviour is to run app/views/notes/create.js.erb file

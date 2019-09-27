@@ -33,7 +33,7 @@ input {
   transform: skew(-7deg, 0deg);
   margin-left: -5%;
   background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
+  //backdrop-filter: blur(20px);
 }
 
 .child-wrapper-container {
@@ -488,6 +488,7 @@ label.message {
 
 #check{
   height: 35px;
+  z-index: -1;
 }
 
 @media screen and (max-width: 1200px) {
