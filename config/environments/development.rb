@@ -66,8 +66,8 @@ Rails.application.configure do
       user_name:      ENV['EMAIL'],
       password:       ENV['PASSWORD'],
       domain:         'localhost:3000',
-      address:       'smtp.gmail.com',
-      port:          '587',
+      address:       'smtp.zoho.com',
+      port:          '465',
       authentication: :plain
       # enable_starttls_auto: true
   }
