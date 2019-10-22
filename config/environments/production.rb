@@ -67,14 +67,14 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: "https://sportcourse.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: "" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       user_name:      ENV['EMAIL'],
       password:       ENV['PASSWORD'],
-      domain:         'heroku.com',
-      address:       'smtp.gmail.com',
-      port:          '587',
+      domain:         '',
+      address:       'smtp.zoho.com',
+      port:          '465',
       authentication: :plain,
       enable_starttls_auto: true
   }
